@@ -1,5 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
-  
+
+#  prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
+#  prepend_before_filter :authenticate_scope!, :only => [:edit, :update, :destroy]
+  prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
+    
   protect_from_forgery with: :exception
 
   def new
@@ -7,7 +11,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    build_resource(sign_up_params)
+    @user = User.new(params[:user])
+    
+    build_resource(params[:user])
     resource.skip_confirmation!
 
     if resource.save
@@ -36,10 +42,6 @@ class RegistrationsController < Devise::RegistrationsController
 =end
 
   protected
-  
-    def sign_up_params
-      devise_parameter_sanitizer.sanitize(:user)
-    end
   
     def after_sign_up_path_for(resource)
       render :text => "after_sign_up_path_for"

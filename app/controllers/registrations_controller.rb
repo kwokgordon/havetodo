@@ -2,6 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   
   protect_from_forgery with: :exception
 
+=begin
   def new
     @user = User.new
 
@@ -19,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
 #      redirect_to @user
     else
       render :text => "Failure Registration"
-#      render 'new'
+#      render :new
     end
   end
 
@@ -32,8 +33,18 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def edit
-    
+    render :edit
   end
+=end
 
+  protected
+  
+    def after_sign_up_path_for(resource)
+      render :text => "after_sign_up_path_for"
+    end
+      
+    def after_inactive_sign_up_path_for(resource)
+      render :text => "after_inactive_sign_up_path_for"
+    end
 end
       

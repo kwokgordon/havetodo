@@ -1,4 +1,4 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
   
   protect_from_forgery with: :exception
 
@@ -26,6 +26,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :text => "Failure Registration"
     end
 =end
+  end
+
+  def cancel
+    
+  end
+
+  def update
+    
+  end
+
+  def edit
+    
   end
 
 end

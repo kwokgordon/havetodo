@@ -9,6 +9,14 @@ HaveTodo::Application.routes.draw do
   devise_scope :user do
     get 'registrations' => 'registrations#new'
     post 'registrations' => 'registrations#create'
+    
+    get '/users/sign_up' => 'registration#new'
+    get '/users' => 'registration#create'
+    get '/users/edit' => 'registration#edit'
+    get '/users/cancel' => 'registration#cancel'
+    get '/users/update' => 'registration#update'
+
+
     post 'sessions' => 'sessions#create'
     delete 'sessions' => 'sessions#destroy'
   end

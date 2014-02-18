@@ -3,13 +3,14 @@ HaveTodo::Application.routes.draw do
 
   get "stayawake" => "stayawake#index"
 
-#  devise_for :users
+  devise_for :users
 
   # Web access
   devise_scope :user do
-    post 'registrations' => 'registrations#create', :as => 'register'
-    post 'sessions' => 'sessions#create', :as => 'login'
-    delete 'sessions' => 'sessions#destroy', :as => 'logout'
+    get 'registrations' => 'registrations#new'
+    post 'registrations' => 'registrations#create'
+    post 'sessions' => 'sessions#create'
+    delete 'sessions' => 'sessions#destroy'
   end
 
   # Moblie access

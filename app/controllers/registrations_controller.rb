@@ -13,19 +13,14 @@ class RegistrationsController < Devise::RegistrationsController
     build_resource(params[:user])
     resource.skip_confirmation!
 
-    render :text => "Created Registration"
-
-=begin
-    build_resource(params[:user])
-    resource.skip_confirmation!
-    
     if resource.save
       sign_in resource
       render :text => "Created Registration"
+#      redirect_to @user
     else
       render :text => "Failure Registration"
+#      render 'new'
     end
-=end
   end
 
   def cancel

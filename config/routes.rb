@@ -3,7 +3,7 @@ HaveTodo::Application.routes.draw do
 
   get "stayawake" => "stayawake#index"
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
 
   # Web access
   devise_scope :user do

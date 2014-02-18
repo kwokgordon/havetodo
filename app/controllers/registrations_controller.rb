@@ -2,12 +2,12 @@ class RegistrationsController < Devise::RegistrationsController
   
   protect_from_forgery with: :exception
 
-=begin
   def new
     @user = User.new
-
   end
   
+
+=begin
   def create
     @user = User.new(params[:user])
     

@@ -7,23 +7,19 @@ HaveTodo::Application.routes.draw do
 
   # Web access
   devise_scope :user do
-    get '/users/sign_up' => 'registration#new'
     get 'registrations' => 'registrations#new'
-
-=begin    
-
     post 'registrations' => 'registrations#create'
 
+    get '/users/sign_up' => 'registration#new'
     post '/users' => 'registration#create'
     get '/users/edit' => 'registration#edit'
     get '/users/cancel' => 'registration#cancel'
-    get '/users/update' => 'registration#update'
-    delete '/users' => 'regrs'
+#    get '/users/update' => 'registration#update'
+#    delete '/users' => 'regrs'
 
     get '/users/sign_in' => 'sessions#new'
     post '/users/sign_in' => 'sessions#create'
     delete '/users/sign_out' => 'sessions#destroy'
-=end
 
   end
 

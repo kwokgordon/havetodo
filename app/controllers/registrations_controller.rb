@@ -6,12 +6,8 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
   
-
-=begin
   def create
-    @user = User.new(params[:user])
-    
-    build_resource(params[:user])
+    build_resource(sign_up_params)
     resource.skip_confirmation!
 
     if resource.save
@@ -19,11 +15,13 @@ class RegistrationsController < Devise::RegistrationsController
       render :text => "Created Registration"
 #      redirect_to @user
     else
-      render :text => "Failure Registration"
-#      render :new
+#      render :text => "Failure Registration"
+      render :new
     end
   end
 
+
+=begin
   def cancel
     
   end
@@ -38,6 +36,10 @@ class RegistrationsController < Devise::RegistrationsController
 =end
 
   protected
+  
+    def sign_up_params
+      devise_parameter_sanitizer.sanitize(:user)
+    end
   
     def after_sign_up_path_for(resource)
       render :text => "after_sign_up_path_for"

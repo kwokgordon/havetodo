@@ -3,8 +3,16 @@ HaveTodo::Application.routes.draw do
 
   get "stayawake" => "stayawake#index"
 
-  devise_for :users
+#  devise_for :users
 
+  # Web access
+  devise_scope :user do
+    post 'registrations' => 'registrations#create', :as => 'register'
+    post 'sessions' => 'sessions#create', :as => 'login'
+    delete 'sessions' => 'sessions#destroy', :as => 'logout'
+  end
+
+  # Moblie access
   namespace :api do
     devise_scope :user do
       post 'registrations' => 'registrations#create', :as => 'register'
@@ -12,6 +20,7 @@ HaveTodo::Application.routes.draw do
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
     end
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

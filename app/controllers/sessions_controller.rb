@@ -23,18 +23,21 @@ class SessionsController < Devise::SessionsController
       BackgroundWorker.trigger(resource)
     end
   end
-
+  
 =begin  
   def failure
     render :text => "Failure"
   end
+=end
 
   protected
   
     def after_sign_in_path_for(resource)
-      render :text => "after_sign_in_path_for"
+      redirect redirect_to resource
+#      render :text => "after_sign_in_path_for"
     end
 
+=begin
     def after_sign_out_path_for(resource)
       render :text => "after_sign_out_path_for"
     end

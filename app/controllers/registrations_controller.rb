@@ -74,13 +74,14 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-=begin
   protected
   
     def after_sign_up_path_for(resource)
-      render :text => "after_sign_up_path_for"
+      redirect redirect_to resource
+#      render :text => "after_sign_up_path_for"
     end
       
+=begin
     def after_inactive_sign_up_path_for(resource)
       render :text => "after_inactive_sign_up_path_for"
     end

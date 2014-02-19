@@ -7,14 +7,21 @@ class RegistrationsController < Devise::RegistrationsController
   protect_from_forgery with: :exception
 
   def new
-    @user = User.new
+    super do |resource|
+      BackgroundWorker.trigger(resource)
+    end
   end
   
   def create
+    super do |resource|
+      BackgroundWorker.trigger(resource)
+      resource.skip_confirmation!
+    end
+
+=begin
     @user = User.new(params[:user])
     
     build_resource(params[:user])
-    resource.skip_confirmation!
 
     if resource.save
       sign_in resource
@@ -24,22 +31,27 @@ class RegistrationsController < Devise::RegistrationsController
 #      render :text => "Failure Registration"
       render :new
     end
+=end
   end
 
 
-=begin
   def cancel
-    
+    super do |resource|
+      BackgroundWorker.trigger(resource)
+    end
   end
 
   def update
-    
+    super do |resource|
+      BackgroundWorker.trigger(resource)
+    end
   end
 
   def edit
-    render :edit
+    super do |resource|
+      BackgroundWorker.trigger(resource)
+    end
   end
-=end
 
   protected
   

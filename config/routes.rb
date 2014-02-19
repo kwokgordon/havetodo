@@ -17,11 +17,9 @@ HaveTodo::Application.routes.draw do
 #    get '/users/update' => 'registration#update'
 #    delete '/users' => 'regrs'
 
-=begin
     get '/users/sign_in' => 'sessions#new'
     post '/users/sign_in' => 'sessions#create'
     delete '/users/sign_out' => 'sessions#destroy'
-=end
 
   end
 

@@ -1,4 +1,6 @@
 HaveTodo::Application.routes.draw do
+  resources :tasks
+
   root "welcome#index"
 
   get "stayawake" => "stayawake#index"

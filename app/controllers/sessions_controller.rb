@@ -28,7 +28,6 @@ class SessionsController < Devise::SessionsController
   def failure
     render :text => "Failure"
   end
-=end
 
   protected
   
@@ -39,5 +38,6 @@ class SessionsController < Devise::SessionsController
     def after_sign_out_path_for(resource)
       render :text => "after_sign_out_path_for"
     end
+=end
 
 end

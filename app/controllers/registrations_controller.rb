@@ -13,16 +13,9 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    super do |resource|
-      BackgroundWorker.trigger(resource)
-      resource.skip_confirmation!
-    end
-
-=begin
-    @user = User.new(params[:user])
+    build_resource(sign_up_params)
+    resource.skip_confirmation!
     
-    build_resource(params[:user])
-
     if resource.save
       sign_in resource
       render :text => "Created Registration"
@@ -31,7 +24,6 @@ class RegistrationsController < Devise::RegistrationsController
 #      render :text => "Failure Registration"
       render :new
     end
-=end
   end
 
 

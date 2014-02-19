@@ -6,13 +6,13 @@ class SessionsController < Devise::SessionsController
   
   protect_from_forgery with: :exception
 
-  def create
+  def new
     super do |resource|
       BackgroundWorker.trigger(resource)
     end
   end
 
-  def destroy
+  def create
     super do |resource|
       BackgroundWorker.trigger(resource)
     end

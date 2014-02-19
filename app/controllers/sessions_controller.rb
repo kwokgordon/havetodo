@@ -30,7 +30,7 @@ class SessionsController < Devise::SessionsController
   end
 =end
 
-  protect
+  protected
   
     def after_sign_in_path_for(resource)
       render :text => "after_sign_in_path_for"

@@ -3,6 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$themeColor: #abcdef
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -65,6 +66,10 @@ p {
 
 
 /* header */
+
+.navbar-inner {
+  background-color: $themeColor;
+}
 
 #logo {
   float: left;

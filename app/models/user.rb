@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :token_authenticatable
+         :confirmable, :token_authenticatable
+
+  validates :name, presence: true
+
+  def skip_confirmation!
+    self.confirmed_at = Time.now
+  end
 
 end

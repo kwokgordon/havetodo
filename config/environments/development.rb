@@ -28,7 +28,7 @@ HaveTodo::Application.configure do
   config.assets.debug = true
   
   #SMTP
-  config.action_mailer.default_url_options = { :host => 'localhost' }  
+  config.action_mailer.default_url_options = { :host => '184.64.50.5:3000' }  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   :address              => "smtp.gmail.com",

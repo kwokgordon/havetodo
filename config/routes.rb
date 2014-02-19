@@ -23,7 +23,7 @@ HaveTodo::Application.routes.draw do
     post '/users/sign_in' => 'sessions#create'
     delete '/users/sign_out' => 'sessions#destroy'
     
-    get '/user/:id' => 'users#show'
+    get '/users/:id' => 'users#show'
   end
 
   # Moblie access

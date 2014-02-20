@@ -1,5 +1,9 @@
+<%= render 'simpleAdd' %>
+
 <div class="panel panel-default">
-  <div class="panel-heading"><%= current_user.name %>'s Tasks</div>
+  <div class="panel-heading">
+  	<%= current_user.name %>'s Tasks <span class="badge"><%= current_user.courses.count %></span>
+  </div>
   <div class="panel-body"></div>
   <ul class="list-group">
 	<% @tasks.each do |task| %>
@@ -11,5 +15,3 @@
     <% end %>
   </ul>
 </div>
-  	
-<%= link_to 'New Task', new_task_path %>

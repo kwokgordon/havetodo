@@ -1,5 +1,7 @@
 HaveTodo::Application.routes.draw do
   root "welcome#index"
+  
+  get "blank" => "welcome#blank"
 
   get "stayawake" => "stayawake#index"
 

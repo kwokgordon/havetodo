@@ -77,7 +77,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
   
     def after_sign_up_path_for(resource)
-      blank_path
+      users_path(resource)
     end
       
 =begin

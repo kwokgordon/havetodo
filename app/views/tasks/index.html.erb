@@ -1,35 +1,15 @@
-<h1>Listing tasks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Note</th>
-      <th>Due date</th>
-      <th>Completed</th>
-      <th>Completed date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.name %></td>
-        <td><%= task.note %></td>
-        <td><%= task.due_date %></td>
-        <td><%= task.completed %></td>
-        <td><%= task.completed_date %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= current_user.name %>'s Tasks</div>
+  <div class="panel-body"></div>
+  <ul class="list-group">
+	<% @tasks.each do |task| %>
+        <li class="list-group-item"><%= task.name %>
+        <%= link_to 'Show', task %>
+        <%= link_to 'Edit', edit_task_path(task) %>
+        <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
+  </ul>
+</div>
+  	
 <%= link_to 'New Task', new_task_path %>

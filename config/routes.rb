@@ -24,11 +24,11 @@ HaveTodo::Application.routes.draw do
     get '/users' => 'users#show'
   end
 
-  namespace :users do
-    resources :tasks
-    
-  end
+#  resources :users do
+#    resources :tasks
+#  end
 
+  resources :tasks, path: '/users/tasks'
 
   # Moblie access
   namespace :api do

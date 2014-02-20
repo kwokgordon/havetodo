@@ -1,4 +1,4 @@
-class Users::TasksController < ApplicationController
+class TasksController < ApplicationController
   
   before_filter :authenticate_user!
   before_filter :validate_user

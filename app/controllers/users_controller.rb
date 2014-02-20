@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { redirect_to tasks_url }
       format.json { render json: @user }
     end
     

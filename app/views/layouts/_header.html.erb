@@ -4,8 +4,6 @@
       <%= link_to "HaveTodo app", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", '#' %></li>
           <% if user_signed_in? %>          
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -20,6 +18,8 @@
               </ul>	
             </li>
             <% else %>
+	          <li><%= link_to "Home", root_path %></li>
+    	      <li><%= link_to "Help", '#' %></li>
               <li><%= link_to "Sign in", new_user_session_path %></li>
             <% end %>
         </ul>

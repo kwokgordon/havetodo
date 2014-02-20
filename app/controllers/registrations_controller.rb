@@ -77,7 +77,7 @@ class RegistrationsController < Devise::RegistrationsController
   protected
   
     def after_sign_up_path_for(resource)
-      redirect redirect_to resource
+      redirect_to resource
 #      render :text => "after_sign_up_path_for"
     end
       

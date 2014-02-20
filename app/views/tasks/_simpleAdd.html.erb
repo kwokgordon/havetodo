@@ -1,8 +1,10 @@
 <%= form_for @new_task do |f| %>
   <div class="row">
-    <div style="display:inline" class="input-group">
-	    <%= f.text_field :name, :class => "form-control", :style => "display:inline" %>
-        <button style="display:inline" class="btn btn-default actions" type="submit">Add</button>
+    <div class="input-group">
+	  <%= f.text_field :name %>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
     </div><!-- /input-group -->
   </div><!-- /.row -->
 <% end %>

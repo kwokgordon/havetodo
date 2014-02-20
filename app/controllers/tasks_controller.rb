@@ -39,10 +39,12 @@ class TasksController < ApplicationController
       if @task.save
         @user.tasks << @task
         
-        format.html { redirect_to :action => :index, notice: "#{@task.name} was successfully created." }
+        format.html { redirect_to :action => :index }
+#        format.html { redirect_to :action => :index, notice: "#{@task.name} was successfully created." }
         format.json { render action: 'show', status: :created, location: @task }
       else
-        format.html { redirect_to :action => :index, notice: "#{@task.name} was not created." }
+        format.html { redirect_to :action => :index }
+#        format.html { redirect_to :action => :index, notice: "#{@task.name} was not created." }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end

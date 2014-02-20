@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_filter :authenticate_user!
-  before_filter :validate_user
+#  before_filter :validate_user
   
   def show
     @user = User.find(params[:id])
@@ -12,9 +12,10 @@ class UsersController < ApplicationController
     end
   end  
   
-  
+=begin  
   def validate_user
     @user = User.find(params[:id])
-    redirect_to root_path unless current_user and current_user.id == @user.id
+    redirect_to @user unless current_user and current_user.id == @user.id
   end
+=end
 end

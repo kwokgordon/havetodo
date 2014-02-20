@@ -3,6 +3,5 @@ class WelcomeController < ApplicationController
   end
   
   def blank
-    render :layout => true
   end
 end

@@ -1,47 +1,4 @@
-<h1>Tasks for <%= @user.name %></h1>
-
-<% if !@user.tasks.empty? %>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Note</th>
-      <th>Due date</th>
-      <th>Completed</th>
-      <th>Completed date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% for task in @tasks %>
-      <tr>
-        <td><%= task.name %></td>
-        <td><%= task.note %></td>
-        <td><%= task.due_date %></td>
-        <td><%= task.completed %></td>
-        <td><%= task.completed_date %></td>
-        <td><%= link_to 'Show', [@user, task] %></td>
-        <td><%= link_to 'Edit', edit_user_task_path(@user, task) %></td>
-        <td><%= link_to 'Destroy', [@user, task], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br />
-<% else %>
-  <p><%= @user.name %> has no tasks.</p>
-<% end %>
-
-<p>
-  <%= link_to 'New tasks', new_user_task_path(@user) %> |
-  <%= link_to 'Back', @user %>
-</p>
-
-
-<!-- <h1>Listing tasks</h1>
+<h1>Listing tasks</h1>
 
 <table>
   <thead>
@@ -75,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Task', new_task_path %> -->
+<%= link_to 'New Task', new_task_path %>

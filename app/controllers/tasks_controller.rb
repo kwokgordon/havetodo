@@ -20,8 +20,8 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-#    @task = Task.new
-    @task = @user.tasks.build
+    @task = Task.new
+#    @task = @user.tasks.build
   end
 
   # GET /tasks/1/edit
@@ -31,11 +31,13 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-#    @task = Task.new(task_params)
-    @task = @user.tasks.build(task_params)
+    @task = Task.new(task_params)
+#    @task = @user.tasks.build(task_params)
 
     respond_to do |format|
       if @task.save
+        @user.tasks << @task
+        
         format.html { redirect_to user_tasks_url(@user), notice: 'Task was successfully created.' }
 #        format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render action: 'show', status: :created, location: @task }

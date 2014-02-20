@@ -1,7 +1,4 @@
 <%= render 'simpleAdd' %>
-<button type="button" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-remove"></span>
-          </button>
           
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -9,39 +6,17 @@
   </div>
   <div class="panel-body"></div>
 
-  <table class="table">
-	<% @tasks.each do |task| %>
-      <tr>
-      	<td><%= task.name %></td>
-        <td><%= link_to(edit_task_path(task)) do %>
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </button>       
-        <% end %></td>
-        <td><%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-remove"></span>
-          </button>
-        <% end %></td>
-        </tr>
-    <% end %>
-  </table>
-
-<!--  <ul class="list-group">
+  <ul class="list-group">
 	<% @tasks.each do |task| %>
         <li class="list-group-item"><%= task.name %>
         <%= link_to(edit_task_path(task)) do %>
-          <button type="button" class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-pencil"></span>
-          </button>       
+          <button type="button" class="btn btn-default btn-xs pull-right">Edit</button>       
         <% end %>
         <%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <button type="button" class="btn btn-default btn-xs">
-            <span class="glyphicon glyphicon-remove"></span>
-          </button>
+          <button type="button" class="btn btn-default btn-xs pull-right">Delete</button>
         <% end %>
         </li>
     <% end %>
-  </ul>  -->
+  </ul>  
 
 </div>

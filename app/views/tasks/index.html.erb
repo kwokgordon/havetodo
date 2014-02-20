@@ -1,5 +1,8 @@
 <%= render 'simpleAdd' %>
-
+<button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+          
 <div class="panel panel-default">
   <div class="panel-heading">
   	<%= current_user.name %>'s Tasks <span class="badge"><%= current_user.tasks.count %></span>

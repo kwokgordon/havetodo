@@ -76,12 +76,12 @@ class RegistrationsController < Devise::RegistrationsController
 
   protected
   
+=begin
     def after_sign_up_path_for(resource)
       redirect_to resource
 #      render :text => "after_sign_up_path_for"
     end
       
-=begin
     def after_inactive_sign_up_path_for(resource)
       render :text => "after_inactive_sign_up_path_for"
     end

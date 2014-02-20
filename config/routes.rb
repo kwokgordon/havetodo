@@ -24,7 +24,7 @@ HaveTodo::Application.routes.draw do
     get '/users/:id' => 'users#show'
   end
 
-  resources :users do
+  namespace :users do
     resources :tasks
     
   end

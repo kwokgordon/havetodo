@@ -11,12 +11,12 @@
       <tr>
       	<td><%= task.name %></td>
         <td><%= link_to(edit_task_path(task)) do %>
-          <button type="button" class="btn btn-default btn-xs">
+          <button type="button" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-pencil"></span>
           </button>       
         <% end %></td>
         <td><%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
-          <button type="button" class="btn btn-default btn-xs">
+          <button type="button" class="btn btn-default btn-lg">
             <span class="glyphicon glyphicon-remove"></span>
           </button>
         <% end %></td>

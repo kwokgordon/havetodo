@@ -33,8 +33,7 @@ class SessionsController < Devise::SessionsController
   protected
 
     def after_sign_in_path_for(resource)
-      @user = User.find(current_user.id)
-      redirect_to @user
+      redirect_to users_path
 #      render :text => "after_sign_in_path_for"
     end
 

@@ -21,7 +21,7 @@ HaveTodo::Application.routes.draw do
     post '/users/sign_in' => 'sessions#create'
     delete '/users/sign_out' => 'sessions#destroy'
     
-    get '/users' => 'users#show'
+    get '/users/:id' => 'users#show'
   end
 
   namespace :users do

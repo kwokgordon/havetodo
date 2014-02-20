@@ -6,19 +6,15 @@
   </div>
   <div class="panel-body"></div>
 
-  <ul class="list-group">
+  <table class="table">
 	<% @tasks.each do |task| %>
-        <li class="list-group-item"><%= task.name %>
-        <%= link_to(edit_task_path(task)) do %>
-        	Edit
-<!--          <button type="button" class="btn btn-default btn-xs pull-right">Edit</button>       -->
-        <% end %>
-        <%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        	Delete
-<!--          <button type="button" class="btn btn-default btn-xs pull-right">Delete</button>   -->
-        <% end %>
-        </li>
+      <tr>
+      	<td><input type="checkbox" value="true"></td>
+        <td><%= task.name %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
-  </ul>  
-
+  </table>  
+  
 </div>

@@ -42,7 +42,7 @@ class TasksController < ApplicationController
         format.html { redirect_to :action => :index, notice: "#{@task.name} was successfully created." }
         format.json { render action: 'show', status: :created, location: @task }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to :action => :index, notice: "#{@task.name} was not created." }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end

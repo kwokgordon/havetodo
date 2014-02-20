@@ -1,13 +1,16 @@
 class TasksController < ApplicationController
   
   before_filter :authenticate_user!
+  before_filter :validate_user
   
+  before_action :get_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+#    @tasks = Task.all
+    @tasks = @user.tasks
   end
 
   # GET /tasks/1
@@ -17,7 +20,8 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+#    @task = Task.new
+    @task = @user.tasks.build
   end
 
   # GET /tasks/1/edit
@@ -27,11 +31,13 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+#    @task = Task.new(task_params)
+    @task = @user.tasks.build(task_params)
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to user_tasks_url(@user), notice: 'Task was successfully created.' }
+#        format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render action: 'show', status: :created, location: @task }
       else
         format.html { render action: 'new' }
@@ -45,7 +51,8 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to user_tasks_url(@user), notice: 'Task was successfully updated.' }
+#        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,15 +66,26 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to user_tasks_path(@user) }
+#      format.html { redirect_to tasks_url }
       format.json { head :no_content }
     end
   end
 
+  def validate_user
+    redirect_to new_user_session_path unless current_user
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
+    def get_user
+      @user = User.find(current_user.id)
+    end
+
     def set_task
-      @task = Task.find(params[:id])
+      get_user
+#      @task = Task.find(params[:id])
+      @task = @user.tasks.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

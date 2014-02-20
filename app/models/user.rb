@@ -16,5 +16,5 @@ class User < ActiveRecord::Base
     self.confirmed_at = Time.now
   end
 
-  has_many :tasks
+  has_many :tasks, :dependent => destroy
 end

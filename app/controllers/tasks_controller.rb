@@ -39,7 +39,7 @@ class TasksController < ApplicationController
       if @task.save
         @user.tasks << @task
         
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to @user, notice: "#{@task.name} was successfully created." }
         format.json { render action: 'show', status: :created, location: @task }
       else
         format.html { render action: 'new' }

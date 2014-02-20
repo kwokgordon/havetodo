@@ -9,6 +9,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+    @new_task = Task.new
 #    @tasks = Task.all
     @tasks = @user.tasks
   end

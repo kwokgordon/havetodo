@@ -12,6 +12,6 @@ class UsersController < ApplicationController
   
   
   def validate_user
-    redirect_to resource 
+    redirect redirect_to resource
   end
 end

@@ -14,6 +14,6 @@ class UsersController < ApplicationController
   
   
   def validate_user
-    redirect_to home_path unless current_user and current_user.id == params[:id]
+    redirect_to root_path unless current_user and current_user.id == params[:id]
   end
 end

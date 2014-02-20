@@ -8,7 +8,7 @@
   <ul class="list-group">
 	<% @tasks.each do |task| %>
         <li class="list-group-item"><%= task.name %>
-        <%= link_to '<span class="glyphicon glyphicon-pencil pull-right"></span>', edit_task_path(task) %>
+        <%= link_to "", edit_task_path(task), class: "glyphicon glyphicon-pencil pull-right" %>
         <%= link_to '<span class="glyphicon glyphicon-remove pull-right"></span>', task, method: :delete, data: { confirm: 'Are you sure?' } %>
         </li>
     <% end %>

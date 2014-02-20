@@ -32,6 +32,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
+    get_user
     @task = Task.new(task_params)
 #    @task = @user.tasks.build(task_params)
 

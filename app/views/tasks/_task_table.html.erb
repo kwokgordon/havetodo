@@ -1,11 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-  	<%= task_header %> Tasks <span class="badge">1</span>
+  	<%= task_header %> Tasks <span class="badge"><%= @tasks.count %></span>
   </div>
   <div class="panel-body"></div>
 
   <table class="table">
-	<% tasks_var.each do |task| %>
+	<% @tasks.each do |task| %>
       <tr>
       	<td width="5%"><input type="checkbox" value="false"></td>
         <td width="75%"><%= task.name %></td>

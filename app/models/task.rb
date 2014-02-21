@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
 
   # Set Task Scope
   def self.default_scope
-    get_user
+    @user = User.find(current_user.id)
     @user.tasks
   end
   
@@ -19,7 +19,4 @@ class Task < ActiveRecord::Base
   
   has_and_belongs_to_many :user
 
-  def get_user
-    @user = User.find(current_user.id)
-  end  
 end

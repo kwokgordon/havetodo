@@ -18,5 +18,8 @@ class Task < ActiveRecord::Base
   validates :name, presence: true
   
   has_and_belongs_to_many :user
-  
+
+  def get_user
+    @user = User.find(current_user.id)
+  end  
 end

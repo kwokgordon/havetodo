@@ -1,10 +1,10 @@
 class Task < ActiveRecord::Base
 
   # Set Task Scope
-  def self.default_scope
-    @user = User.find(current_user.id)
-    @user.tasks
-  end
+#  def self.default_scope
+#    @user = User.find(current_user.id)
+#    @user.tasks
+#  end
   
   scope :overdue_tasks, -> { where.not("due_date IS NULL").where("due_date <= ?", Time.now.midnight) }
   scope :today_tasks, -> { where.not("due_date IS NULL").where(due_date: (Time.now.midnight)..(Time.now.midnight + 1.day)) }

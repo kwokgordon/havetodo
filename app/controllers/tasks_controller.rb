@@ -19,6 +19,7 @@ class TasksController < ApplicationController
     @this_week_tasks = @user.tasks.this_week_tasks
     @future_tasks = @user.tasks.future_tasks
     @no_duedate_tasks = @user.tasks.no_duedate_tasks
+    @completed_tasks = @user.tasks.completed_tasks
 
   end
 

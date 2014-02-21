@@ -1,5 +1,21 @@
 <%= render 'simpleAdd' %>
-          
+
+<%= render :partial => :taskTable, :task_header => "Gordon", :tasks => @tasks %>
+
+<%= render :partial => :taskTable, :task_header => "Overdue", :tasks => @overdue_task %>
+
+<%= render :partial => :taskTable, :task_header => "Today", :tasks => @today_tasks %>
+
+<%= render :partial => :taskTable, :task_header => "Tomorrow", :tasks => @tomorrow_tasks %>
+
+<%= render :partial => :taskTable, :task_header => "This Week", :tasks => @this_week_tasks %>
+
+<%= render :partial => :taskTable, :task_header => "Future", :tasks => @future_tasks %>
+
+<%= render :partial => :taskTable, :task_header => "No DueDate", :tasks => @no_duedate_tasks %>
+
+
+<!--          
 <div class="panel panel-default">
   <div class="panel-heading">
   	<%= current_user.name %>'s Tasks <span class="badge"><%= current_user.tasks.count %></span>
@@ -17,4 +33,4 @@
     <% end %>
   </table>  
   
-</div>
+</div> -->

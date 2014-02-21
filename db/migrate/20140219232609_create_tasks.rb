@@ -6,6 +6,7 @@ class CreateTasks < ActiveRecord::Migration
       t.datetime :due_date
       t.boolean :completed
       t.datetime :completed_date
+      t.integer :completed_user_id
 
       t.timestamps
     end

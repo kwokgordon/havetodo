@@ -5,13 +5,35 @@ class TasksController < ApplicationController
   
   before_action :get_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  
+  # Set Task Scope
+  def self.default_scope
+    get_user
+    @user.tasks
+  end
+  
+  scope :overdue_tasks, -> { where.not("due_date IS NULL").where("due_date <= ?", Time.now.midnight) }
+  scope :today_tasks, -> { where.not("due_date IS NULL").where(due_date: (Time.now.midnight)..(Time.now.midnight + 1.day)) }
+  scope :tomorrow_tasks, -> { where.not("due_date IS NULL").where(due_date: (Time.now.midnight + 1.day)..(Time.now.midnight + 2.day)) }
+  scope :this_week_tasks, -> { where.not("due_date IS NULL").where(due_date: (Time.now.midnight + 2.day)..(Time.now.midnight + 7.day)) }
+  scope :future_tasks, -> { where.not("due_date IS NULL").where("due_date >= ?", (Time.now.midnight + 7.day)) }
+  scope :no_duedate_tasks, -> { where("due_date IS NULL") }
+
 
   # GET /tasks
   # GET /tasks.json
   def index
     @new_task = Task.new
 #    @tasks = Task.all
-    @tasks = @user.tasks
+    @tasks = Task.all
+    
+    @overdue_tasks = Task.all.overdue_tasks
+    @today_tasks = Task.all.today_tasks
+    @tomorrow_tasks = Task.all.tomorrow_tasks
+    @this_week_tasks = Task.all.this_week_tasks
+    @future_tasks = Task.all.future_tasks
+    @no_duedate_tasks = Task.all.no_duedate_tasks
+
   end
 
   # GET /tasks/1

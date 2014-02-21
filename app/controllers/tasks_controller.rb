@@ -11,14 +11,14 @@ class TasksController < ApplicationController
   def index
     @new_task = Task.new
 #    @tasks = Task.all
-    @tasks = Task.all
+    @tasks = @user.tasks
     
-    @overdue_tasks = Task.all.overdue_tasks
-    @today_tasks = Task.all.today_tasks
-    @tomorrow_tasks = Task.all.tomorrow_tasks
-    @this_week_tasks = Task.all.this_week_tasks
-    @future_tasks = Task.all.future_tasks
-    @no_duedate_tasks = Task.all.no_duedate_tasks
+    @overdue_tasks = @user.tasks.overdue_tasks
+    @today_tasks = @user.tasks.today_tasks
+    @tomorrow_tasks = @user.tasks.tomorrow_tasks
+    @this_week_tasks = @user.tasks.this_week_tasks
+    @future_tasks = @user.tasks.future_tasks
+    @no_duedate_tasks = @user.tasks.no_duedate_tasks
 
   end
 

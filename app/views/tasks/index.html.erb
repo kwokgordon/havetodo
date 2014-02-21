@@ -1,18 +1,130 @@
 <%= render 'simple_add' %>
 
-<%= render "task_table", locals: { :task_header => "Gordon", :tasks_var => @tasks } %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	All Tasks <span class="badge"><%= @tasks.count %></span>
+  </div>
+  <div class="panel-body"></div>
 
-<%= render "task_table", locals: { :task_header => "Overdue", :tasks_var => @overdue_task } %>
+  <table class="table">
+	<% @tasks.each do |task| %>
+      <tr>
+      	<td width="5%"><input type="checkbox" value="false"></td>
+        <td width="75%"><%= task.name %></td>
+        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
 
-<%= render "task_table", locals: { :task_header => "Today", :tasks_var => @today_tasks } %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	Overdue Tasks <span class="badge"><%= @overdue_tasks.count %></span>
+  </div>
+  <div class="panel-body"></div>
 
-<%= render "task_table", locals: { :task_header => "Tomorrow", :tasks_var => @tomorrow_tasks } %>
+  <table class="table">
+	<% @overdue_tasks.each do |task| %>
+      <tr>
+      	<td width="5%"><input type="checkbox" value="false"></td>
+        <td width="75%"><%= task.name %></td>
+        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
 
-<%= render "task_table", locals: { :task_header => "This Week", :tasks_var => @this_week_tasks } %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	Today Tasks <span class="badge"><%= @today_tasks.count %></span>
+  </div>
+  <div class="panel-body"></div>
 
-<%= render "task_table", locals: { :task_header => "Future", :tasks_var => @future_tasks } %>
+  <table class="table">
+	<% @today_tasks.each do |task| %>
+      <tr>
+      	<td width="5%"><input type="checkbox" value="false"></td>
+        <td width="75%"><%= task.name %></td>
+        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
 
-<%= render "task_table", locals: { :task_header => "No DueDate", :tasks_var => @no_duedate_tasks } %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	Tomorrow Tasks <span class="badge"><%= @tomorrow_tasks.count %></span>
+  </div>
+  <div class="panel-body"></div>
+
+  <table class="table">
+	<% @tomorrow_tasks.each do |task| %>
+      <tr>
+      	<td width="5%"><input type="checkbox" value="false"></td>
+        <td width="75%"><%= task.name %></td>
+        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	This Week Tasks <span class="badge"><%= @this_week_tasks.count %></span>
+  </div>
+  <div class="panel-body"></div>
+
+  <table class="table">
+	<% @this_week_tasks.each do |task| %>
+      <tr>
+      	<td width="5%"><input type="checkbox" value="false"></td>
+        <td width="75%"><%= task.name %></td>
+        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	Future Tasks <span class="badge"><%= @future_tasks.count %></span>
+  </div>
+  <div class="panel-body"></div>
+
+  <table class="table">
+	<% @future_tasks.each do |task| %>
+      <tr>
+      	<td width="5%"><input type="checkbox" value="false"></td>
+        <td width="75%"><%= task.name %></td>
+        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	No DueDate Tasks <span class="badge"><%= @no_duedate_tasks.count %></span>
+  </div>
+  <div class="panel-body"></div>
+
+  <table class="table">
+	<% @no_duedate_tasks.each do |task| %>
+      <tr>
+      	<td width="5%"><input type="checkbox" value="false"></td>
+        <td width="75%"><%= task.name %></td>
+        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
 
 
 <!--          

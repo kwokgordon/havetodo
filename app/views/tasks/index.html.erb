@@ -1,18 +1,18 @@
 <%= render 'simpleAdd' %>
 
-<%= render "taskTable", :task_header => "Gordon", :tasks => @tasks %>
+<%= render "taskTable", :task_header => "Gordon", :tasks_var => @tasks %>
 
-<%= render "taskTable", :task_header => "Overdue", :tasks => @overdue_task %>
+<%= render "taskTable", :task_header => "Overdue", :tasks_var => @overdue_task %>
 
-<%= render "taskTable", :task_header => "Today", :tasks => @today_tasks %>
+<%= render "taskTable", :task_header => "Today", :tasks_var => @today_tasks %>
 
-<%= render "taskTable", :task_header => "Tomorrow", :tasks => @tomorrow_tasks %>
+<%= render "taskTable", :task_header => "Tomorrow", :tasks_var => @tomorrow_tasks %>
 
-<%= render "taskTable", :task_header => "This Week", :tasks => @this_week_tasks %>
+<%= render "taskTable", :task_header => "This Week", :tasks_var => @this_week_tasks %>
 
-<%= render "taskTable", :task_header => "Future", :tasks => @future_tasks %>
+<%= render "taskTable", :task_header => "Future", :tasks_var => @future_tasks %>
 
-<%= render "taskTable", :task_header => "No DueDate", :tasks => @no_duedate_tasks %>
+<%= render "taskTable", :task_header => "No DueDate", :tasks_var => @no_duedate_tasks %>
 
 
 <!--          

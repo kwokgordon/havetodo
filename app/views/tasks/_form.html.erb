@@ -19,19 +19,44 @@
     <%= f.label :note %><br>
     <%= f.text_area :note %>
   </div>
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.datetime_select :due_date %>
-  </div>
-  <div class="field">
-    <%= f.label :completed %><br>
-    <%= f.check_box :completed %>
-  </div>
-  <div class="field">
-    <%= f.label :completed_date %><br>
-    <%= f.datetime_select :completed_date %>
-  </div>
+
+	<div class="well">
+	  <div id="datetimepicker4" class="input-append">
+	    <input data-format="yyyy-MM-dd" type="text" name="task[due_date(1i)]"></input>
+	    <span class="add-on">
+	      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+	      </i>
+	    </span>
+	  </div>
+	</div>
+	<script type="text/javascript">
+	  $(function() {
+	    $('#datetimepicker4').datetimepicker({
+	      pickTime: false
+	    });
+	  });
+	</script>
+
+	<div class="well">
+	  <div id="datetimepicker3" class="input-append">
+	    <input data-format="hh:mm:ss" type="text" name="task[due_date(2i)]"></input>
+	    <span class="add-on">
+	      <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+	      </i>
+	    </span>
+	  </div>
+	</div>
+	<script type="text/javascript">
+	  $(function() {
+	    $('#datetimepicker3').datetimepicker({
+	      pickDate: false
+	    });
+	  });
+	</script>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+

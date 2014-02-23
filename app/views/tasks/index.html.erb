@@ -8,10 +8,15 @@
 
   <table class="table">
 	<% @tasks.each do |task| %>
-	  <%= render 'single_task', locals: { task: task } %>
+	  <%= render partial: 'single_task', locals: { task: task } %>
     <% end %>
   </table>  
 </div>
+
+<%= render partial: 'task_table', locals: { task_table: @tasks } %>
+
+
+
 
 <% if !@overdue_tasks.empty? %>
 <div class="panel panel-default">

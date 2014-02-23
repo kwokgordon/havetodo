@@ -7,7 +7,9 @@
   <div class="panel-body"></div>
 
   <table class="table">
-  	<%= render 'task', collection: @tasks %>
+	<% @tasks.each do |task| %>
+	  <%= render 'single_task', locals: { task: task } %>
+    <% end %>
   </table>  
 </div>
 

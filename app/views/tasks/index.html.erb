@@ -1,12 +1,24 @@
 <%= render 'simple_add' %>
 
-<%= render 'task_table', local: { task_table: @tasks }%>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	All Tasks <span class="badge"><%= @tasks.count %></span>
+  </div>
+  <div class="panel-body"></div>
 
+  <table class="table">
+	<% @tasks.each do |task| %>
+      <tr>
+      	<td width="5%"><input type="checkbox" value="false"></td>
+        <td width="75%"><%= task.name %></td>
+        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
 
-
-
-
-
+<% if !@overdue_tasks.empty? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	Overdue Tasks <span class="badge"><%= @overdue_tasks.count %></span>
@@ -24,7 +36,9 @@
     <% end %>
   </table>  
 </div>
+<% end %>
 
+<% if !@today_tasks.empty? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	Today Tasks <span class="badge"><%= @today_tasks.count %></span>
@@ -42,7 +56,9 @@
     <% end %>
   </table>  
 </div>
+<% end %>
 
+<% if !@tomorrow_tasks.empty? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	Tomorrow Tasks <span class="badge"><%= @tomorrow_tasks.count %></span>
@@ -60,7 +76,9 @@
     <% end %>
   </table>  
 </div>
+<% end %>
 
+<% if !@this_week_tasks.empty? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	This Week Tasks <span class="badge"><%= @this_week_tasks.count %></span>
@@ -78,7 +96,9 @@
     <% end %>
   </table>  
 </div>
+<% end %>
 
+<% if !@future_tasks.empty? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	Future Tasks <span class="badge"><%= @future_tasks.count %></span>
@@ -96,7 +116,9 @@
     <% end %>
   </table>  
 </div>
+<% end %>
 
+<% if !@no_duedate_tasks.empty? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	No DueDate Tasks <span class="badge"><%= @no_duedate_tasks.count %></span>
@@ -114,7 +136,9 @@
     <% end %>
   </table>  
 </div>
+<% end %>
 
+<% if !@completed_tasks.empty? %>
 <div class="panel panel-default">
   <div class="panel-heading">
   	Completed Tasks <span class="badge"><%= @completed_tasks.count %></span>
@@ -132,24 +156,4 @@
     <% end %>
   </table>  
 </div>
-
-
-<!--          
-<div class="panel panel-default">
-  <div class="panel-heading">
-  	<%= current_user.name %>'s Tasks <span class="badge"><%= current_user.tasks.count %></span>
-  </div>
-  <div class="panel-body"></div>
-
-  <table class="table">
-	<% @tasks.each do |task| %>
-      <tr>
-      	<td width="5%"><input type="checkbox" value="false"></td>
-        <td width="75%"><%= task.name %></td>
-        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </table>  
-  
-</div> -->
+<% end %>

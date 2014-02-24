@@ -7,7 +7,7 @@
   <table class="table">
 	<% task_table.each do |task| %>
       <tr>
-      	<td width="5%"><input type="checkbox" class="checkbox" name="task" value="<%= task.id %>"></td>
+      	<td width="5%"><img src="check.png" name="task" id="<%= task.id %>"></td>
         <td width="75%"><%= task.name %></td>
         <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
         <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

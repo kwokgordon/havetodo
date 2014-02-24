@@ -1,33 +1,33 @@
 <%= render 'simple_add' %>
 
 
-<%= render partial: 'task_table', locals: { task_header: "All", task_table: @tasks } %>
+<%= render partial: 'incomplete_task_table', locals: { task_header: "All", task_table: @tasks } %>
 
 
 <% if !@overdue_tasks.empty? %>
-<%= render partial: 'task_table', locals: { task_header: "Overdue", task_table: @overdue_tasks } %>
+<%= render partial: 'incomplete_task_table', locals: { task_header: "Overdue", task_table: @overdue_tasks } %>
 <% end %>
 
 <% if !@today_tasks.empty? %>
-<%= render partial: 'task_table', locals: { task_header: "Today", task_table: @today_tasks } %>
+<%= render partial: 'incomplete_task_table', locals: { task_header: "Today", task_table: @today_tasks } %>
 <% end %>
 
 <% if !@tomorrow_tasks.empty? %>
-<%= render partial: 'task_table', locals: { task_header: "Tomorrow", task_table: @tomorrow_tasks } %>
+<%= render partial: 'incomplete_task_table', locals: { task_header: "Tomorrow", task_table: @tomorrow_tasks } %>
 <% end %>
 
 <% if !@this_week_tasks.empty? %>
-<%= render partial: 'task_table', locals: { task_header: "This Week", task_table: @this_week_tasks } %>
+<%= render partial: 'incomplete_task_table', locals: { task_header: "This Week", task_table: @this_week_tasks } %>
 <% end %>
 
 <% if !@future_tasks.empty? %>
-<%= render partial: 'task_table', locals: { task_header: "Future", task_table: @future_tasks } %>
+<%= render partial: 'incomplete_task_table', locals: { task_header: "Future", task_table: @future_tasks } %>
 <% end %>
 
 <% if !@no_duedate_tasks.empty? %>
-<%= render partial: 'task_table', locals: { task_header: "No DueDate", task_table: @no_duedate_tasks } %>
+<%= render partial: 'incomplete_task_table', locals: { task_header: "No DueDate", task_table: @no_duedate_tasks } %>
 <% end %>
 
 <% if !@completed_tasks.empty? %>
-<%= render partial: 'task_table', locals: { task_header: "Completed", task_table: @completed_tasks } %>
+<%= render partial: 'completed_task_table', locals: { task_header: "Completed", task_table: @completed_tasks } %>
 <% end %>

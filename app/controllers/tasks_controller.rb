@@ -42,14 +42,6 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-    
-    if @task.due_date != "" and @task.due_date != nil
-      @task.due_date = Date.parse(@task.due_date)
-    end
-
-    if @task.due_time != "" and @task.due_time != nil
-      @task.due_time = nil
-    end
 #    @task = @user.tasks.build(task_params)
 
     respond_to do |format|

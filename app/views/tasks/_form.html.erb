@@ -21,6 +21,16 @@
   </div>
   <div class="field">
     <%= f.label :due_date %><br>
+    <%= f.date_field :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :due_time %><br>
+    <%= f.time_field :due_time %>
+  </div>
+
+<!--
+  <div class="field">
+    <%= f.label :due_date %><br>
     <div class="well">
       <div id="datepicker" class="input-append">
         <input data-format="yyyy-MM-dd" type="text" name="task[due_date]"></input>
@@ -39,6 +49,7 @@
       </div>
     </div>
   </div>
+-->
 
   <div class="actions">
     <%= f.submit %>

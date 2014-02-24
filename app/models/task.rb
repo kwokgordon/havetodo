@@ -12,7 +12,7 @@ class Task < ActiveRecord::Base
   scope :no_duedate_tasks, -> { incomplete_tasks.where("due_date IS NULL") }
   scope :with_duedate_tasks, -> { incomplete_tasks.where.not("due_date IS NULL") }
   
-  scope :overdue_tasks, -> { !completed_tasks }
+  scope :overdue_tasks, -> { where.not.completed_tasks }
   scope :today_tasks, -> { !completed_tasks.where(due_date: (Time.now.midnight)..(Time.now.midnight + 1.day)) }
 
 #  scope :overdue_tasks, -> { with_duedate_tasks.where("due_date < ?", Time.now.midnight) }

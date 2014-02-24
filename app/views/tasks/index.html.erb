@@ -1,7 +1,12 @@
 <script>
 
 function toggleComplete(id) {
-	document.getElementById(id).src = "<%= image_path("checked") %>";
+	if (document.getElementById(id).src == "<%= image_path("checked.png") %>") {
+		document.getElementById(id).src = "<%= image_path("unchecked.png") %>";
+	} else {
+		document.getElementById(id).src = "<%= image_path("checked.png") %>";
+	}
+	
 }
 
 </script>

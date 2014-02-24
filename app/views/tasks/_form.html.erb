@@ -23,13 +23,16 @@
     <%= f.label :due_date %><br>
     <div class="well">
       <div id="datepicker" class="input-append">
-        <input data-format="yyyy-MM-dd" type="text"></input>
+        <input data-format="yyyy" type="text" name="task[due_date(1i)]"></input>
+        <input data-format="MM" type="text" name="task[due_date(2i)]"></input>
+        <input data-format="dd" type="text" name="task[due_date(3i)]"></input>
         <span class="add-on">
           <i data-time-icon="icon-time" data-date-icon="icon-calendar">
           </i>
         </span>
       </div>
-      <div id="timepicker" class="input-append pull-right">
+      <br />
+      <div id="timepicker" class="input-append">
         <input data-format="hh:mm:ss" type="text"></input>
         <span class="add-on">
           <i data-time-icon="icon-time" data-date-icon="icon-calendar">

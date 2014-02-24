@@ -88,7 +88,8 @@ class TasksController < ApplicationController
   end
 
   def toggleComplete
-    set_task
+      get_user
+      @task = @user.tasks.find(params[:task_id])
     
     @task.completed = !@task.completed
     @task.save

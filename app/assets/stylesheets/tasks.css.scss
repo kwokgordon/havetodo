@@ -20,9 +20,16 @@
   }
 }
 
-
-.completed {
-  td {
-    opacity: 0.5;
+div {
+  .completed {
+    table {
+      tr {
+        td {
+          background-color: #AAAABB;
+          opacity: 0.5;
+        }
+      }
+    }
   }
 }
+

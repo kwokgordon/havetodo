@@ -10,5 +10,5 @@ function unhighlightTask(x) {
 }
 
 function toggleComplete(id) {
-	document.getElementById(id).src = <%= image_path("uncheck.png") %>
+	document.getElementById(id).src = "<%= image_path("checked.png") %>";
 }

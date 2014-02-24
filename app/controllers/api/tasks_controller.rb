@@ -11,7 +11,7 @@ class Api::TasksController < ApplicationController
   respond_to :json
 
   def index
-    render "/users/tasks.json"
+    redirect_to tasks_path
   end
 
 end

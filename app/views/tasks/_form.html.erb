@@ -19,12 +19,34 @@
     <%= f.label :note %><br>
     <%= f.text_area :note %>
   </div>
+
+<div class="container">
+    <div class="col-md-10">
+        <div class='well'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
+
+
+<!--	
   <div class="field">
     <%= f.label :due_date %><br>
     <%= f.datetime_select :due_date %>
   </div>
 
-<!--	<div class="well">
+	<div class="well">
 	  <div id="datepicker" class="input-append">
 	    <input data-format="yyyy-MM-dd" type="text" name="task[due_date(1i)]"></input>
 	    <span class="add-on">

@@ -87,9 +87,8 @@ class TasksController < ApplicationController
     redirect_to new_user_session_path unless current_user
   end
 
-  def toggleComplete(id)
-    get_user
-    @task = @user.tasks.find(id)
+  def toggleComplete
+    set_task
     
     @task.completed = !@task.completed
     @task.save

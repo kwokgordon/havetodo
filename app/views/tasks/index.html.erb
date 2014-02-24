@@ -3,12 +3,18 @@
 function toggleComplete(id) {
 	if (document.getElementById(id).src == "<%= image_path("check.png") %>") {
 		document.getElementById(id).src = "<%= image_path("uncheck.png") %>";
-		<% toggleComplete(id) %>
+		toggleAJAX(id);
 	} else {
 		document.getElementById(id).src = "<%= image_path("check.png") %>";
-		<% toggleComplete(id) %>
+		toggleAJAX(id);
 	}
-	
+}
+
+function toggleAJAX(id) {
+	$.ajax({
+      type: "POST",
+      url: "/users/tasks/toggleComplete/" + id
+    });
 }
 
 </script>

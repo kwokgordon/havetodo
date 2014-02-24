@@ -24,13 +24,16 @@ HaveTodo::Application.routes.draw do
     delete '/users/sign_out' => 'sessions#destroy'
     
     get '/users' => 'users#show'
+    
   end
 
 #  resources :users do
 #    resources :tasks
 #  end
 
-  resources :tasks, path: '/users/tasks'
+  resources :tasks, path: '/users/tasks' do
+    post '/users/tasks/toggleComplete/:id' => 'tasks#toggleComplete'
+  end
 
   # Moblie access
   namespace :api do

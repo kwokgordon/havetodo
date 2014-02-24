@@ -91,7 +91,15 @@ class TasksController < ApplicationController
     get_user
     @task = @user.tasks.find(params[:task_id])
     
-    @task.completed = !@task.completed
+    if !@task.completed
+      @task.completed = true
+      @task.completed_date = Time.now
+      @task.completed_user_id = @user.id
+    else
+      @task.completed = false
+      @task.completed_date = nil
+      @task.completed_user_id = nil
+    end
     
     if @task.save
       render :text => "Toggle Success"

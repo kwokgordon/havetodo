@@ -13,3 +13,16 @@
   font-size: 16px;
 }
 
+
+.incomplete {
+  td {
+    
+  }
+}
+
+
+.completed {
+  td {
+    opacity: 0.5;
+  }
+}

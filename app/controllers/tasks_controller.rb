@@ -88,11 +88,16 @@ class TasksController < ApplicationController
   end
 
   def toggleComplete
-      get_user
-      @task = @user.tasks.find(params[:task_id])
+    get_user
+    @task = @user.tasks.find(params[:task_id])
     
     @task.completed = !@task.completed
-    @task.save
+    
+    if @task.save
+      render :text => "Toggle Success"
+    else
+      render :text => "Toggle Failure"
+    end
   end
   
   private

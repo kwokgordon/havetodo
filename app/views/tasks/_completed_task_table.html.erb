@@ -7,10 +7,10 @@
   <table class="table">
 	<% task_table.each do |task| %>
       <tr>
-      	<td width="5%"><img src="<%= image_path("check.png") %>" name="task" id="<%= task.id %>"></td>
-        <td width="75%"><%= task.name %></td>
-        <td width="10%"><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      	<td width="5%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><img src="<%= image_path("check.png") %>" name="task" id="<%= task.id %>"></td>
+        <td width="75%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= task.name %></td>
+        <td width="10%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td width="10%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </table>  

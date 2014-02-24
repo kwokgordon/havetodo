@@ -2,11 +2,11 @@
   <div class="panel-heading">
   	<%= task_header %> Tasks <span class="badge"><%= task_table.count %></span>
   </div>
-  <div class="panel-body incomplete"></div>
+  <div class="panel-body"></div>
 
   <table class="table">
 	<% task_table.each do |task| %>
-      <tr>
+      <tr class="incomplete">
       	<td width="5%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><img src="<%= image_path("uncheck.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)"></td>
         <td width="75%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= task.name %></td>
         <td width="10%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= link_to 'Edit', edit_task_path(task) %></td>

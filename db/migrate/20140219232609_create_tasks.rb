@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration
       t.string :name
       t.text :note
       t.date :due_date
-      t.time :due_date
+      t.time :due_time
       t.boolean :completed, :null => false, :default => false
       t.datetime :completed_date
       t.integer :completed_user_id

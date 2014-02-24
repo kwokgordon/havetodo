@@ -13,7 +13,7 @@ function toggleComplete(id) {
 function toggleAJAX(id) {
 	$.ajax({
       type: "POST",
-      url: "/users/tasks/toggleComplete/" + id
+      url: "/users/tasks/" +id + "/toggleComplete/"
     });
 }
 

@@ -7,7 +7,7 @@
   <table class="table">
 	<% task_table.each do |task| %>
       <tr>
-      	<td width="5%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><img src="<%= image_path("check.png") %>" name="task" id="<%= task.id %>" onclick="toggleComplete(<%= task.id %>)"></td>
+      	<td width="5%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><img src="<%= image_path("check.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)"></td>
         <td width="75%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= task.name %></td>
         <td width="10%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= link_to 'Edit', edit_task_path(task) %></td>
         <td width="10%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

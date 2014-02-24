@@ -1,20 +1,17 @@
 <script>
 
-function toggleComplete(id) {
-
-document.getElementById("demo1").innerHTML = document.getElementById(id).src;
-document.getElementById("demo2").innerHTML = "<%= image_url("check.png") %>";
+function toggleCheckbox(id) {
 
 	if (document.getElementById(id).src == "<%= image_url("check.png") %>") {
 		document.getElementById(id).src = "<%= image_path("uncheck.png") %>";
-		toggleAJAX(id);
+		toggleComplete(id);
 	} else {
 		document.getElementById(id).src = "<%= image_path("check.png") %>";
-		toggleAJAX(id);
+		toggleComplete(id);
 	}
 }
 
-function toggleAJAX(id) {
+function toggleComplete(id) {
 	$.ajax({
       type: "POST",
       url: "/users/tasks/" +id + "/toggleComplete/"
@@ -22,9 +19,6 @@ function toggleAJAX(id) {
 }
 
 </script>
-
-<p id="demo1"></p>
-<p id="demo2"></p>
 
 <%= render 'simple_add' %>
 

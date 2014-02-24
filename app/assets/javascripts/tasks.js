@@ -2,11 +2,11 @@
 // All this logic will automatically be available in application.js.
 
 function highlightTask(x) {
-	x.style.background = #C0C0C0;
+	x.style.background = '#C0C0C0';
 }
 
 function unhighlightTask(x) {
-	x.style.background = #FFFFFF;
+	x.style.background = '#FFFFFF';
 }
 
 function toggleComplete(id) {

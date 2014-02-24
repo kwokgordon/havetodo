@@ -8,8 +8,8 @@
 	<% task_table.each do |task| %>
       <tr class="completed">
       	<td width="5%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><img src="<%= image_path("check.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)"></td>
-        <td width="85%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= link_to task.name, edit_task_path(task) %></td>
-        <td width="10%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td width="85%"><%= link_to task.name, edit_task_path(task) %></td>
+        <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </table>  

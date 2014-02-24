@@ -28,46 +28,7 @@
     <%= f.time_field :due_time %>
   </div>
 
-<!--
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <div class="well">
-      <div id="datepicker" class="input-append">
-        <input data-format="yyyy-MM-dd" type="text" name="task[due_date]"></input>
-        <span class="add-on">
-          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-          </i>
-        </span>
-      </div>
-      <br />
-      <div id="timepicker" class="input-append">
-        <input data-format="hh:mm:ss" type="text" name="task[due_time]"></input>
-        <span class="add-on">
-          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-          </i>
-        </span>
-      </div>
-    </div>
-  </div>
--->
-
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
-
-<script type="text/javascript">
-  $(function() {
-    $('#datepicker').datetimepicker({
-      pickTime: false
-    });
-  });
-
-  $(function() {
-    $('#timepicker').datetimepicker({
-      pickDate: false
-    });
-  });
-
-</script>

@@ -23,9 +23,7 @@
     <%= f.label :due_date %><br>
     <div class="well">
       <div id="datepicker" class="input-append">
-        <input data-format="yyyy" type="text" name="task[due_date(1i)]"></input>
-        <input data-format="MM" type="text" name="task[due_date(2i)]"></input>
-        <input data-format="dd" type="text" name="task[due_date(3i)]"></input>
+        <input data-format="yyyy-MM-dd" type="text" name="task[due_date]"></input>
         <span class="add-on">
           <i data-time-icon="icon-time" data-date-icon="icon-calendar">
           </i>
@@ -33,7 +31,7 @@
       </div>
       <br />
       <div id="timepicker" class="input-append">
-        <input data-format="hh:mm:ss" type="text"></input>
+        <input data-format="hh:mm:ss" type="text" name="task[due_time]"></input>
         <span class="add-on">
           <i data-time-icon="icon-time" data-date-icon="icon-calendar">
           </i>
@@ -41,12 +39,6 @@
       </div>
     </div>
   </div>
-
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.datetime_select :due_date %>
-  </div>
-
 
   <div class="actions">
     <%= f.submit %>

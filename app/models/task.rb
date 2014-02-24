@@ -18,7 +18,7 @@ class Task < ActiveRecord::Base
   scope :this_week_tasks, -> { with_duedate_tasks.where(due_date: (Time.now.midnight + 2.day)..(Time.now.midnight + 7.day)) }
   scope :future_tasks, -> { with_duedate_tasks.where("due_date >= ?", (Time.now.midnight + 7.day)) }
 
-  attr_accessible :name, :note, :due_date, :completed, :completed_date, :completed_user_id
+  attr_accessible :name, :note, :due_date, :due_time, :completed, :completed_date, :completed_user_id
   
   validates :name, presence: true
   

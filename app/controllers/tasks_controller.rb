@@ -86,6 +86,14 @@ class TasksController < ApplicationController
   def validate_user
     redirect_to new_user_session_path unless current_user
   end
+
+  def toggleComplete(id)
+    get_user
+    @task = @user.tasks.find(id)
+    
+    @task.completed = !@task.completed
+    @task.save
+  end
   
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -98,7 +106,7 @@ class TasksController < ApplicationController
 #      @task = Task.find(params[:id])
       @task = @user.tasks.find(params[:id])
     end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:name, :note, :due_date, :completed, :completed_date)

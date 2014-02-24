@@ -1,10 +1,12 @@
 <script>
 
 function toggleComplete(id) {
-	if (document.getElementById(id).src == "<%= image_path("checked.png") %>") {
-		document.getElementById(id).src = "<%= image_path("unchecked.png") %>";
+	if (document.getElementById(id).src == "<%= image_path("check.png") %>") {
+		document.getElementById(id).src = "<%= image_path("uncheck.png") %>";
+		<% toggleComplete(id) %>
 	} else {
-		document.getElementById(id).src = "<%= image_path("checked.png") %>";
+		document.getElementById(id).src = "<%= image_path("check.png") %>";
+		<% toggleComplete(id) %>
 	}
 	
 }

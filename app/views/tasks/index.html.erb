@@ -21,9 +21,9 @@ function toggleAJAX(id) {
 
 <%= render 'simple_add' %>
 
-
+<!--
 <%= render partial: 'incomplete_task_table', locals: { task_header: "All", task_table: @tasks } %>
-
+-->
 
 <% if !@overdue_tasks.empty? %>
 <%= render partial: 'incomplete_task_table', locals: { task_header: "Overdue", task_table: @overdue_tasks } %>

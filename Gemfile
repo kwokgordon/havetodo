@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'pg', '0.15.1'
 gem 'validates_existence', '0.9.2'
 gem 'protected_attributes'
+gem 'bootstrap-datetimepicker-rails'
 
 # Auth
 gem 'bcrypt-ruby', '3.1.2'

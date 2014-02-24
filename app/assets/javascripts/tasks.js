@@ -9,6 +9,3 @@ function unhighlightTask(x) {
 	x.style.background = '#FFFFFF';
 }
 
-function toggleComplete(id) {
-	document.getElementById(id).src = "<%= image_path("checked.png") %>";
-}

@@ -1,6 +1,9 @@
 <script>
 
 function toggleComplete(id) {
+
+document.getElementById("demo").innerHTML = document.getElementById(id).src;
+
 	if (document.getElementById(id).src == "<%= image_path("check.png") %>") {
 		document.getElementById(id).src = "<%= image_path("uncheck.png") %>";
 		toggleAJAX(id);
@@ -18,6 +21,8 @@ function toggleAJAX(id) {
 }
 
 </script>
+
+<p id="demo"></p>
 
 <%= render 'simple_add' %>
 

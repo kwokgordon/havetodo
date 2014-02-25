@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219232609) do
+ActiveRecord::Schema.define(version: 20140219235343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,21 @@ ActiveRecord::Schema.define(version: 20140219232609) do
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.text     "note"
-    t.datetime "due_date"
-    t.boolean  "completed"
+    t.date     "due_date"
+    t.time     "due_time"
+    t.boolean  "completed",         default: false, null: false
     t.datetime "completed_date"
+    t.integer  "completed_user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "tasks_users", id: false, force: true do |t|
+    t.integer "task_id", null: false
+    t.integer "user_id", null: false
+  end
+
+  add_index "tasks_users", ["user_id", "task_id"], name: "index_tasks_users_on_user_id_and_task_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   default: "", null: false

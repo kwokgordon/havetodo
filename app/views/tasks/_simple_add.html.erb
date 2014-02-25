@@ -1,25 +1,26 @@
+<!--
 <form accept-charset="UTF-8" action="/users/tasks" class="new_task" id="new_task" method="post">
   <div class="row">
     <div class="col-lg-6">
       <div class="input-group">
+	    <input name="utf8" type="hidden" value="✓">
+    	<input name="authenticity_token" type="hidden" value="3Dx0+99aHzo4rJA+WXfKMbKCI+Mp6O0HJM7vceuZj1w=">
         <input autofocus="autofocus" id="task_name" name="task[name]" type="text" class="form-control">
         <span class="input-group-btn">
           <button class="btn btn-default" name="commit" type="submit" value="Quick Add">Quick Add</button>
         </span>
-      </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
-  </div><!-- /.row -->
+      </div>
+    </div>
+  </div>
 </form>
+-->
 
-<!--
 <%= form_for @new_task do |f| %>
   <div class="row">
     <div class="input-group">
 	  <%= f.text_field :name, :autofocus => true %>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
+      <%= f.submit %>
     </div>
   </div>
 <% end %>
--->
+

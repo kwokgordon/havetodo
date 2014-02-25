@@ -17,21 +17,22 @@
 
 <div class="row center">
   <%= form_for @new_task do |f| %>
+    <%= f.label :name %>
     <%= f.text_field :name, :autofocus => true %>
     <%= f.submit 'Quick Add', class: 'btn btn-default' %>
     <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details" onclick="toggleAddDetails()">Add Details</button>
 
 	<div id="add_details_block" class="center">
       <div class="field">
-        <%= f.label :note %><br>
+        <%= f.label :note %>
         <%= f.text_area :note %>
       </div>
       <div class="field">
-        <%= f.label :due_date %><br>
-        <%= f.date_field :due_date, input_html: { :value => Time.now.strftime("%Y-%m-%d") } %>
+        <%= f.label :due_date %>
+        <%= f.date_field :due_date, html: { :value => Time.now.strftime("%Y-%m-%d") } %>
       </div>
       <div class="field">
-        <%= f.label :due_time %><br>
+        <%= f.label :due_time %>
         <%= f.time_field :due_time %>
       </div>
 	</div>

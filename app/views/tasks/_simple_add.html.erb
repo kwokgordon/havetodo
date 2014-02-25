@@ -15,10 +15,8 @@
 </form>
 -->
 
-<div class="row">
-  <%= form_for @new_task do |f| %>
-	<%= f.text_field :name, :autofocus => true %>
-    <%= f.submit %>
-  <% end %>
-</div>
+<%= form_for @new_task, :html => {:class => "row"} do |f| %>
+  <%= f.text_field :name, html: {class: 'span5'}, :autofocus => true %>
+  <%= f.submit, html: {class: 'span5'} %>
+<% end %>
 

@@ -43,6 +43,7 @@ HaveTodo::Application.routes.draw do
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
 
       get 'tasks' => 'tasks#index', :as => 'tasks'
+      post '/toggleComplete/:task_id' => 'task#toggleComplete'
 
     end
   end

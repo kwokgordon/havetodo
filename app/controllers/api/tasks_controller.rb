@@ -14,9 +14,6 @@ class Api::TasksController < ApplicationController
   respond_to :json
 
   def index
-    @new_task = Task.new
-    @tasks = @user.tasks
-    
     @overdue_tasks = @user.tasks.overdue_tasks
     @today_tasks = @user.tasks.today_tasks
     @tomorrow_tasks = @user.tasks.tomorrow_tasks
@@ -27,7 +24,6 @@ class Api::TasksController < ApplicationController
   end
 
   def toggleComplete
-    get_user
     @task = @user.tasks.find(params[:task_id])
     
     if !@task.completed

@@ -21,3 +21,17 @@
   opacity: 0.4;
 }
 
+
+#new_task {
+  display:inline;
+  vertical-align: top;
+  text-align: center;
+}
+
+#new_task input[type="text"] {
+  vertical-align: top;
+}
+
+#new_task input[type="submit"] {
+  vertical-align: top;
+}

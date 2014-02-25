@@ -20,7 +20,7 @@
     <%= f.label :name %>
     <%= f.text_field :name, :autofocus => true %>
     <%= f.submit 'Quick Add', class: 'btn btn-default' %>
-    <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details" onclick="toggleAddDetails()">Add Details</button>
+    <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details" onclick="toggleAddDetails()">Show Details</button>
 
 	<div id="add_details_block" class="center">
       <div class="field">
@@ -45,9 +45,16 @@
 <script>
 $(document).ready(function(){
   $("#add_details_block").hide();
+  $("#add_details_button").text("Show Details");
 
   $("#add_details_button").click(function(){
-    $("#add_details_block").toggle();
+  	if($("#add_details_button").text() == "Show Details") {
+      $("#add_details_block").show();
+      $("#add_details_button").text("Hide Details");
+  	} else {
+      $("#add_details_block").hide();
+      $("#add_details_button").text("Show Details");
+  	}
   });
 
 });

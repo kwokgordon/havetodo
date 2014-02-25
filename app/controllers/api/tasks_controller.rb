@@ -6,17 +6,14 @@ class Api::TasksController < ApplicationController
   :if => Proc.new { |c| c.request.format == 'application/json' }
 
   # Just skip the authentication for now
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
-  #before_action :get_user
-  #before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :get_user
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   
   respond_to :json
 
   def index
-    @overdue_tasks = Task.all
-
-=begin
     @new_task = Task.new
     @tasks = @user.tasks
     
@@ -27,7 +24,6 @@ class Api::TasksController < ApplicationController
     @future_tasks = @user.tasks.future_tasks
     @no_duedate_tasks = @user.tasks.no_duedate_tasks
     @completed_tasks = @user.tasks.completed_tasks
-=end
   end
 
   def toggleComplete

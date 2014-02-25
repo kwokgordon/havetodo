@@ -9,8 +9,7 @@ class Api::SessionsController < Devise::SessionsController
 
   def create
     warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
-    get_user
-    @user.need_authentication_token
+    current_user.need_authentication_token
     render :status => 200,
     :json => { :success => true, 
       :info => "Logged in",
@@ -33,10 +32,5 @@ class Api::SessionsController < Devise::SessionsController
       :data => { } }
   end
   
-  protected
-  
-    def get_user
-      @user = User.find(current_user.id)
-    end
 
 end

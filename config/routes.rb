@@ -41,11 +41,11 @@ HaveTodo::Application.routes.draw do
       post 'registrations' => 'registrations#create', :as => 'register'
       post 'sessions' => 'sessions#create', :as => 'login'
       delete 'sessions' => 'sessions#destroy', :as => 'logout'
-
-      get 'tasks' => 'tasks#index', :as => 'tasks'
-      post '/toggleComplete/:task_id' => 'task#toggleComplete'
-
     end
+  end
+  
+  resources :tasks, path: '/api/tasks' do
+    post '/toggleComplete/' => 'tasks#toggleComplete'
   end
 
 

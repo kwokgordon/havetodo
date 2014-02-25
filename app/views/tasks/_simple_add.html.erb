@@ -28,7 +28,7 @@
       </div>
       <div class="field">
         <%= f.label :due_date %><br>
-        <%= f.date_field :due_date, input_html: { :value => <%= Time.now.strftime("%Y-%m-%d") %> } %>
+        <%= f.date_field :due_date, input_html: { :value => Time.now.strftime("%Y-%m-%d") } %>
       </div>
       <div class="field">
         <%= f.label :due_time %><br>

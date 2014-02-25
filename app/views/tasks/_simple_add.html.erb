@@ -18,6 +18,18 @@
 <div class="row center">
   <%= form_for @new_task do |f| %>
     <%= f.text_field :name, :autofocus => true %>
-    <%= f.submit %>
+	<div id="add_details" class="center" />
+
+    <%= f.submit 'Quick Add', class: 'btn btn-default' %>
   <% end %>
+
+  <button class="btn btn-default" name="new_task" type="button" value="Add Details" onclick="toggleAddDetails()">Quick Add</button>
 </div>
+<br />
+
+
+<script>
+function toggleAddDetails() {
+
+}
+</script>

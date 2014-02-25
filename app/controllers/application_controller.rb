@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   
   config.time_zone = "Mountain Time (US & Canada)"
+
+  def handle_unverified_request
+    super
+    Devise.mappings.each_key do |key|
+      cookies.delete "remember_#{key}_token"
+    end
+  end
   
   protected
   

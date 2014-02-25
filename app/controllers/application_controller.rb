@@ -12,12 +12,14 @@ class ApplicationController < ActionController::Base
   
   config.time_zone = "Mountain Time (US & Canada)"
 
+=begin
   def handle_unverified_request
     super
     Devise.mappings.each_key do |key|
       cookies.delete "remember_#{key}_token"
     end
   end
+=end
   
   protected
   

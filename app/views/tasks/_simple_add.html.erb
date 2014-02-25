@@ -18,18 +18,35 @@
 <div class="row center">
   <%= form_for @new_task do |f| %>
     <%= f.text_field :name, :autofocus => true %>
-	<div id="add_details" class="center" />
+	<div id="add_details_block" class="center">
+      <div class="field">
+        <%= f.label :note %><br>
+        <%= f.text_area :note %>
+      </div>
+      <div class="field">
+        <%= f.label :due_date %><br>
+        <%= f.date_field :due_date %>
+      </div>
+      <div class="field">
+        <%= f.label :due_time %><br>
+        <%= f.time_field :due_time %>
+      </div>
+	</div>
 
     <%= f.submit 'Quick Add', class: 'btn btn-default' %>
   <% end %>
 
-  <button class="btn btn-default" name="new_task" type="button" value="Add Details" onclick="toggleAddDetails()">Quick Add</button>
+  <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details" onclick="toggleAddDetails()">Add Details</button>
 </div>
 <br />
 
 
 <script>
-function toggleAddDetails() {
+$(document).ready(function(){
 
-}
+  $("#add_details_button").click(function(){
+    $("#add_details_block").hide();
+  });
+
+});
 </script>

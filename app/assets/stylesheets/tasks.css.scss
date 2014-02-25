@@ -33,6 +33,21 @@
   width: 60%;
 }
 
+#new_task input[type="date"] {
+  vertical-align: top;
+  width: 60%;
+}
+
+#new_task input[type="time"] {
+  vertical-align: top;
+  width: 60%;
+}
+
+#new_task textarea {
+  vertical-align: top;
+  width: 60%;
+}
+
 #new_task input[type="submit"] {
   vertical-align: top;
 }

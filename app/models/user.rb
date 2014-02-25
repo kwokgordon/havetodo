@@ -1,11 +1,25 @@
 class User < ActiveRecord::Base
 
   # You likely have this before callback set up for the token.
-  before_save :ensure_authentication_token
- 
+#  before_save :ensure_authentication_token
+
+=begin 
   def ensure_authentication_token
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token
+    end
+  end
+=end
+
+  def need_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+  
+  def remove_authentication_token
+    if !authentication_token.blank?
+      self.authentication_token = nil
     end
   end
  

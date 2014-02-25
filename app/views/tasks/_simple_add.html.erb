@@ -15,10 +15,10 @@
 </form>
 -->
 
-<%= form_for @new_task do |f| %>
-  <div class="row">
-	  <%= f.text_field :name, :autofocus => true %>
-      <%= f.submit %>
-  </div>
-<% end %>
+<div class="row">
+  <%= form_for @new_task do |f| %>
+	<%= f.text_field :name, :autofocus => true %>
+    <%= f.submit %>
+  <% end %>
+</div>
 

@@ -1,11 +1,15 @@
 class TasksController < ApplicationController
-  
+
+  skip_before_filter :verify_authenticity_token,
+                     :if => Proc.new { |c| c.request.format == 'application/json' }
+                       
   before_filter :authenticate_user!
   before_filter :validate_user
   
   before_action :get_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   
+ 
   # GET /tasks
   # GET /tasks.json
   def index

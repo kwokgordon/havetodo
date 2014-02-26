@@ -17,8 +17,6 @@ class TasksController < ApplicationController
 #    @tasks = Task.all
     @tasks = @user.tasks
 
-    default_cookies    
-
     @overdue_tasks = @user.tasks.overdue_tasks
     @today_tasks = @user.tasks.today_tasks
     @tomorrow_tasks = @user.tasks.tomorrow_tasks
@@ -50,12 +48,8 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 #    @task = @user.tasks.build(task_params)
 
-    if cookies[:show_details] == "true"
-      cookies[:note] = { value: @task.note, path: '/users' }
-      cookies[:due_date] = { value: @task.due_date, path: '/users' }
-      cookies[:due_time] = { value: @task.due_time, path: '/users' }
-    end
-
+    set_cookies
+    
     respond_to do |format|
       if @task.save
         @user.tasks << @task
@@ -140,14 +134,6 @@ class TasksController < ApplicationController
       end
     end
 
-    def default_cookies
-      if cookies[:show_details] == "false"
-        cookies[:note] = { value: "", path: '/users' }
-        cookies[:due_date] = { value: Time.now.strftime("%Y-%m-%d") , path: '/users' }
-        cookies[:due_time] = { value: "", path: '/users' }
-      end
-    end
-    
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params.require(:task).permit(:name, :note, :due_date, :due_time, :completed, :completed_date, :completed_user_id)

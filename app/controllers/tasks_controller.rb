@@ -129,8 +129,8 @@ class TasksController < ApplicationController
     def set_cookies
       if cookies[:show_details] == "true"
         cookies[:note] = { value: @task.note, path: '/users' }
-        cookies[:due_date] = { value: @task.due_date, path: '/users' }
-        cookies[:due_time] = { value: @task.due_time, path: '/users' }
+        cookies[:due_date] = { value: @task.due_date.strftime("%Y-%m-%d"), path: '/users' }
+        cookies[:due_time] = { value: @task.due_time.strftime("%H:%M:%S.%L"), path: '/users' }
       end
     end
 

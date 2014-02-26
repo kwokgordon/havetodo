@@ -49,9 +49,9 @@ class TasksController < ApplicationController
 #    @task = @user.tasks.build(task_params)
 
     if cookies[:show_details] == "true"
-      cookies[:note] = @task.note
-      cookies[:due_date] = @task.due_date
-      cookies[:due_time] = @task.due_time
+      cookies[:note] = { value: @task.note, path: '/' }
+      cookies[:due_date] = { value: @task.due_date, path: '/' }
+      cookies[:due_time] = { value: @task.due_time, path: '/' }
     end
 
     respond_to do |format|

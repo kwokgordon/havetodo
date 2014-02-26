@@ -4,7 +4,7 @@ one:
   name: MyString
   note: MyText
   due_date: 2014-02-19
-  due_time: 16:26:09
+  due_time: 16:26:09 -07:00
   completed: false
   completed_date: 2014-02-19 16:26:09
   completed_user_id: 1
@@ -13,7 +13,7 @@ two:
   name: MyString
   note: MyText
   due_date: 2014-02-19
-  due_time: 16:26:09
+  due_time: 16:26:09 -07:00
   completed: false
   completed_date: 2014-02-19 16:26:09
   completed_user_id: 2

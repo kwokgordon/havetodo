@@ -79,9 +79,12 @@ function hide_details() {
   var today = new Date();
   
   $.cookie('show_details', "false");
+  set_default_details();
+}
+
+function set_default_details() {
   $.cookie('note', "");
   $.cookie('due_date', (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear());
   $.cookie('due_time', "");
 }
-
 </script>

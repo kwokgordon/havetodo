@@ -17,8 +17,7 @@ class TasksController < ApplicationController
 #    @tasks = Task.all
     @tasks = @user.tasks
 
-    @new_task.due_date = "2014-01-05"
-#    default_cookies    
+    default_cookies    
 
     @overdue_tasks = @user.tasks.overdue_tasks
     @today_tasks = @user.tasks.today_tasks

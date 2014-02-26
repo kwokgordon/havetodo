@@ -45,7 +45,7 @@
 <script>
 $(document).ready(function(){
 
-  if($.cookies('show_details')) {
+  if($.cookie('show_details')) {
     show_details();
   } else {
     hide_details();
@@ -63,13 +63,13 @@ $(document).ready(function(){
 function show_details() {
   $("#add_details_block").show();
   $("#add_details_button").text("Hide Details");
-  $.cookies('show_details', true);
+  $.cookie('show_details', true);
 }
 
 function hide_details() {
   $("#add_details_block").hide();
   $("#add_details_button").text("Show Details");
-  $.cookies('show_details', false);
+  $.cookie('show_details', false);
 }
 
 </script>

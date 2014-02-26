@@ -93,8 +93,8 @@ function set_default_details() {
 }
 
 function grab_cookies_details() {
-  $("#task_note").text($.cookie("note"));
-  $("#task_due_date").text($.cookie("due_date"));
-  $("#task_due_time").text($.cookie("due_time"));
+  $("#task_note").val($.cookie("note"));
+  $("#task_due_date").val($.cookie("due_date"));
+  $("#task_due_time").val($.cookie("due_time"));
 }
 </script>

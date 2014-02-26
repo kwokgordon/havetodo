@@ -16,7 +16,10 @@ class TasksController < ApplicationController
     @new_task = Task.new
 #    @tasks = Task.all
     @tasks = @user.tasks
-    
+
+    @new_task.due_date = "2014-01-05"
+#    default_cookies    
+
     @overdue_tasks = @user.tasks.overdue_tasks
     @today_tasks = @user.tasks.today_tasks
     @tomorrow_tasks = @user.tasks.tomorrow_tasks
@@ -128,6 +131,22 @@ class TasksController < ApplicationController
       get_user
 #      @task = Task.find(params[:id])
       @task = @user.tasks.find(params[:id])
+    end
+    
+    def set_cookies
+      if cookies[:show_details] == "true"
+        cookies[:note] = { value: @task.note, path: '/users' }
+        cookies[:due_date] = { value: @task.due_date, path: '/users' }
+        cookies[:due_time] = { value: @task.due_time, path: '/users' }
+      end
+    end
+
+    def default_cookies
+      if cookies[:show_details] == "false"
+        cookies[:note] = { value: "", path: '/users' }
+        cookies[:due_date] = { value: Time.now.strftime("%Y-%m-%d") , path: '/users' }
+        cookies[:due_time] = { value: "", path: '/users' }
+      end
     end
     
     # Never trust parameters from the scary internet, only allow the white list through.

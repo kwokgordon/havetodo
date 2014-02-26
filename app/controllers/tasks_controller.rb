@@ -48,6 +48,12 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 #    @task = @user.tasks.build(task_params)
 
+    if cookies[:show_details] == "true"
+      cookies[:note] = @task.note
+      cookies[:due_date] = @task.due_date
+      cookies[:due_time] = @task.due_time
+    end
+
     respond_to do |format|
       if @task.save
         @user.tasks << @task

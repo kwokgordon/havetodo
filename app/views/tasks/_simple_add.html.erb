@@ -65,13 +65,23 @@ $(document).ready(function(){
 function show_details() {
   $("#add_details_block").show();
   $("#add_details_button").text("Hide Details");
+
   $.cookie('show_details', "true");
+  $("#task_note").text($.cookie("note"));
+  $("#task_due_date").text($.cookie("due_date"));
+  $("#task_due_time").text($.cookie("due_time"));
 }
 
 function hide_details() {
   $("#add_details_block").hide();
   $("#add_details_button").text("Show Details");
+  
+  var today = new Date();
+  
   $.cookie('show_details', "false");
+  $.cookie('note', "");
+  $.cookie('due_date', today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate());
+  $.cookie('due_time', "");
 }
 
 </script>

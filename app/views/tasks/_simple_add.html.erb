@@ -1,47 +1,3 @@
-<!--
-<form accept-charset="UTF-8" action="/users/tasks" class="new_task" id="new_task" method="post">
-  <div class="row">
-    <div class="col-lg-6">
-      <div class="input-group">
-	    <input name="utf8" type="hidden" value="✓">
-    	<input name="authenticity_token" type="hidden" value="3Dx0+99aHzo4rJA+WXfKMbKCI+Mp6O0HJM7vceuZj1w=">
-        <input autofocus="autofocus" id="task_name" name="task[name]" type="text" class="form-control">
-        <span class="input-group-btn">
-          <button class="btn btn-default" name="commit" type="submit" value="Quick Add">Quick Add</button>
-        </span>
-      </div>
-    </div>
-  </div>
-</form>
--->
-
-<div class="row center">
-  <%= form_for @new_task do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, :autofocus => true %>
-    <%= f.submit 'Quick Add', class: 'btn btn-default' %>
-    <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details">Show Details</button>
-
-	<div id="add_details_block" class="center">
-      <div class="field">
-        <%= f.label :note %>
-        <%= f.text_area :note, value: cookies[:note] %><br />
-      </div>
-      <div class="field">
-        <%= f.label :due_date %>
-        <%= f.date_field :due_date, value: cookies[:due_date] %><br />
-      </div>
-      <div class="field">
-        <%= f.label :due_time %>
-        <%= f.time_field :due_time, value: cookies[:due_time] %><br />
-      </div>
-	</div>
-
-  <% end %>
-
-</div>
-<br />
-
 <script>
 $(document).ready(function(){
 
@@ -50,8 +6,6 @@ $(document).ready(function(){
   } else {
     hide_details();
   }
-
-//  hide_details();
 
   $("#add_details_button").click(function(){
   	if($("#add_details_button").text() == "Show Details") {
@@ -98,3 +52,32 @@ function grab_cookies_details() {
   $("#task_due_time").val($.cookie("due_time"));
 }
 </script>
+
+
+<div class="row center">
+  <%= form_for @new_task do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, :autofocus => true %>
+    <%= f.submit 'Quick Add', class: 'btn btn-default' %>
+    <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details">Show Details</button>
+
+	<div id="add_details_block" class="center">
+      <div class="field">
+        <%= f.label :note %>
+        <%= f.text_area :note, value: cookies[:note] %><br />
+      </div>
+      <div class="field">
+        <%= f.label :due_date %>
+        <%= f.date_field :due_date, value: cookies[:due_date] %><br />
+      </div>
+      <div class="field">
+        <%= f.label :due_time %>
+        <%= f.time_field :due_time, value: cookies[:due_time] %><br />
+      </div>
+	</div>
+
+  <% end %>
+
+</div>
+<br />
+

@@ -67,9 +67,7 @@ function show_details() {
   $("#add_details_button").text("Hide Details");
 
   $.cookie('show_details', "true");
-  $("#task_note").text($.cookie("note"));
-  $("#task_due_date").text($.cookie("due_date"));
-  $("#task_due_time").text($.cookie("due_time"));
+  grab_cookies_details();
 }
 
 function hide_details() {
@@ -78,6 +76,7 @@ function hide_details() {
   
   $.cookie('show_details', "false");
   set_default_details();
+  grab_cookies_details();
 }
 
 function set_default_details() {
@@ -91,5 +90,11 @@ function set_default_details() {
   $.cookie('note', "");
   $.cookie('due_date', today);
   $.cookie('due_time', "");
+}
+
+function grab_cookies_details() {
+  $("#task_note").text($.cookie("note"));
+  $("#task_due_date").text($.cookie("due_date"));
+  $("#task_due_time").text($.cookie("due_time"));
 }
 </script>

@@ -84,7 +84,7 @@ function set_default_details() {
   var today = new Date();
 
   $.cookie('note', "");
-  $.cookie('due_date', today.toLocaleDateString);
+  $.cookie('due_date', today.toLocaleDateString());
   $.cookie('due_time', "");
 }
 </script>

@@ -80,7 +80,7 @@ function hide_details() {
   
   $.cookie('show_details', "false");
   $.cookie('note', "");
-  $.cookie('due_date', today.getFullYear() + "-" + (today.getMonth()+1) + "-" + today.getDate());
+  $.cookie('due_date', (today.getMonth()+1) + "/" + today.getDate() + "/" + today.getFullYear());
   $.cookie('due_time', "");
 }
 

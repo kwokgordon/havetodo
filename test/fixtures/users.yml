@@ -7,15 +7,11 @@
 one: 
   name: Gordon Kwok
   email: kwokgordon@gmail.com
-  password: password
-  password_confirmation: password
 
 # column: value
 #
 two: 
   name: Gordon Kwok 2 
   email: gordon.calgary@gmail.com
-  password: password
-  password_confirmation: password
 
 #  column: value

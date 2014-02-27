@@ -156,8 +156,22 @@ aside {
 
 /* forms */
 
+label, input {
+  display: inline-block;
+}
+
 label {
   width: 15%;
+  text-align: right;
+}
+
+label + input {
+  width: 30%;
+  margin: 0 30% 0 4%;
+}
+
+input + input {
+  float: right;
 }
 
 input, textarea, select, .uneditable-input {

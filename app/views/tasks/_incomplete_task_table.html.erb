@@ -11,8 +11,16 @@
       	  <img src="<%= image_path("uncheck.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)">
       	</td>
         <td width="85%">
-		  <%= link_to task.name, edit_task_path(task) %><br />
-   	  	  <%= task.due_date %>
+		  <span class="primary_task_name"><%= link_to task.name, edit_task_path(task) %></span><br />
+   	  	  <span class="due_datetime">
+   	  	  	<% if !task.due_date.blank? %>
+   	  	  	  <% if !task.due_time.blank? %>
+   	  	  	    Due Date: <%= task.due_date %> <%= task.due_time %>
+   	  	  	  <% else %>
+   	  	  	    Due Date: <%= task.due_date %>
+   	  	  	  <% end %>
+   	  	  	<% end %>
+   	  	  </span>
     	</td>
         <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

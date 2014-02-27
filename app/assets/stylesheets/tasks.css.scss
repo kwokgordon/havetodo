@@ -41,6 +41,11 @@
   text-align: center;
 }
 
+#new_task field {
+  width: 60%;
+}
+
+/*
 #new_task input[type="text"] {
   vertical-align: top;
   width: 60%;
@@ -64,6 +69,7 @@
 #new_task input[type="submit"] {
   vertical-align: top;
 }
+*/
 
 div.field {
   display:inline;

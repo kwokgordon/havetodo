@@ -156,6 +156,11 @@ aside {
 
 /* forms */
 form {
+
+  .left {
+    position:absolute;
+    left: 0px;
+  }
   
   label, input, textarea {
     display: inline-block;

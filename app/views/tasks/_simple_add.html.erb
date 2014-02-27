@@ -57,7 +57,7 @@ function grab_cookies_details() {
 <div class="row center">
   <div class="quick_task_container">
   <%= form_for @new_task do |f| %>
-    <div class="field">
+    <div class="field left">
       <%= f.label :name, value: "Task" %>
       <%= f.text_field :name, :autofocus => true %>
       <div class="form_button">
@@ -67,15 +67,15 @@ function grab_cookies_details() {
     </div>
 
 	<div id="add_details_block" class="center">
-      <div class="field">
+      <div class="field left">
         <%= f.label :note %>
         <%= f.text_area :note, value: cookies[:note] %><br />
       </div>
-      <div class="field">
+      <div class="field left">
         <%= f.label :due_date %>
         <%= f.date_field :due_date, value: cookies[:due_date] %><br />
       </div>
-      <div class="field">
+      <div class="field left">
         <%= f.label :due_time %>
         <%= f.time_field :due_time, value: cookies[:due_time] %><br />
       </div>

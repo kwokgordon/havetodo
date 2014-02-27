@@ -60,8 +60,10 @@ function grab_cookies_details() {
     <div class="field">
       <%= f.label :name, value: "Task" %>
       <%= f.text_field :name, :autofocus => true %>
-      <%= f.submit 'Quick Add', class: 'btn btn-default' %>
-      <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details">Show Details</button>
+      <div class="form_button">
+        <%= f.submit 'Quick Add', class: 'btn btn-default' %>
+        <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details">Show Details</button>
+      </div>
     </div>
 
 	<div id="add_details_block" class="center">

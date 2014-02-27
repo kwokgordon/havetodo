@@ -8,16 +8,12 @@
 	<% task_table.each do |task| %>
       <tr id="task_<%= task.id %>" class="incomplete">
       	<td width="5%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)">
-      	  <ul>
-      	  	<li>
-        	  <img src="<%= image_path("uncheck.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)">
-      	  	</li>
-      	  	<li>
-      	  	  <%= task.due_date %>
-      	  	</li>
-      	  </ul>
+      	  <img src="<%= image_path("uncheck.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)">
       	</td>
-        <td width="85%"><%= link_to task.name, edit_task_path(task) %></td>
+        <td width="85%">
+		  <%= link_to task.name, edit_task_path(task) %><br />
+   	  	  <%= task.due_date %>
+    	</td>
         <td width="10%"><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

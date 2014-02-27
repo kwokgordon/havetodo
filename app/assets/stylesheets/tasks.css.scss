@@ -25,64 +25,7 @@
   width: 90%;
 }
 
-/*
 
-.quick_task_container field {
-  width: 60%;
-}
-
-.quick_task_container input {
-  width: 60%;
-}
-*/
-
-/*
-
-#new_task {
-  display:inline;
-  vertical-align: top;
-  text-align: center;
-}
-
-
-#new_task field {
-  width: 60%;
-}
-
-#new_task input[type="text"] {
-  vertical-align: top;
-  width: 60%;
-}
-
-#new_task input[type="date"] {
-  vertical-align: top;
-  width: 60%;
-}
-
-#new_task input[type="time"] {
-  vertical-align: top;
-  width: 60%;
-}
-
-#new_task textarea {
-  vertical-align: top;
-  width: 60%;
-}
-
-#new_task input[type="submit"] {
-  vertical-align: top;
-}
-*/
-
-div.field {
-  display:inline;
-}
-
-label {
-  display:inline;
-}
-
-
-.due_datetime .completed_datetime {
+span.item_datetime {
   font-size: 13px;
 }

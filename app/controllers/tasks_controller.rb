@@ -107,10 +107,14 @@ class TasksController < ApplicationController
       @task.completed_user_id = nil
     end
     
-    if @task.save
-      render :text => "Toggle Success"
-    else
-      render :text => "Toggle Failure"
+    respond_to do |format|
+      if @task.save
+        format.html { render :text => "Toggle Success" }
+        format.json 
+      else
+        format.html { render :text => "Toggle Failure" }
+        format.json 
+      end
     end
   end
   

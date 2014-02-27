@@ -11,13 +11,13 @@
       	  <img src="<%= image_path("uncheck.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)">
       	</td>
         <td width="85%">
-		  <span class="primary_task_name"><%= link_to task.name, edit_task_path(task) %></span><br />
-   	  	  <span class="due_datetime">
+		  <span class="item_task_name"><%= link_to task.name, edit_task_path(task) %></span><br />
+   	  	  <span id="item_datetime_%= task.id %>" class="item_datetime">
    	  	  	<% if !task.due_date.blank? %>
    	  	  	  <% if !task.due_time.blank? %>
-   	  	  	    Due Date: <%= task.due_date %> <%= task.due_time %>
+   	  	  	    <%= task.due_date.strftime("%a %b %e") %> <%= task.due_time.localtime.strftime("%I:%M%p") %>
    	  	  	  <% else %>
-   	  	  	    Due Date: <%= task.due_date %>
+   	  	  	    <%= task.due_date.strftime("%a %b %e") %>
    	  	  	  <% end %>
    	  	  	<% end %>
    	  	  </span>

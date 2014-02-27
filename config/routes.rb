@@ -32,7 +32,7 @@ HaveTodo::Application.routes.draw do
 #  end
 
   resources :tasks, path: '/users/tasks' do
-    post '/toggleComplete/' => 'tasks#toggleComplete'
+    post '/toggleComplete' => 'tasks#toggleComplete'
   end
 
   # Moblie access
@@ -45,7 +45,7 @@ HaveTodo::Application.routes.draw do
   end
   
   resources :tasks, path: '/api/tasks' do
-    post '/toggleComplete/' => 'tasks#toggleComplete'
+    post '/toggleComplete' => 'tasks#toggleComplete'
   end
 
 

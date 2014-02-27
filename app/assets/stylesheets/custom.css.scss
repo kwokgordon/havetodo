@@ -167,23 +167,19 @@ form {
   }
 
   label + input {
-    width: 40%;
-    margin: 0 40% 0 4%;
+    width: 30%;
+    margin: 0 30% 0 4%;
   }
 
   label + textarea {
-    width: 40%;
-    margin: 0 40% 0 4%;
+    width: 30%;
+    margin: 0 30% 0 4%;
   }
 
   input + input {
     float: right;
   }
   
-  .quick_task_button {
-    float: right;
-  }
-
 }
 
 input, textarea, select, .uneditable-input {

@@ -168,15 +168,19 @@ form {
 
   label + input {
     width: 30%;
-    margin: 0 30% 0 4%;
+    margin: 0 10% 0 4%;
   }
 
   label + textarea {
     width: 30%;
-    margin: 0 30% 0 4%;
+    margin: 0 10% 0 4%;
   }
 
   input + input {
+    float: right;
+  }
+
+  input + button {
     float: right;
   }
   

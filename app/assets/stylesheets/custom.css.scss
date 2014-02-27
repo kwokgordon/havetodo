@@ -156,6 +156,7 @@ aside {
 
 /* forms */
 form {
+  
 
   label, input, textarea {
     display: inline-block;
@@ -168,12 +169,12 @@ form {
 
   label + input {
     width: 50%;
-    margin: 1% 5% 1% 2%;
+    margin: 0 5% 1% 2%;
   }
 
   label + textarea {
     width: 50%;
-    margin: 1% 5% 1% 2%;
+    margin: 0 5% 1% 2%;
   }
 
   input + input {

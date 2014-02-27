@@ -157,12 +157,12 @@ aside {
 /* forms */
 
 label {
-  width: 10%;
+  width: 15%;
 }
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 90%;
+  width: 85%;
   margin-bottom: 15px;
   @include box_sizing;
 }

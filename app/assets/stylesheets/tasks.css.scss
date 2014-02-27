@@ -22,14 +22,15 @@
 }
 
 .quick_task_container {
-  width: 800px;
+  width: 80%;
 }
+
+/*
 
 .quick_task_container field {
   width: 60%;
 }
 
-/*
 .quick_task_container input {
   width: 60%;
 }
@@ -41,11 +42,12 @@
   text-align: center;
 }
 
+/*
+
 #new_task field {
   width: 60%;
 }
 
-/*
 #new_task input[type="text"] {
   vertical-align: top;
   width: 60%;

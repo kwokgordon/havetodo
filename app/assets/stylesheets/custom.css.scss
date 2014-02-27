@@ -157,27 +157,22 @@ aside {
 /* forms */
 form {
 
-  .left {
-    position:absolute;
-    left: 0px;
-  }
-  
   label, input, textarea {
     display: inline-block;
   }
 
   label {
-    width: 15%;
+    width: 20%;
     text-align: right;
   }
 
   label + input {
-    width: 30%;
+    width: 40%;
     margin: 0 10% 0 4%;
   }
 
   label + textarea {
-    width: 30%;
+    width: 40%;
     margin: 0 10% 0 4%;
   }
 

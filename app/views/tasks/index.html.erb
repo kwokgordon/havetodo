@@ -16,7 +16,11 @@ function toggleComplete(id) {
       type: "POST",
       url: "/users/tasks/" +id + "/toggleComplete/"
     });
+    
+    location.reload();
 }
+
+
 
 </script>
 
@@ -25,7 +29,7 @@ function toggleComplete(id) {
 <!--
 <%= render partial: 'incomplete_task_table', locals: { task_header: "All", task_table: @tasks } %>
 -->
-
+<div id="list_tables">
 <% if !@overdue_tasks.empty? %>
 <%= render partial: 'incomplete_task_table', locals: { task_header: "Overdue", task_table: @overdue_tasks } %>
 <% end %>
@@ -53,3 +57,4 @@ function toggleComplete(id) {
 <% if !@completed_tasks.empty? %>
 <%= render partial: 'completed_task_table', locals: { task_header: "Completed", task_table: @completed_tasks } %>
 <% end %>
+</div>

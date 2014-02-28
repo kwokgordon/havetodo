@@ -4,7 +4,7 @@ function toggleCheckbox(id) {
 
 	$.ajax({
       type: "POST",
-      url: "/users/tasks/" +id + "/toggleComplete",
+      url: "/users/tasks/" +id + "/toggleComplete.json",
       success: function(response) {
       	
       	$("#demo").html(response);

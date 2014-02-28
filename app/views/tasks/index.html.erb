@@ -11,8 +11,6 @@ function toggleCheckbox(id) {
     	  taskElement.setAttribute('class', 'incomplete');
 		  document.getElementById(id).src = "<%= image_path("uncheck.png") %>";
 		  
-		  $.("#item_datetime_"+id).text("");
-
 	    } else {
 	      taskElement.setAttribute('class', 'completed');
 		  document.getElementById(id).src = "<%= image_path("check.png") %>";

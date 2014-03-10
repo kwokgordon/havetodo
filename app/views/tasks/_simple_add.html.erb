@@ -58,8 +58,8 @@ function grab_cookies_details() {
   <div class="quick_task_container">
   <%= form_for @new_task do |f| %>
     <div class="field">
-      <%= f.label :name, value: "Task" %>
-      <%= f.text_field :name, :autofocus => true %>
+      <%= f.label :name, value: "Task", class: "task" %>
+      <%= f.text_field :name, class: "task", :autofocus => true %>
       <div class="form_button">
         <%= f.submit 'Quick Add', class: 'btn btn-default' %>
         <button id="add_details_button" class="btn btn-default" name="new_task" type="button" value="Add Details">Show Details</button>
@@ -68,16 +68,16 @@ function grab_cookies_details() {
 
 	<div id="add_details_block">
       <div class="field">
-        <%= f.label :note %>
-        <%= f.text_area :note, value: cookies[:note] %><br />
+        <%= f.label :note, class: "task" %>
+        <%= f.text_area :note, class: "task", value: cookies[:note] %><br />
       </div>
       <div class="field">
-        <%= f.label :due_date %>
-        <%= f.date_field :due_date, value: cookies[:due_date] %><br />
+        <%= f.label :due_date, class: "task" %>
+        <%= f.date_field :due_date, class: "task", value: cookies[:due_date] %><br />
       </div>
       <div class="field">
-        <%= f.label :due_time %>
-        <%= f.time_field :due_time, value: cookies[:due_time] %><br />
+        <%= f.label :due_time, class: "task" %>
+        <%= f.time_field :due_time, class: "task", value: cookies[:due_time] %><br />
       </div>
 	</div>
 

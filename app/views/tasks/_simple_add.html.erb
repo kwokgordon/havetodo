@@ -56,7 +56,7 @@ function grab_cookies_details() {
 
 <div class="row">
   <div class="quick_task_container">
-  <%= form_for @new_task, class: "task" do |f| %>
+  <%= form_for @new_task do |f| %>
     <div class="field">
       <%= f.label :name, value: "Task", class: "task" %>
       <%= f.text_field :name, class: "task", :autofocus => true %>

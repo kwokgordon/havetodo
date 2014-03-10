@@ -183,18 +183,20 @@ form.task {
   input + div {
     float: right;
   }
+
+  input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 60%;
+    margin-bottom: 15px;
+    @include box_sizing;
+  }
+  
+  input {
+    height: auto !important;
+  }
+
 }
 
-input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 60%;
-  margin-bottom: 15px;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
 
 #error_explanation {
   color: #f00;

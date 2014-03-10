@@ -157,6 +157,10 @@ aside {
 /* forms */
 form.new_task {
 
+  .form_button {
+    display:inline;
+  }
+
   input[type=submit] {
     width: 50%;
   }
@@ -189,6 +193,7 @@ form.new_task {
   }
 
   input + div {
+    width: 30%;
     float: right;
   }
 

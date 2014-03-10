@@ -155,37 +155,33 @@ aside {
 
 
 /* forms */
-form {
+form.task {
 
-  .task {
-    
-    label, input, textarea {
-      display: inline-block;
-    }
-  
-    label {
-      width: 10%;
-      text-align: right;
-    }
-  
-    label + input {
-      width: 50%;
-      margin: 0 5% 1% 2%;
-    }
-  
-    label + textarea {
-      width: 50%;
-      margin: 0 5% 1% 2%;
-    }
-  
-    input + input {
-      float: right;
-    }
-  
-    input + div {
-      float: right;
-    }
+  label, input, textarea {
+    display: inline-block;
+  }
 
+  label {
+    width: 10%;
+    text-align: right;
+  }
+
+  label + input {
+    width: 50%;
+    margin: 0 5% 1% 2%;
+  }
+
+  label + textarea {
+    width: 50%;
+    margin: 0 5% 1% 2%;
+  }
+
+  input + input {
+    float: right;
+  }
+
+  input + div {
+    float: right;
   }
 }
 

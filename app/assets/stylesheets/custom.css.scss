@@ -166,7 +166,7 @@ form.new_task {
   }
   
   button {
-    margin: 0 0 15px 0;
+    margin: 0 0 0 0;
   }
 
   label, input, textarea {
@@ -179,13 +179,13 @@ form.new_task {
   }
 
   label + input {
-    width: 50%;
-    margin: 0 5% 1% 2%;
+    width: 60%;
+    margin: 0 5% 0 2%;
   }
 
   label + textarea {
-    width: 50%;
-    margin: 0 5% 1% 2%;
+    width: 60%;
+    margin: 0 5% 0 2%;
   }
 
   input + input {

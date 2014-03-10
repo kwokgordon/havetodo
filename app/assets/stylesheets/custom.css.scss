@@ -197,6 +197,11 @@ form.task {
 
 }
 
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  @include box_sizing;
+}
 
 #error_explanation {
   color: #f00;

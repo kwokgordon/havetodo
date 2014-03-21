@@ -7,7 +7,7 @@ function toggleCheckbox(id) {
       url: "/users/tasks/" +id + "/toggleComplete.json",
       success: function(response) {
       	
-      	$("#demo").html(response);
+      	console.log(response);
 
 
 	    var taskElement = document.getElementById('task_'+id);

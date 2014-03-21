@@ -10,8 +10,11 @@ function toggleCheckbox(id) {
       	console.log(response.completed_date);
       	console.log(response.due_date);
       	
-      	
 	    var taskElement = document.getElementById('task_'+id);
+	    var taskDateElement = document.getElementById('item_datetime_'+id);
+
+      	console.log(taskDateElement.text);
+
 	    var item_datetime_id = '#item_datetime_'+id;
  	    if(taskElement.getAttribute('class') == "completed") {
     	  taskElement.setAttribute('class', 'incomplete');

@@ -10,7 +10,7 @@
       	<td width="5%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><img src="<%= image_path("check.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)"></td>
         <td width="85%">
 		  <span class="item_task_name"><%= link_to task.name, edit_task_path(task) %></span><br />
-   	  	  <span id="item_datetime_%= task.id %>" class="item_datetime">
+   	  	  <span id="item_datetime_<%= task.id %>" class="item_datetime">
    	  	  	<% if !task.completed_date.blank? %>
  	  	  	  <%= task.completed_date.localtime.strftime("%a %b %e %I:%M%p") %>
    	  	  	<% end %>

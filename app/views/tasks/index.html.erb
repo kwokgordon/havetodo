@@ -7,11 +7,15 @@ function toggleCheckbox(id) {
       url: "/users/tasks/" +id + "/toggleComplete.json",
       success: function(response) {
       	
+      	console.log(response.completed_date);
+      	console.log(response.due_date);
+      	
+      	
 	    var taskElement = document.getElementById('task_'+id);
 	    var taskDateElement = document.getElementById('item_datetime_'+id)
  	    if(taskElement.getAttribute('class') == "completed") {
     	  taskElement.setAttribute('class', 'incomplete');
-	      taskDateElement.text = response.date_date;
+	      taskDateElement.text = response.due_date;
 		  document.getElementById(id).src = "<%= image_path("uncheck.png") %>";
 		  
 	    } else {

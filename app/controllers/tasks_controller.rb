@@ -16,7 +16,8 @@ class TasksController < ApplicationController
     @new_task = Task.new
 #    @tasks = Task.all
     @tasks = @user.tasks
-
+    
+    @new_task_list = @user.tasks.empty
     @overdue_tasks = @user.tasks.overdue_tasks.order(:due_date)
     @today_tasks = @user.tasks.today_tasks.order(:due_date)
     @tomorrow_tasks = @user.tasks.tomorrow_tasks.order(:due_date)

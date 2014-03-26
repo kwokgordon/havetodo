@@ -8,6 +8,8 @@ class Task < ActiveRecord::Base
   
   scope :completed_tasks, -> { where(completed: true) }
   scope :incomplete_tasks, -> { where(completed: false) }
+  
+  scope :empty, -> { where("id is NULL") }
 
   scope :no_duedate_tasks, -> { incomplete_tasks.where("due_date IS NULL") }
   scope :with_duedate_tasks, -> { incomplete_tasks.where.not("due_date IS NULL") }

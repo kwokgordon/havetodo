@@ -66,8 +66,11 @@ function deleteTask(id) {
     html: 'true',
     title : titleHtml,
     content : contentHtml
-  });
+  }).popover('show');
 }
+
+/*
+$('[data-toggle="popover"]').popover();
 
 $('body').on('click', function (e) {
     $('[data-toggle="popover"]').each(function () {
@@ -78,6 +81,7 @@ $('body').on('click', function (e) {
         }
     });
 });
+*/
 
 /////////////////////////////////////////////////////////////////////////
 function show_details() {

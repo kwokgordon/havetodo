@@ -67,12 +67,14 @@ function deleteTask(id) {
     $(this).popover().popover('hide');
   });
     
-  $("#task_delete_"+id).popover({
-    placement: 'right',
-    html: 'true',
-    title : titleHtml,
-    content : contentHtml
-  }).popover('show');
+  $('body').click(function(event) {
+    $("#task_delete_"+id).popover({
+      placement: 'bottom',
+      html: 'true',
+      title : titleHtml,
+      content : contentHtml
+    }).popover('show');
+  })
 }
 
 /*

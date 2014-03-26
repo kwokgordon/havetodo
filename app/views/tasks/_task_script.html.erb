@@ -51,8 +51,6 @@ $(document).ready(function(){
 /////////////////////////////////////////////////////////////////////////
 
 function deleteTask(id) {
-  $('body').popover('hideAll');
-
   var titleHtml = [
     '<span class="text-info"><strong>Confirm Delete?</strong></span>'
   ].join('\n');
@@ -63,12 +61,18 @@ function deleteTask(id) {
       '<button class="btn btn-primary delete">Delete</button>',
     '</div>'].join('\n');
     
-  $("#task_delete_"+id).popover({
-    placement: 'bottom',
-    html: 'true',
-    title : titleHtml,
-    content : contentHtml
-  }).popover('show');
+  $('body').click(function(event) {
+  	event.preventDefault();
+	event.stopPropagation();
+
+    $("#task_delete_"+id).popover({
+      placement: 'bottom',
+      html: 'true',
+      title : titleHtml,
+      content : contentHtml
+    }).popover('show');
+	
+  })
 }
 
 /*

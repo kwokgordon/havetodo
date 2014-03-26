@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<span class="icon-trash" data-toggle="modal" data-target="#myModal"></span>
+<span class="icon-trash" data-toggle="modal" data-target="#myModal"><%= task.id %></span>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -10,7 +10,7 @@
         <h4 class="modal-title" id="myModalLabel">Confirm Delete?</h4>
       </div>
       <div class="modal-body">
-        Do you want to delete <%= task.name %>?
+        Do you want to delete "<%= task.name %>"?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>

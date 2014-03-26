@@ -51,6 +51,8 @@ $(document).ready(function(){
 /////////////////////////////////////////////////////////////////////////
 
 function deleteTask(id) {
+  $('body').popover('hideAll');
+
   var titleHtml = [
     '<span class="text-info"><strong>Confirm Delete?</strong></span>'
   ].join('\n');

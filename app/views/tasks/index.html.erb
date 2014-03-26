@@ -32,12 +32,6 @@ function toggleCheckbox(id) {
 
 <%= render 'simple_add', :style => "display:inline" %>
 
-<div id="message">
-	<% if flash[:notice] %>
-		<p class="flash-notice"><%= flash[:notice] %></p>
-	<% end %>
-</div>
-
 <div id="list_tables">
 <% if !@overdue_tasks.empty? %>
 <%= render partial: 'overdue_task_table', locals: { task_header: "Overdue", task_table: @overdue_tasks } %>

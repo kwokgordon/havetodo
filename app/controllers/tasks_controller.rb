@@ -17,7 +17,6 @@ class TasksController < ApplicationController
 #    @tasks = Task.all
     @tasks = @user.tasks
     
-    @new_task_list = @user.tasks.empty
     @overdue_tasks = @user.tasks.overdue_tasks.order(:due_date)
     @today_tasks = @user.tasks.today_tasks.order(:due_date)
     @tomorrow_tasks = @user.tasks.tomorrow_tasks.order(:due_date)
@@ -55,8 +54,9 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         @user.tasks << @task
-        
-        format.html { redirect_to :action => :index }
+                
+        format.html 
+#        format.html { redirect_to :action => :index }
 #        format.html { redirect_to :action => :index, notice: "#{@task.name} was successfully created." }
         format.json { render action: 'show', status: :created, location: @task }
       else

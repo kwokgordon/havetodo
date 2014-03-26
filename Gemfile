@@ -5,8 +5,11 @@ gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'pg', '0.15.1'
 gem 'validates_existence', '0.9.2'
-gem 'protected_attributes'
-gem 'jquery-cookie-rails'
+gem 'protected_attributes', '1.0.5'
+gem 'jquery-cookie-rails', '1.3.1.1'
+gem 'momentjs-rails', '~> 2.5.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 3.0.0'
+
 
 # Auth
 gem 'bcrypt-ruby', '3.1.2'

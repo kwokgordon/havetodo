@@ -51,14 +51,12 @@ $(document).ready(function(){
 /////////////////////////////////////////////////////////////////////////
 
 function deleteTask(id) {
-  $(document).ready(function(id) {
-    $("#task_delete_"+id).popover({
-      placement: 'bottom',
-      html: 'true',
-      title : '<span class="text-info"><strong>'+id+'</strong></span>'+
-              '<button type="button" id="close" class="close" onclick="$(&quot;#example&quot;).popover(&quot;hide&quot;);">&times;</button>',
-      content : 'test'
-    });
+  $("#task_delete_"+id).popover({
+    placement: 'bottom',
+    html: 'true',
+    title : '<span class="text-info"><strong>'+id+'</strong></span>'+
+            '<button type="button" id="close" class="close" onclick="$(&quot;#example&quot;).popover(&quot;hide&quot;);">&times;</button>',
+    content : 'test'
   });
 }
 

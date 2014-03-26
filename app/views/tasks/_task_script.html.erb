@@ -52,8 +52,7 @@ $(document).ready(function(){
 
 function deleteTask(id) {
   var titleHtml = [
-    '<span class="text-info"><strong>Confirm Delete?</strong></span>',
-    '<button type="button" id="close" class="close" onclick="$(&quot;#example&quot;).popover(&quot;hide&quot;);">&times;</button>'
+    '<span class="text-info"><strong>Confirm Delete?</strong></span>'
   ].join('\n');
 
   var contentHtml = [
@@ -69,6 +68,8 @@ function deleteTask(id) {
     content : contentHtml
   });
 }
+
+$('[data-toggle="popover"]').popover();
 
 /////////////////////////////////////////////////////////////////////////
 function show_details() {

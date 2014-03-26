@@ -55,7 +55,11 @@ class TasksController < ApplicationController
       if @task.save
         @user.tasks << @task
                 
-        format.html { redirect_to :action => :index, flash: { notice: "#{@task.name} was successfully created." } }
+        format.html { 
+          flash.now[:notice] = "#{@task.name} was successfully created." 
+          redirect_to :action => :index
+#          redirect_to :action => :index, notice: "#{@task.name} was successfully created." 
+        }
         format.json { render action: 'show', status: :created, location: @task }
       else
         format.html { redirect_to :action => :index, flash: { alert: "#{@task.name} was not created." } }

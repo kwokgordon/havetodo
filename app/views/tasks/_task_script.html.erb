@@ -50,15 +50,17 @@ $(document).ready(function(){
 
 /////////////////////////////////////////////////////////////////////////
 
-$(document).ready(function() {
-    $("#example").popover({
-        placement: 'bottom',
-        html: 'true',
-        title : '<span class="text-info"><strong>title</strong></span>'+
-                '<button type="button" id="close" class="close" onclick="$(&quot;#example&quot;).popover(&quot;hide&quot;);">&times;</button>',
-        content : 'test'
+function deleteTask(id) {
+  $(document).ready(function(id) {
+    $("#task_delete_"+id).popover({
+      placement: 'bottom',
+      html: 'true',
+      title : '<span class="text-info"><strong>'+id+'</strong></span>'+
+              '<button type="button" id="close" class="close" onclick="$(&quot;#example&quot;).popover(&quot;hide&quot;);">&times;</button>',
+      content : 'test'
     });
-});
+  });
+}
 
 /////////////////////////////////////////////////////////////////////////
 function show_details() {

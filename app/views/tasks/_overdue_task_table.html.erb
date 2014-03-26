@@ -23,9 +23,7 @@
    	  	  </span>
     	</td>
         <td width="10%">
-        	<%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        		<span class="icon-trash"></span>
-        	<% end %>
+		  <%= render partial: 'task_delete' %>
         </td>
       </tr>
     <% end %>

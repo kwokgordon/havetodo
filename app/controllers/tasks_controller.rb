@@ -56,13 +56,15 @@ class TasksController < ApplicationController
         @user.tasks << @task
                 
         format.html { 
-          flash[:notice] = "#{@task.name} was successfully created." 
+          flash[:alert] = "#{@task.name} was successfully created." 
           redirect_to :action => :index
-#          redirect_to :action => :index, notice: "#{@task.name} was successfully created." 
         }
         format.json { render action: 'show', status: :created, location: @task }
       else
-        format.html { redirect_to :action => :index, flash: { alert: "#{@task.name} was not created." } }
+        format.html { 
+          flash[:alert] = "#{@task.name} was not created."
+          redirect_to :action => :index
+        }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end

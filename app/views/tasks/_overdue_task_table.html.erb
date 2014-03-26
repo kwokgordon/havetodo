@@ -23,7 +23,7 @@
    	  	  </span>
     	</td>
         <td width="10%">
-		  <%= render partial: 'task_delete' %>
+		  <%= render partial: 'task_delete', locals: { task: task }  %>
         </td>
       </tr>
     <% end %>

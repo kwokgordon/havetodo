@@ -50,6 +50,8 @@ $(document).ready(function(){
 
 /////////////////////////////////////////////////////////////////////////
 
+$('[data-toggle="popover"]').popover();
+
 function deleteTask(id) {
   var titleHtml = [
     '<span class="text-info"><strong>Confirm Delete?</strong></span>'
@@ -62,8 +64,6 @@ function deleteTask(id) {
     '</div>'].join('\n');
     
   $('body').click(function(event) {
-  	$(this).popover('hideAll');
-
     $("#task_delete_"+id).popover({
       placement: 'bottom',
       html: 'true',
@@ -75,7 +75,6 @@ function deleteTask(id) {
 }
 
 /*
-$('[data-toggle="popover"]').popover();
 
 $('body').on('click', function (e) {
     $('[data-toggle="popover"]').each(function () {

@@ -52,13 +52,6 @@ function grab_cookies_details() {
   $("#task_due_time").val($.cookie("due_time"));
 }
 
-
-$(function() {
-  $('#due_date_picker').datetimepicker({
-    pickTime: false
-  });
-});
-
 </script>
 
 
@@ -88,10 +81,8 @@ $(function() {
         <%= f.text_area :note, class: "task", value: cookies[:note] %><br />
       </div>
       <div class="field">
-      	<div id="due_date_picker" class="input-append">
-          <%= f.label :due_date, class: "task" %>
-          <%= f.date_field :due_date, class: "task", value: cookies[:due_date] %><br />
-        </div>
+        <%= f.label :due_date, class: "task" %>
+        <%= f.date_field :due_date, class: "task", value: cookies[:due_date] %><br />
       </div>
       <div class="field">
         <%= f.label :due_time, class: "task" %>

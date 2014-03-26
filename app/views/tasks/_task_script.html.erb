@@ -62,8 +62,7 @@ function deleteTask(id) {
     '</div>'].join('\n');
     
   $('body').click(function(event) {
-  	event.preventDefault();
-	event.stopPropagation();
+  	event.preventPropagation();
 
     $("#task_delete_"+id).popover({
       placement: 'bottom',

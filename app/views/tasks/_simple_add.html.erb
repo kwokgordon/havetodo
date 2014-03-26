@@ -51,6 +51,14 @@ function grab_cookies_details() {
   $("#task_due_date").val($.cookie("due_date"));
   $("#task_due_time").val($.cookie("due_time"));
 }
+
+
+$(function() {
+  $('#due_date_picker').datetimepicker({
+    pickTime: false
+  });
+});
+
 </script>
 
 
@@ -67,8 +75,8 @@ function grab_cookies_details() {
 	        <button id="more_function_button" class="btn btn-default dropdown-toggle" name="task_function" type="button" value="More Function" data-toggle="dropdown">
     	    	<span class="caret"></span>
         	</button>
-	        <ul class="dropdown-menu">
-    	    	<li><button id="mass_delete_tasks" class="btn btn-default" name="mass_delete" value="Mass Delete" type="button">Mass Delete</button></li>
+	        <ul class="dropdown-menu" role="menu">
+    	    	<li><a href="#">Mass Delete</a></li>
        		</ul>
        	</div>
       </div>
@@ -80,8 +88,10 @@ function grab_cookies_details() {
         <%= f.text_area :note, class: "task", value: cookies[:note] %><br />
       </div>
       <div class="field">
-        <%= f.label :due_date, class: "task" %>
-        <%= f.date_field :due_date, class: "task", value: cookies[:due_date] %><br />
+      	<div id="due_date_picker" class="input-append">
+          <%= f.label :due_date, class: "task" %>
+          <%= f.date_field :due_date, class: "task", value: cookies[:due_date] %><br />
+        </div>
       </div>
       <div class="field">
         <%= f.label :due_time, class: "task" %>

@@ -56,7 +56,7 @@ class TasksController < ApplicationController
         @user.tasks << @task
                 
         format.html { 
-          flash.now[:notice] = "#{@task.name} was successfully created." 
+          flash[:notice] = "#{@task.name} was successfully created." 
           redirect_to :action => :index
 #          redirect_to :action => :index, notice: "#{@task.name} was successfully created." 
         }

@@ -51,12 +51,22 @@ $(document).ready(function(){
 /////////////////////////////////////////////////////////////////////////
 
 function deleteTask(id) {
+  var titleHtml = [
+    '<span class="text-info"><strong>Confirm Delete?</strong></span>',
+    '<button type="button" id="close" class="close" onclick="$(&quot;#example&quot;).popover(&quot;hide&quot;);">&times;</button>'
+  ].join('\n');
+
+  var contentHtml = [
+    '<div>',
+      '<button class="btn btn-link cancel">Cancel</button>',
+      '<button class="btn btn-primary delete">Delete</button>',
+    '</div>'].join('\n');
+    
   $("#task_delete_"+id).popover({
     placement: 'bottom',
     html: 'true',
-    title : '<span class="text-info"><strong>'+id+'</strong></span>'+
-            '<button type="button" id="close" class="close" onclick="$(&quot;#example&quot;).popover(&quot;hide&quot;);">&times;</button>',
-    content : 'test'
+    title : titleHtml,
+    content : contentHtml
   });
 }
 

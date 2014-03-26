@@ -64,6 +64,8 @@ function deleteTask(id) {
     '</div>'].join('\n');
     
   $('body').click(function(event) {
+    $('[data-toggle="popover"]').popover().popover('hideAll');
+
     $("#task_delete_"+id).popover({
       placement: 'bottom',
       html: 'true',

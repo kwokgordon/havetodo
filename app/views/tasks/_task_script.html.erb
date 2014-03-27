@@ -48,28 +48,6 @@ $(document).ready(function(){
   });
 });
 
-/////////////////////////////////////////////////////////////////////////
-
-$('[data-toggle="popover"]').popover();
-
-function deleteTask(id) {
-  var titleHtml = [
-    '<span class="text-info"><strong>Confirm Delete?</strong></span>'
-  ].join('\n');
-
-  var contentHtml = [
-    '<div>',
-      '<button class="btn btn-link cancel">Cancel</button>',
-      '<button class="btn btn-primary delete">Delete</button>',
-    '</div>'].join('\n');
-    
-  $("#task_delete_"+id).popover({
-    placement: 'bottom',
-    html: 'true',
-    title : titleHtml,
-    content : contentHtml
-  }).popover('show');
-}
 
 /////////////////////////////////////////////////////////////////////////
 function show_details() {

@@ -1,4 +1,13 @@
 class FriendshipsController < ApplicationController
+
+  skip_before_filter :verify_authenticity_token,
+                     :if => Proc.new { |c| c.request.format == 'application/json' }
+                       
+  before_filter :authenticate_user!
+  before_filter :validate_user
+  
+  before_action :get_user
+
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
@@ -16,4 +25,15 @@ class FriendshipsController < ApplicationController
     flash[:notice] = "Removed friendship."
     redirect_to current_user
   end
+
+  def validate_user
+    redirect_to new_user_session_path unless current_user
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def get_user
+      @user = User.find(current_user.id)
+    end
+    
 end

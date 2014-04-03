@@ -34,6 +34,8 @@ HaveTodo::Application.routes.draw do
   resources :tasks, path: '/users/tasks' do
     post '/toggleComplete' => 'tasks#toggleComplete'
   end
+  
+  resources :friendships
 
   # Moblie access
   namespace :api do

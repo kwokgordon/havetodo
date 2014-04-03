@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
   end
 
   has_and_belongs_to_many :tasks
+  
+  has_many :friendships
+  has_many :friends, :through => :friendships
 
 
   private

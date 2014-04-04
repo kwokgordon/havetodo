@@ -8,6 +8,13 @@ class FriendshipsController < ApplicationController
   
   before_action :get_user
 
+
+  # GET /friendships
+  # GET /friendships.json
+  def index
+
+  end
+
   def create
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save

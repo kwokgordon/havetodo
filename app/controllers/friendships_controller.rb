@@ -12,7 +12,12 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.json
   def index
-
+    @friends = @user.friendships
+    
+    respond_to do |format|
+      format.html 
+      format.json 
+    end
   end
 
   def create
@@ -42,5 +47,4 @@ class FriendshipsController < ApplicationController
     def get_user
       @user = User.find(current_user.id)
     end
-    
 end

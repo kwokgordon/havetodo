@@ -34,7 +34,7 @@ class FriendshipsController < ApplicationController
 #        format.json { render json: params[:email], status: :unprocessable_entity }
       end
     else
-      @friendship = current_user.friendships.build(:friend_id => @friend_id.id)
+      @friendship = current_user.friendships.build(:friend_id => @friend_id.first.id)
       
       respond_to do |format|
         if @friendship.save

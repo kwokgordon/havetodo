@@ -215,7 +215,6 @@ form.new_task {
 
 form.new_friend {
   label {
-    width: 10%;
     text-align: right;
   }
 
@@ -223,18 +222,15 @@ form.new_friend {
     display:inline;
   }
 
+  label, input {
+    display: inline;
+  }
+
   label + input {
-    width: 55%;
+    width: 60%;
     margin: 0 0 0 0;
   }
 
-  input[type=submit] {
-    width: 40%;
-  }
-  
-  button {
-    margin: 0 0 0 0;
-  }
 }
 
 input, textarea, select, .uneditable-input {

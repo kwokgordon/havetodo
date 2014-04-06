@@ -3,7 +3,7 @@
   <%= form_tag("/users/friendships", method: "post", id: "new_friend") do %>
     <%= label_tag(:email, "Friend's Email") %>
     <%= text_field_tag(:email) %>
-    <%= submit_tag("Add Friend"), :class => "btn btn-default"%>
+    <%= submit_tag "Add Friend", class: "btn btn-default"%>
 	  <% end %>
 
 <ul>

@@ -1,12 +1,10 @@
 <h2>Friends</h2>
 
-  <%= form_for @new_friend do |f| %>
-    <div class="field">
-      <%= f.label :email, value: "Email" %>
-      <%= f.text_field :email, :autofocus => true %>
-      <%= f.submit 'Friend Request', class: 'btn btn-default' %>
-    </div>
-  <% end %>
+  <%= form_tag("/create", method: "post") do %>
+    <%= label_tag(:email, "Friend's Email:") %>
+    <%= text_field_tag(:email) %>
+    <%= submit_tag("Add Friend")%>
+	  <% end %>
 
 <ul>
   <% for friendship in @friends %>

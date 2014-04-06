@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.json
   def index
-    @new_friend = Friendship.new
+#    @new_friend = Friendship.new
     
     @friends = @user.friendships
     
@@ -23,6 +23,35 @@ class FriendshipsController < ApplicationController
   end
 
   def create
+    @friend_id = User.where(:email => params[:email])
+    
+    if @friend_id.empty?
+      respond_to do |format|
+        format.html {
+          flash[:danger] = "#{params[:email]} not found" 
+          redirect_to :action => :index
+        }
+#        format.json { render json: params[:email], status: :unprocessable_entity }
+      end
+    else
+      @friendship = current_user.friendships.build(:friend_id => @friend_id.id)
+      
+      respond_to do |format|
+        if @friendship.save
+          format.html {
+            flash[:success] = "#{params[:email]} was successfully requested." 
+            redirect_to :action => :index
+          }
+        else
+          format.html {
+            flash[:danger] = "#{@task.name} was not created."
+            redirect_to :action => :index
+          }
+        end
+      end
+    end
+    
+=begin    
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
       flash[:notice] = "Added friend."
@@ -31,6 +60,7 @@ class FriendshipsController < ApplicationController
       flash[:error] = "Unable to add friend."
       redirect_to root_url
     end
+=end
   end
   
   def destroy

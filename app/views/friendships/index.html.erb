@@ -1,4 +1,13 @@
 <h2>Friends</h2>
+
+  <%= form_for @new_friend do |f| %>
+    <div class="field">
+      <%= f.label :email, value: "Email" %>
+      <%= f.text_field :email, :autofocus => true %>
+      <%= f.submit 'Friend Request', class: 'btn btn-default' %>
+    </div>
+  <% end %>
+
 <ul>
   <% for friendship in @friends %>
     <li>

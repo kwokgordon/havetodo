@@ -12,6 +12,8 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.json
   def index
+    @new_friend = Friendship.new
+    
     @friends = @user.friendships
     
     respond_to do |format|
@@ -24,7 +26,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
     if @friendship.save
       flash[:notice] = "Added friend."
-      redirect_to root_url
+      redirect_to :action => :index
     else
       flash[:error] = "Unable to add friend."
       redirect_to root_url

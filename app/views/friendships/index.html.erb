@@ -1,7 +1,7 @@
 <h2>Friends</h2>
 
-  <%= form_tag("/users/friendships", method: "post") do %>
-    <%= label_tag(:email, "Friend's Email:") %>
+  <%= form_tag("/users/friendships", method: "post", id: "new_friend") do %>
+    <%= label_tag(:email, "Friend's Email") %>
     <%= text_field_tag(:email) %>
     <%= submit_tag("Add Friend")%>
 	  <% end %>

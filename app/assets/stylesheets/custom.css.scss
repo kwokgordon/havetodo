@@ -213,6 +213,30 @@ form.new_task {
 
 }
 
+form.new_friend {
+  label {
+    width: 10%;
+    text-align: right;
+  }
+
+  .form_button {
+    display:inline;
+  }
+
+  label + input {
+    width: 55%;
+    margin: 0 0 0 0;
+  }
+
+  input[type=submit] {
+    width: 40%;
+  }
+  
+  button {
+    margin: 0 0 0 0;
+  }
+}
+
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;

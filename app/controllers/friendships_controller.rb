@@ -14,7 +14,11 @@ class FriendshipsController < ApplicationController
   def index
 #    @new_friend = Friendship.new
     
-    @friends = @user.friendships
+    @friendships_request = @user.friendships.where(:status => "requested")
+    @inverse_friendships_request = @user.inverse_friendships.where(:status => "requested")
+
+    @friendships = @user.friendships.where(:status => "accepted")
+    @inverse_friendships = @user.inverse_friendships.where(:status => "accepted")
     
     respond_to do |format|
       format.html 
@@ -34,7 +38,7 @@ class FriendshipsController < ApplicationController
 #        format.json { render json: params[:email], status: :unprocessable_entity }
       end
     else
-      @friendship = @user.friendships.build(:friend_id => @friend_id.first.id, :status => "request")
+      @friendship = @user.friendships.build(:friend_id => @friend_id.first.id, :status => "requested")
       
       respond_to do |format|
         if @friendship.save

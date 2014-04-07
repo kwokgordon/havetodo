@@ -6,18 +6,35 @@
     <%= submit_tag "Add Friend", class: "btn btn-default"%>
 	  <% end %>
 
+<h2>Your Request</h2>
 <ul>
-  <% for friendship in @friends %>
+  <% for friendship in @friendships_request %>
     <li>
       <%=h friendship.friend.email %>
     </li>
   <% end %>
 </ul>
 
+<h2>Friend's Request</h2>
+<ul>
+  <% for friendship in @inverse_friendships_request %>
+    <li>
+      <%=h friendship.friend.email %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Your Friends</h2>
+<ul>
+  <% for user in @friendships %>
+    <li><%=h user.friend.email %></li>
+  <% end %>
+</ul>
+
 
 <h2>Friended by Users</h2>
 <ul>
-  <% for user in @user.inverse_friends %>
-    <li><%=h user.email %></li>
+  <% for user in @inverse_friendships %>
+    <li><%=h user.friend.email %></li>
   <% end %>
 </ul>

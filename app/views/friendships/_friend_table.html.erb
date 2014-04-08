@@ -6,7 +6,7 @@
   
   <table class="table">
 	<% friend_table.each do |friend| %>
-	<% if user.id == current_user.id %>
+	<% if friend.user.id == current_user.id %>
       <tr id="friend_<%= friend.friend.id %>">
       	<td width="20%">
       		<%= friend.friend.name %>

@@ -1,10 +1,28 @@
 <h2>Friends</h2>
 
-  <%= form_tag("/users/friendships", method: "post", id: "new_friend", class: "new_friend") do %>
-    <%= label_tag(:email, "Friend's Email") %>
-    <%= text_field_tag :email, "", :autofocus => true %>
-    <%= submit_tag "Add Friend", class: "btn btn-default"%>
-	  <% end %>
+<%= render 'simple_add', :style => "display:inline" %>
+
+<div id="list_tables">
+<% if !@friendships_request.empty? %>
+<%= render partial: 'friend_table', locals: { friend_header: "Your Request", friend_table: @friendships_request } %>
+<% end %>
+
+<% if !@inverse_friendships_request.empty? %>
+<%= render partial: 'friend_table', locals: { friend_header: "Friend's Request", friend_table: @inverse_friendships_request } %>
+<% end %>
+
+<% if !@friendships.empty? %>
+<%= render partial: 'friend_table', locals: { friend_header: "Your Friends", friend_table: @friendships } %>
+<% end %>
+
+<% if !@inverse_friendships.empty? %>
+<%= render partial: 'friend_table', locals: { friend_header: "Friended by Users", friend_table: @inverse_friendships } %>
+<% end %>
+
+<% if !@all_friends.empty? %>
+<%= render partial: 'friend_table', locals: { friend_header: "All Friends", friend_table: @all_friends } %>
+<% end %>
+</div>
 
 <h2>Your Request</h2>
 <ul>

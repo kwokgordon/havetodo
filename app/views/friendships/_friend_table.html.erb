@@ -4,29 +4,33 @@
   </div>
   <div class="panel-body"></div>
   
-  <%= current_user.id %>
-
   <table class="table">
 	<% friend_table.each do |friend| %>
       <tr id="friend_<%= friend.id %>">
       	<td width="20%">
       		<%= friend.friend.name %>
       	</td>
-        <td width="40%">
+        <td width="60%">
       		<%= friend.friend.email %>
     	</td>
     	<% if status = "requested" %>
-          <td width="20%">
-            Accept
+          <td width="10%">
+		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="acceptFriend(<%= current_user.id %>, <%= friend.friend.id %>)">
+		      Accept
+		    </button>          	
           </td>
-          <td width="20%">
-          	Decline
+          <td width="10%">
+		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="declineFriend(<%= current_user.id %>, <%= friend.friend.id %>)">
+		      Decline
+		    </button>          	
           </td>
         <% else %>
-          <td width="20%">
+          <td width="10%">
           </td>
-          <td width="20%">
-          	Delete
+          <td width="10%">
+		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="removeFriend(<%= current_user.id %>, <%= friend.friend.id %>)">
+		      Remove
+		    </button>          	
           </td>
         <% end %>
       </tr>

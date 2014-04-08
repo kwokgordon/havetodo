@@ -1,14 +1,16 @@
+<%= render 'friend_script' %>
+
 <h2>Friends</h2>
 
 <%= render 'simple_add', :style => "display:inline" %>
 
 <div id="list_tables">
-<% if !@friendships_request.empty? %>
-<%= render partial: 'friend_table', locals: { friend_header: "Your Request", friend_table: @friendships_request, status: "requested" } %>
-<% end %>
-
 <% if !@inverse_friendships_request.empty? %>
 <%= render partial: 'friend_table', locals: { friend_header: "Friend's Request", friend_table: @inverse_friendships_request, status: "requested" } %>
+<% end %>
+
+<% if !@friendships_request.empty? %>
+<%= render partial: 'friend_table', locals: { friend_header: "Your Request", friend_table: @friendships_request, status: "pending" } %>
 <% end %>
 
 <% if !@friendships.empty? %>

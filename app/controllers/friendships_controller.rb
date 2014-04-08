@@ -27,7 +27,7 @@ class FriendshipsController < ApplicationController
       format.json 
     end
   end
-
+  
   def create
     @friend_id = User.where(:email => params[:email])
     
@@ -56,17 +56,6 @@ class FriendshipsController < ApplicationController
         end
       end
     end
-    
-=begin    
-    @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
-    if @friendship.save
-      flash[:notice] = "Added friend."
-      redirect_to :action => :index
-    else
-      flash[:error] = "Unable to add friend."
-      redirect_to root_url
-    end
-=end
   end
   
   def destroy
@@ -74,6 +63,18 @@ class FriendshipsController < ApplicationController
     @friendship.destroy
     flash[:notice] = "Removed friendship."
     redirect_to current_user
+  end
+  
+  def acceptFriend
+    
+  end
+  
+  def declineFriend
+    
+  end
+  
+  def removeFriend
+    
   end
 
   def validate_user

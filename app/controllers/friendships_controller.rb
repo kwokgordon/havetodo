@@ -20,6 +20,8 @@ class FriendshipsController < ApplicationController
     @friendships = @user.friendships.where(:status => "accepted")
     @inverse_friendships = @user.inverse_friendships.where(:status => "accepted")
     
+    @all_friends = @friendships + @inverse_friendships
+    
     respond_to do |format|
       format.html 
       format.json 

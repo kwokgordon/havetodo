@@ -1,52 +1,31 @@
 <script>
 
 /////////////////////////////////////////////////////////////////////////
-function acceptFriend(user_id, friend_id) {
+function acceptFriend(id) {
 
 	$.ajax({
       type: "POST",
-      url: "/users/tasks/" +id + "/toggleComplete.json",
-      success: function(response) {
-      	
-	    }
-    
-        location.reload();
-
-      }
+      url: "/users/friendships/" +id + "/acceptFriend"
     });
 
 }
 
 /////////////////////////////////////////////////////////////////////////
-function declineFriend(user_id, friend_id) {
+function rejectFriend(id) {
 
 	$.ajax({
       type: "POST",
-      url: "/users/tasks/" +id + "/toggleComplete.json",
-      success: function(response) {
-      	
-	    }
-    
-        location.reload();
-
-      }
+      url: "/users/friendships/" +id + "/rejectFriend"
     });
 
 }
 
 /////////////////////////////////////////////////////////////////////////
-function removeFriend(user_id, friend_id) {
+function removeFriend(id) {
 
 	$.ajax({
       type: "POST",
-      url: "/users/tasks/" +id + "/toggleComplete.json",
-      success: function(response) {
-      	
-	    }
-    
-        location.reload();
-
-      }
+      url: "/users/friendships/" +id + "/removeFriend"
     });
 
 }

@@ -66,15 +66,51 @@ class FriendshipsController < ApplicationController
   end
   
   def acceptFriend
-    
+    get_user
+    @friend = @user.inverse_friendships.where(user_id: params[:friendship_id], friend_id: @user.id)
+
+    @friend.status = "accepted"
+
+    respond_to do |format|
+      if @friend.save
+        format.html {
+          flash[:success] = "You are now friend with #{@friend.user.name}" 
+          redirect_to :action => :index
+        }
+        format.json 
+      else
+        format.html {
+          flash[:danger] = "Something Wrong when accepting your friend" 
+          redirect_to :action => :index
+        }
+        format.json 
+      end
+    end    
   end
   
-  def declineFriend
+  def rejectFriend
+    get_user
+    @friend = @user.inverse_friendships.where(user_id: params[:friendship_id], friend_id: @user.id)
     
+    friend_name = @friend.user.name
+
+    @friend.destory
+
+    respond_to do |format|
+      format.html {
+        flash[:success] = "You rejected #{friend_name}" 
+        redirect_to :action => :index
+      }
+      format.json 
+    end    
   end
   
   def removeFriend
-    
+
+    respond_to do |format|
+      format.html 
+      format.json 
+    end    
   end
 
   def validate_user

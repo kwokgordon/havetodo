@@ -13,7 +13,7 @@
         <td width="60%">
       		<%= friend.friend.email %>
     	</td>
-    	<% if status = "requested" %>
+    	<% if status == "requested" %>
           <td width="10%">
 		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="acceptFriend(<%= friend.friend.id %>)">
 		      Accept
@@ -24,7 +24,7 @@
 		      Reject
 		    </button>          	
           </td>
-        <% elsif status = "pending" %>
+        <% elsif status == "pending" %>
           <td width="10%">
           	Waiting for your friend to accept
           </td>

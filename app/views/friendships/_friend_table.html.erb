@@ -7,42 +7,39 @@
   <table class="table">
 	<% friend_table.each do |friend| %>
 	<% if friend.user.id == current_user.id %>
-      <tr id="friend_<%= friend.friend.id %>">
-      	<td width="20%">
-      		<%= friend.friend.name %>
-      	</td>
-        <td width="60%">
-      		<%= friend.friend.email %>
-    	</td>
+	  <% display = friend.friend %>
 	<% else %>
-      <tr id="friend_<%= friend.user.id %>">
-      	<td width="20%">
-      		<%= friend.user.name %>
-      	</td>
-        <td width="60%">
-      		<%= friend.user.email %>
-    	</td>
+	  <% display = friend.user %>
 	<% end %>
+
+      <tr id="friend_<%= display.id %>">
+      	<td width="20%">
+      		<%= display.name %>
+      	</td>
+        <td width="50%">
+      		<%= display.email %>
+    	</td>
+    	
     	<% if status == "requested" %>
-          <td width="10%">
-		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="acceptFriend(<%= friend.friend.id %>)">
+          <td width="15%">
+		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="acceptFriend(<%= display.id %>)">
 		      Accept
 		    </button>          	
           </td>
-          <td width="10%">
-		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="rejectFriend(<%= friend.friend.id %>)">
+          <td width="15%">
+		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="rejectFriend(<%= display.id %>)">
 		      Reject
 		    </button>          	
           </td>
         <% elsif status == "pending" %>
-          <td width="20%">
+          <td width="30%">
           	Waiting for your friend to accept
           </td>
         <% else %>
-          <td width="10%">
+          <td width="15%">
           </td>
-          <td width="10%">
-		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="removeFriend(<%= friend.friend.id %>)">
+          <td width="15%">
+		    <button id="friend_id" class="btn btn-default" name="friend" type="button" onclick="removeFriend(<%= display.id %>)">
 		      Remove
 		    </button>          	
           </td>

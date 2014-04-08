@@ -67,7 +67,7 @@ class FriendshipsController < ApplicationController
   
   def acceptFriend
     get_user
-    @friend = @user.inverse_friendships.where(user_id: params[:friendship_id], friend_id: @user.id).first
+    find_friendship(params[:friendship_id])
 
     @friend.status = "accepted"
 
@@ -85,14 +85,12 @@ class FriendshipsController < ApplicationController
         }
         format.json 
       end
-    end    
+    end 
   end
   
   def rejectFriend
     get_user
-    @friend = @user.inverse_friendships.where(user_id: params[:friendship_id], friend_id: @user.id).first
-    
-    friend_name = @friend.user.name
+    find_friendship(params[:friendship_id])
 
     @friend.destory
 
@@ -106,9 +104,16 @@ class FriendshipsController < ApplicationController
   end
   
   def removeFriend
+    get_user
+    find_friendship(params[:friendship_id])
+
+    @friend.destory
 
     respond_to do |format|
-      format.html 
+      format.html {
+        flash[:success] = "You removed #{friend_name}" 
+        redirect_to :action => :index
+      }
       format.json 
     end    
   end
@@ -121,5 +126,16 @@ class FriendshipsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def get_user
       @user = User.find(current_user.id)
+    end
+    
+    def find_friendship(f_id)
+      @friend = @user.inverse_friendships.where(user_id: f_id, friend_id: @user.id).first
+    
+      if @friend.nil?
+        @friend = @user.friendships.where(user_id: @user.id, friend_id: f_id).first
+        friend_name = @friend.friend.name
+      end
+
+      friend_name = @friend.user.name
     end
 end

@@ -67,7 +67,7 @@ class FriendshipsController < ApplicationController
   
   def acceptFriend
     get_user
-    @friend = @user.inverse_friendships.where(user_id: params[:friendship_id], friend_id: @user.id)
+    @friend = @user.inverse_friendships.where(user_id: params[:friendship_id], friend_id: @user.id).first
 
     @friend.status = "accepted"
 
@@ -90,7 +90,7 @@ class FriendshipsController < ApplicationController
   
   def rejectFriend
     get_user
-    @friend = @user.inverse_friendships.where(user_id: params[:friendship_id], friend_id: @user.id)
+    @friend = @user.inverse_friendships.where(user_id: params[:friendship_id], friend_id: @user.id).first
     
     friend_name = @friend.user.name
 

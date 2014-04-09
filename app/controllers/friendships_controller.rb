@@ -128,7 +128,7 @@ class FriendshipsController < ApplicationController
     def find_friendship(id)
       @friendship = @user.friendships.where(id: id).first
     
-      if @friendship.empty?
+      if @friendship.nil?
         @friendship = @user.inverse_friendships.where(id: id).first
         @friend = @friendship.user
         @friend_name = @friendship.user.name

@@ -22,6 +22,6 @@ class Task < ActiveRecord::Base
   
   validates :name, presence: true
   
-  has_and_belongs_to_many :user, :foreign_key => "task_id"
+  has_and_belongs_to_many :users
 
 end

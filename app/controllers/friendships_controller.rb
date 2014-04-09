@@ -60,9 +60,15 @@ class FriendshipsController < ApplicationController
   
   def destroy
     get_user
-    find_friendship(params[:friendship_id])
+    @friendship = @user.friendships.find(params[:id])
 
-    @friend.destroy
+    if @friendship.user.id == @user.id
+      @friend_name = @friendship.friend.name
+    else
+      @friend_name = @friendship.user.name
+    end
+
+    @friendship.destroy
 
     respond_to do |format|
       format.html {

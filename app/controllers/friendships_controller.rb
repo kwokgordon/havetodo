@@ -96,7 +96,7 @@ class FriendshipsController < ApplicationController
 
     respond_to do |format|
       format.html {
-        flash[:success] = "You rejected #{friend_name}" 
+        flash[:success] = "You rejected #{@friend_name}" 
         redirect_to :action => :index
       }
       format.json 
@@ -111,7 +111,7 @@ class FriendshipsController < ApplicationController
 
     respond_to do |format|
       format.html {
-        flash[:success] = "You removed #{friend_name}" 
+        flash[:success] = "You removed #{@friend_name}" 
         redirect_to :action => :index
       }
       format.json 
@@ -133,9 +133,9 @@ class FriendshipsController < ApplicationController
     
       if @friend.nil?
         @friend = @user.friendships.where(user_id: @user.id, friend_id: f_id).first
-        friend_name = @friend.friend.name
+        @friend_name = @friend.friend.name
       end
 
-      friend_name = @friend.user.name
+      @friend_name = @friend.user.name
     end
 end

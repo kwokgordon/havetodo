@@ -59,10 +59,18 @@ class FriendshipsController < ApplicationController
   end
   
   def destroy
-    @friendship = current_user.friendships.find(params[:id])
-    @friendship.destroy
-    flash[:notice] = "Removed friendship."
-    redirect_to current_user
+    get_user
+    find_friendship(params[:friendship_id])
+
+    @friend.destroy
+
+    respond_to do |format|
+      format.html {
+        flash[:success] = "You removed #{@friend_name}" 
+        redirect_to :action => :index
+      }
+      format.json 
+    end  
   end
   
   def acceptFriend
@@ -104,18 +112,7 @@ class FriendshipsController < ApplicationController
   end
   
   def removeFriend
-    get_user
-    find_friendship(params[:friendship_id])
-
-    @friend.destroy
-
-    respond_to do |format|
-      format.html {
-        flash[:success] = "You removed #{@friend_name}" 
-        redirect_to :action => :index
-      }
-      format.json 
-    end    
+  
   end
 
   def validate_user

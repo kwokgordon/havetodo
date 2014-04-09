@@ -43,7 +43,7 @@
       <td width="15%">
       </td>
       <td width="15%">
-        <%= link_to friendship_removeFriend_path(display), method: :post do %>
+        <%= link_to display, method: :delete, data: { confirm: 'Are you sure?' } do %>
 	<button id="friend_id" class="btn btn-default" name="friend" type="button">
 	  Remove
 	</button>          	

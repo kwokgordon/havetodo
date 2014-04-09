@@ -38,7 +38,7 @@ HaveTodo::Application.routes.draw do
   resources :friendships, path: '/users/friendships' do
     post '/acceptFriend' => 'friendships#acceptFriend'
     post '/rejectFriend' => 'friendships#rejectFriend'
-    post '/removeFriend' => 'friendships#removeFriend'
+#    delete '/removeFriend' => 'friendships#removeFriend'
   end
 
   # Moblie access

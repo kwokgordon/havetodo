@@ -14,11 +14,11 @@ class FriendshipsController < ApplicationController
   def index
 #    @new_friend = Friendship.new
     
-    @friendships_request = @user.friendships.where(:status => "requested")
-    @inverse_friendships_request = @user.inverse_friendships.where(:status => "requested")
+    @friendships_request = @user.friendships.requested
+    @inverse_friendships_request = @user.inverse_friendships.requested
 
-    @friendships = @user.friendships.where(:status => "accepted")
-    @inverse_friendships = @user.inverse_friendships.where(:status => "accepted")
+    @friendships = @user.friendships.accepted
+    @inverse_friendships = @user.inverse_friendships.accepted
     
     @all_friends = @friendships + @inverse_friendships
     
@@ -60,13 +60,7 @@ class FriendshipsController < ApplicationController
   
   def destroy
     get_user
-    @friendship = @user.friendships.find(params[:id])
-
-    if @friendship.user.id == @user.id
-      @friend_name = @friendship.friend.name
-    else
-      @friend_name = @friendship.user.name
-    end
+    find_friendship(params[:id])
 
     @friendship.destroy
 
@@ -83,10 +77,10 @@ class FriendshipsController < ApplicationController
     get_user
     find_friendship(params[:friendship_id])
 
-    @friend.status = "accepted"
+    @friendship.status = "accepted"
 
     respond_to do |format|
-      if @friend.save
+      if @friendship.save
         format.html {
           flash[:success] = "You are now friend with #{@friend.user.name}" 
           redirect_to :action => :index
@@ -106,7 +100,7 @@ class FriendshipsController < ApplicationController
     get_user
     find_friendship(params[:friendship_id])
 
-    @friend.destroy
+    @friendship.destroy
 
     respond_to do |format|
       format.html {
@@ -131,12 +125,15 @@ class FriendshipsController < ApplicationController
       @user = User.find(current_user.id)
     end
     
-    def find_friendship(f_id)
-      @friend = @user.inverse_friendships.where(user_id: f_id, friend_id: @user.id).first
+    def find_friendship(id)
+      @friendship = @user.friendships.where(id: id)
     
-      if @friend.nil?
-        @friend = @user.friendships.where(user_id: @user.id, friend_id: f_id).first
-        @friend_name = @friend.friend.name
+      if @friendship.user.id == @user.id
+        @friend = @friendship.friend
+        @friend_name = @friendship.friend.name
+      else
+        @friend = @friendship.user
+        @friend_name = @friendship.user.name
       end
 
       @friend_name = @friend.user.name

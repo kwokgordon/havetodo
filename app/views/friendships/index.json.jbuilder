@@ -2,7 +2,7 @@ json.set! :sucess, true
 json.set! :info, "ok"
 
 json.set! :data do
-  json.set! :friend_request do
+  json.set! :friend_requests do
     json.array!(@inverse_friendships_request) do |friendship|
       if friendship.user.id == current_user.id
         json.friend_id friendship.friend.id
@@ -14,7 +14,7 @@ json.set! :data do
     end
   end
 
-  json.set! :your_request do
+  json.set! :your_requests do
     json.array!(@friendships_request) do |friendship|
       if friendship.user.id == current_user.id
         json.friend_id friendship.friend.id
@@ -26,7 +26,7 @@ json.set! :data do
     end
   end
 
-  json.set! :your_friend do
+  json.set! :your_friends do
     json.array!(@all_friends) do |friendship|
       if friendship.user.id == current_user.id
         json.friend_id friendship.friend.id

@@ -23,11 +23,9 @@
       <% if status == "requested" %>
       <td width="15%">
         <%= link_to friendship_acceptFriend_path(friend), method: :post do %>
-        <%= friend %>
 	<button id="friend_id" class="btn btn-default" name="friend" type="button">
 	  Accept
 	</button>          	
-<%= display %>
 	<% end %>
       </td>
       <td width="15%">
@@ -46,11 +44,9 @@
       </td>
       <td width="15%">
         <%= link_to friend, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <%= friend %>
 	<button id="friend_id" class="btn btn-default" name="friend" type="button">
 	  Remove
 	</button>          	
-<%= display %>
 	<% end %>
       </td>
       <% end %>

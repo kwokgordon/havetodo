@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219235343) do
+ActiveRecord::Schema.define(version: 20140403062251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: true do |t|
+    t.integer "user_id",   null: false
+    t.integer "friend_id", null: false
+    t.string  "status",    null: false
+  end
+
+  add_index "friendships", ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true, using: :btree
 
   create_table "tasks", force: true do |t|
     t.string   "name"
@@ -29,8 +37,8 @@ ActiveRecord::Schema.define(version: 20140219235343) do
   end
 
   create_table "tasks_users", id: false, force: true do |t|
-    t.integer "task_id", null: false
     t.integer "user_id", null: false
+    t.integer "task_id", null: false
   end
 
   add_index "tasks_users", ["user_id", "task_id"], name: "index_tasks_users_on_user_id_and_task_id", unique: true, using: :btree

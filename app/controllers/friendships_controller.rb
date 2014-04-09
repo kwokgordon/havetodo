@@ -60,13 +60,7 @@ class FriendshipsController < ApplicationController
   
   def destroy
     get_user
-    @friendship = @user.friendships.find(params[:id])
-
-    if @friendship.user.id == @user.id
-      @friend_name = @friendship.friend.name
-    else
-      @friend_name = @friendship.user.name
-    end
+    find_friendship(params[:id])
 
     @friendship.destroy
 
@@ -106,7 +100,7 @@ class FriendshipsController < ApplicationController
     get_user
     find_friendship(params[:friendship_id])
 
-    @friend.destroy
+    @friendship.destroy
 
     respond_to do |format|
       format.html {
@@ -117,10 +111,6 @@ class FriendshipsController < ApplicationController
     end    
   end
   
-  def removeFriend
-  
-  end
-
   def validate_user
     redirect_to new_user_session_path unless current_user
   end
@@ -132,13 +122,14 @@ class FriendshipsController < ApplicationController
     end
     
     def find_friendship(f_id)
-      @friend = @user.inverse_friendships.where(user_id: f_id, friend_id: @user.id).first
-    
-      if @friend.nil?
-        @friend = @user.friendships.where(user_id: @user.id, friend_id: f_id).first
-        @friend_name = @friend.friend.name
-      end
+      @friendship = @user.friendships.find(f_id)
 
-      @friend_name = @friend.user.name
+      if @friendship.user.id == @user.id
+        @friend = @friendship.friend
+        @friend_name = @friendship.friend.name
+      else
+        @friend = @friendship.user
+        @friend_name = @friendship.user.name
+      end
     end
 end

@@ -22,14 +22,14 @@
       
       <% if status == "requested" %>
       <td width="15%">
-        <%= link_to friendship_acceptFriend_path(display), method: :post do %>
+        <%= link_to friendship_acceptFriend_path(friend), method: :post do %>
 	<button id="friend_id" class="btn btn-default" name="friend" type="button">
 	  Accept
 	</button>          	
 	<% end %>
       </td>
       <td width="15%">
-        <%= link_to friendship_rejectFriend_path(display), method: :post do %>
+        <%= link_to friendship_rejectFriend_path(friend), method: :post do %>
 	<button id="friend_id" class="btn btn-default" name="friend" type="button">
 	  Reject
 	</button>          	

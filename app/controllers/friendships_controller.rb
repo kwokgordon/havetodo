@@ -82,7 +82,7 @@ class FriendshipsController < ApplicationController
     respond_to do |format|
       if @friendship.save
         format.html {
-          flash[:success] = "You are now friend with #{@friend.user.name}" 
+          flash[:success] = "You are now friend with #{@friend_name}" 
           redirect_to :action => :index
         }
         format.json 

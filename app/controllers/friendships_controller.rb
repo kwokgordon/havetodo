@@ -92,7 +92,7 @@ class FriendshipsController < ApplicationController
     get_user
     find_friendship(params[:friendship_id])
 
-    @friend.destory
+    @friend.destroy
 
     respond_to do |format|
       format.html {
@@ -107,7 +107,7 @@ class FriendshipsController < ApplicationController
     get_user
     find_friendship(params[:friendship_id])
 
-    @friend.destory
+    @friend.destroy
 
     respond_to do |format|
       format.html {

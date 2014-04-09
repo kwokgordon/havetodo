@@ -13,58 +13,7 @@
 <%= render partial: 'friend_table', locals: { friend_header: "Your Request", friend_table: @friendships_request, status: "pending" } %>
 <% end %>
 
-<% if !@friendships.empty? %>
-<%= render partial: 'friend_table', locals: { friend_header: "Your Friends", friend_table: @friendships, status: "accepted" } %>
-<% end %>
-
-<% if !@inverse_friendships.empty? %>
-<%= render partial: 'friend_table', locals: { friend_header: "Friended by Users", friend_table: @inverse_friendships, status: "accepted" } %>
-<% end %>
-
 <% if !@all_friends.empty? %>
 <%= render partial: 'friend_table', locals: { friend_header: "All Friends", friend_table: @all_friends, status: "accepted" } %>
 <% end %>
 </div>
-
-<h2>Your Request</h2>
-<ul>
-  <% for friendship in @friendships_request %>
-    <li>
-      <%=h friendship.friend.email %>
-    </li>
-  <% end %>
-</ul>
-
-<h2>Friend's Request</h2>
-<ul>
-  <% for friendship in @inverse_friendships_request %>
-    <li>
-      <%=h friendship.friend.email %>
-    </li>
-  <% end %>
-</ul>
-
-<h2>Your Friends</h2>
-<ul>
-  <% for user in @friendships %>
-    <li><%=h user.friend.email %></li>
-  <% end %>
-</ul>
-
-
-<h2>Friended by Users</h2>
-<ul>
-  <% for user in @inverse_friendships %>
-    <li><%=h user.friend.email %></li>
-  <% end %>
-</ul>
-
-
-<h2>All Friends</h2>
-<ul>
-  <% for user in @all_friends %>
-    <li><%=h user.friend.email %></li>
-  <% end %>
-</ul>
-
-

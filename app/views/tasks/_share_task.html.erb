@@ -5,7 +5,7 @@ You have no Friends.  Please add some friends to your <%= link_to "Friend List",
 <% else %>
 <ul>
 	<% for user in (User.order(:name).find(@friends - @task_shared)) %>
-	  <li><%= link_to user.name, task_addFriend_path(task, user), method: :post %></li>
+	  <li><%= link_to user.name, task_addFriend_path(@task, user), method: :post %></li>
 	<% end %>
 </ul>
 <% end %>
@@ -15,7 +15,7 @@ You have no Friends.  Please add some friends to your <%= link_to "Friend List",
 
 <ul>
 	<% for user in (User.order(:name).find(@task_shared)) %>
-	  <li><%= link_to user.name, task_removeFriend_path(task, user), method: :delete %></li>
+	  <li><%= link_to user.name, task_removeFriend_path(@task, user), method: :delete %></li>
 	<% end %>
 </ul>
 

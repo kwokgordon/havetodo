@@ -129,11 +129,19 @@ class TasksController < ApplicationController
     @friend = User.find(params[:user_id])
     @task = @user.tasks.find(params[:task_id])
     @task.users << @friend
-    
+
+    respond_to do |format|
+      format.html { render :text => "Add Success" }
+      format.json 
+    end    
   end
   
   def removeFriend
-    
+
+    respond_to do |format|
+      format.html { render :text => "Remove Success" }
+      format.json 
+    end    
   end
   
   private

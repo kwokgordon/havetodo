@@ -131,7 +131,10 @@ class TasksController < ApplicationController
     @task.users << @friend
 
     respond_to do |format|
-      format.html { render :text => "Add Success" }
+      format.html { 
+        flash[:success] = "Friend Successfully Added." 
+        redirect_to @task 
+      }
       format.json 
     end    
   end
@@ -139,7 +142,10 @@ class TasksController < ApplicationController
   def removeFriend
 
     respond_to do |format|
-      format.html { render :text => "Remove Success" }
+      format.html { 
+        flash[:success] = "Friend Successfully Removed." 
+        redirect_to @task 
+      }
       format.json 
     end    
   end

@@ -1,10 +1,10 @@
 <h2>Share with Friends</h2>
 
-<% if @friend.nil? %>
+<% if @friends.nil? %>
 You have no Friends.  Please add some friends to your <%= link_to "Friend List", friendships_path %>.
 <% else %>
 <ul>
-	<% for user in (User.order(:name).find(@friend - @task_shared)) %>
+	<% for user in (User.order(:name).find(@friends - @task_shared)) %>
 	  <li><%= link_to user.name, task_addFriend_path(task, user), method: :post %></li>
 	<% end %>
 </ul>

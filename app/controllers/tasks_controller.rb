@@ -126,6 +126,9 @@ class TasksController < ApplicationController
   end
   
   def addFriend
+    @friend = User.find(params[:user_id])
+    @task = @user.tasks.find(params[:task_id])
+    @task.users << @friend
     
   end
   

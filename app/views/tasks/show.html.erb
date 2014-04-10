@@ -27,5 +27,7 @@
   <%= @task.completed_date %>
 </p>
 
+<%= render 'share_task' %>
+
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

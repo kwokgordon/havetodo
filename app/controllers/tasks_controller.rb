@@ -17,11 +17,11 @@ class TasksController < ApplicationController
 #    @tasks = Task.all
     @tasks = @user.tasks
     
-    @overdue_tasks = @user.tasks.overdue_tasks.order(:due_date)
-    @today_tasks = @user.tasks.today_tasks.order(:due_date)
-    @tomorrow_tasks = @user.tasks.tomorrow_tasks.order(:due_date)
-    @this_week_tasks = @user.tasks.this_week_tasks.order(:due_date)
-    @future_tasks = @user.tasks.future_tasks.order(:due_date)
+    @overdue_tasks = @user.tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)
+    @today_tasks = @user.tasks.today_tasks.order(:due_date).order(:due_time).order(:name)
+    @tomorrow_tasks = @user.tasks.tomorrow_tasks.order(:due_date).order(:due_time).order(:name)
+    @this_week_tasks = @user.tasks.this_week_tasks.order(:due_date).order(:due_time).order(:name)
+    @future_tasks = @user.tasks.future_tasks.order(:due_date).order(:due_time).order(:name)
     
     @no_duedate_tasks = @user.tasks.no_duedate_tasks.order(:name)
     @completed_tasks = @user.tasks.completed_tasks.order(:completed_date).reverse_order

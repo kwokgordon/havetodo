@@ -7,7 +7,7 @@
   <table class="table">
 	<% task_table.each do |task| %>
       <tr id="task_<%= task.id %>" class="completed">
-      	<td width="5%" onmouseover="highlightTask(this)" onmouseout="unhighlightTask(this)"><img src="<%= image_path("check.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)"></td>
+      	<td width="5%" onmouseover="highlightTask(this)" height="50px" width="50px" onmouseout="unhighlightTask(this)"><img src="<%= image_path("check.png") %>" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)"></td>
         <td width="90%">
 		  <span class="item_task_name"><%= link_to task.name, task %></span><br />
    	  	  <span id="item_datetime_<%= task.id %>" class="item_datetime">

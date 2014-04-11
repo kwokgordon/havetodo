@@ -152,7 +152,7 @@ class TasksController < ApplicationController
           redirect_to :back
         }
         format.json 
-      elsif !@friends.include? @friend
+      elsif !@friends.include? @friend.id
         format.html { 
           flash[:danger] = "#{@friend.name} is not your friend, cannot remove from task." 
           redirect_to :back

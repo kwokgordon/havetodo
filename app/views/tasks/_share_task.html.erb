@@ -11,11 +11,13 @@ You have no Friends.  Please add some friends to your <%= link_to "Friend List",
 <% end %>
 
 
-<h2>Already Shared to: (click the name to remove)</h2>
+<h2>Sharing To (click the name to remove)</h2>
 
 <ul>
 	<% for user in (User.order(:name).find(@task_shared)) %>
-	  <li><%= link_to user.name, task_removeFriend_path(@task, user), method: :delete %></li>
+	  <li <%= 'style="color:#F00"' if user = current_user %>>
+	  	<%= link_to user.name, task_removeFriend_path(@task, user), method: :delete %>
+	  </li>
 	<% end %>
 </ul>
 

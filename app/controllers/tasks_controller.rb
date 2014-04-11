@@ -133,7 +133,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { 
         flash[:success] = "Friend Successfully Added." 
-        render action: 'show' 
+        redirect_to :back
       }
       format.json 
     end    
@@ -144,7 +144,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { 
         flash[:success] = "Friend Successfully Removed." 
-        render action: 'show'
+        redirect_to :back
       }
       format.json 
     end    

@@ -4,8 +4,8 @@
 You have no Friends.  Please add some friends to your <%= link_to "Friend List", friendships_path %>.
 <% else %>
 <ul>
-	<% for user in (User.order(:name).find(@friends - @task_shared)) %>
-	  <li><%= link_to user.name, task_addFriend_path(@task, user), method: :post %></li>
+	<% for u in (User.order(:name).find(@friends - @task_shared)) %>
+	  <li><%= link_to u.name, task_addFriend_path(@task, u), method: :post %></li>
 	<% end %>
 </ul>
 <% end %>
@@ -14,9 +14,9 @@ You have no Friends.  Please add some friends to your <%= link_to "Friend List",
 <h2>Sharing To (click the name to remove)</h2>
 
 <ul>
-	<% for user in (User.order(:name).find(@task_shared)) %>
-	  <li <%= "style=\"color:#F00\"" if user = current_user %>>
-	  	<%= link_to user.name, task_removeFriend_path(@task, user), method: :delete %>
+	<% for u in (User.order(:name).find(@task_shared)) %>
+	  <li>
+	  	<%= link_to u.name, task_removeFriend_path(@task, u), method: :delete %>
 	  </li>
 	<% end %>
 </ul>

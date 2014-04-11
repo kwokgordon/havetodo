@@ -196,6 +196,7 @@ class TasksController < ApplicationController
     end
     
     def share_task
+      set_task
       @friends = @user.friendships.accepted.pluck(:friend_id)
       @friends = @friends + @user.inverse_friendships.accepted.pluck(:user_id)
     

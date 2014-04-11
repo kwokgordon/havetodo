@@ -1,6 +1,6 @@
 <h2>Share with Friends</h2>
 
-<% if @friends.nil? %>
+<% if @friends.nil? or @friends.empty? %>
 You have no Friends.  Please add some friends to your <%= link_to "Friend List", friendships_path %>.
 <% else %>
 <ul>

@@ -159,6 +159,11 @@ aside {
   margin-bottom: 0px;
 }
 
+.table th, .table td {
+  padding: 0px;
+  vertical-align: middle;
+}
+
 /* forms */
 form.new_task {
 

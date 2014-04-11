@@ -117,7 +117,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { render :text => "Toggle Success" }
-        format.json 
+        format.json { render :success => false, :info => "Toggle Failure", :data => {} }
       else
         format.html { render :text => "Toggle Failure" }
         format.json 

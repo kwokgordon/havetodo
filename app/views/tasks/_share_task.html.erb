@@ -2,6 +2,8 @@
 
 <% if @friends.nil? or @friends.empty? %>
 You have no Friends.  Please add some friends to your <%= link_to "Friend List", friendships_path %>.
+<% elsif (@friends - @task_shared).empty? %>
+Task assigned to all your friends
 <% else %>
 <ul>
 	<% for u in (User.order(:name).find(@friends - @task_shared)) %>

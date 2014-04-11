@@ -15,7 +15,7 @@ You have no Friends.  Please add some friends to your <%= link_to "Friend List",
 
 <ul>
 	<% for user in (User.order(:name).find(@task_shared)) %>
-	  <li <%= 'style="color:#F00"' if user = current_user %>>
+	  <li <%= "style=\"color:#F00\"" if user = current_user %>>
 	  	<%= link_to user.name, task_removeFriend_path(@task, user), method: :delete %>
 	  </li>
 	<% end %>

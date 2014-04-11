@@ -140,10 +140,10 @@ class TasksController < ApplicationController
   end
   
   def removeFriend
-    share_task
-    
     @friend = User.find(params[:user_id])
     @task = @user.tasks.find(params[:task_id])
+
+    share_task
 
     respond_to do |format|
       if @friend == @user
@@ -196,7 +196,6 @@ class TasksController < ApplicationController
     end
     
     def share_task
-      set_task
       @friends = @user.friendships.accepted.pluck(:friend_id)
       @friends = @friends + @user.inverse_friendships.accepted.pluck(:user_id)
     

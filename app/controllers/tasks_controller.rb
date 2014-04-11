@@ -159,7 +159,7 @@ class TasksController < ApplicationController
         }
         format.json 
       else
-        @task.users.find(@friend.id).destroy
+        @task.users.delete(@friend)
         
         format.html { 
           flash[:success] = "#{@friend.name} successfully removed from task." 

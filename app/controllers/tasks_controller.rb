@@ -132,7 +132,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       format.html { 
-        flash[:success] = "Friend Successfully Added." 
+        flash[:success] = "Successfully shared task with #{@friend.name}" 
         redirect_to :back
       }
       format.json 
@@ -140,13 +140,33 @@ class TasksController < ApplicationController
   end
   
   def removeFriend
+    share_task
+    
+    @friend = User.find(params[:user_id])
+    @task = @user.tasks.find(params[:task_id])
 
     respond_to do |format|
-      format.html { 
-        flash[:success] = "Friend Successfully Removed." 
-        redirect_to :back
-      }
-      format.json 
+      if @friend == @user
+        format.html { 
+          flash[:danger] = "Cannot remove yourself." 
+          redirect_to :back
+        }
+        format.json 
+      elsif !@friends.include? @friend
+        format.html { 
+          flash[:danger] = "#{@friend.name} is not your friend, cannot remove from task." 
+          redirect_to :back
+        }
+        format.json 
+      else
+        @task.users.find(@friend.id).destroy
+        
+        format.html { 
+          flash[:success] = "#{@friend.name} successfully removed from task." 
+          redirect_to :back
+        }
+        format.json 
+      end
     end    
   end
   

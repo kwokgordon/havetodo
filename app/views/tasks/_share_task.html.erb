@@ -16,7 +16,7 @@ You have no Friends.  Please add some friends to your <%= link_to "Friend List",
 <ul>
 	<% for u in (User.order(:name).find(@task_shared)) %>
 	  <li>
-	  	<%= link_to u.name, task_removeFriend_path(@task, u), method: :delete %>
+	  	<%= link_to u.name, task_removeFriend_path(@task, u), method: :post %>
 	  </li>
 	<% end %>
 </ul>

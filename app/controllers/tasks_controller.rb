@@ -31,6 +31,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    share_task
   end
 
   # GET /tasks/new
@@ -41,6 +42,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+    share_task
   end
 
   # POST /tasks
@@ -123,6 +125,31 @@ class TasksController < ApplicationController
     end
   end
   
+  def addFriend
+    @friend = User.find(params[:user_id])
+    @task = @user.tasks.find(params[:task_id])
+    @task.users << @friend
+
+    respond_to do |format|
+      format.html { 
+        flash[:success] = "Friend Successfully Added." 
+        render action: 'show' 
+      }
+      format.json 
+    end    
+  end
+  
+  def removeFriend
+
+    respond_to do |format|
+      format.html { 
+        flash[:success] = "Friend Successfully Removed." 
+        render action: 'show'
+      }
+      format.json 
+    end    
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def get_user
@@ -146,6 +173,13 @@ class TasksController < ApplicationController
           cookies[:due_time] = { value: @task.due_time.strftime("%H:%M:%S.%L"), path: '/users' }
         end
       end
+    end
+    
+    def share_task
+      @friends = @user.friendships.accepted.pluck(:friend_id)
+      @friends = @friends + @user.inverse_friendships.accepted.pluck(:user_id)
+    
+      @task_shared = @task.users.pluck(:id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

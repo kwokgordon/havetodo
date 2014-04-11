@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
          :confirmable, :token_authenticatable
 
   validates :name, presence: true
+  validates :email, presence: true
 
 
   def skip_confirmation!

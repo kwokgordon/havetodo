@@ -9,7 +9,7 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <div class="well col-md-3" id="sidebar"> 
+  <div class="well" id="sidebar"> 
     <ul>
       <li><%= link_to 'All Tasks', tasks_path %></li>
     </ul>
@@ -29,7 +29,7 @@
     
   </div>
 
-  <div class="container col-md-9" id="taskarea">
+  <div id="taskarea">
 	<div class="row">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>

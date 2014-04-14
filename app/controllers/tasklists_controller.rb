@@ -23,7 +23,9 @@ class TasklistsController < ApplicationController
   # GET /tasklists/1
   # GET /tasklists/1.json
   def show
-    @new_task = Task.new
+#    @new_task = Task.new
+    @new_task = @user.tasks.build
+#    @task = @user.tasks.build(task_params)
 
     @tasklists = @user.tasklists
 

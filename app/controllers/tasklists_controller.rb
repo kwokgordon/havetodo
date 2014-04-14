@@ -39,6 +39,8 @@ class TasklistsController < ApplicationController
 
     respond_to do |format|
       if @tasklist.save
+        @user.tasklists << @tasklist
+        
         format.html { redirect_to @tasklist, notice: 'Tasklist was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tasklist }
       else
@@ -70,6 +72,10 @@ class TasklistsController < ApplicationController
       format.html { redirect_to tasklists_url }
       format.json { head :no_content }
     end
+  end
+
+  def validate_user
+    redirect_to new_user_session_path unless current_user
   end
 
   private

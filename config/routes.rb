@@ -54,11 +54,6 @@ HaveTodo::Application.routes.draw do
     end
   end
   
-  resources :tasks, path: '/api/tasks' do
-    post '/toggleComplete' => 'tasks#toggleComplete'
-  end
-
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

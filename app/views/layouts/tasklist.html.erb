@@ -9,24 +9,12 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <div class="well" id="sidebar"> 
+  <div class="well col-md-3" id="sidebar"> 
     <ul class="nav nav-stacked" id="sidebar">
       <li><%= link_to 'All Tasks', tasks_path %></li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
     </ul>
+    
+    <hr>
 
 	<% if !@tasklists.empty? %>
     <ul class="nav nav-stacked" id="sidebar">
@@ -41,7 +29,7 @@
     
   </div>
 
-  <div class="container">
+  <div class="container col-md-9">
 	<div class="row">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>

@@ -1,10 +1,21 @@
 class TasklistsController < ApplicationController
+
+  skip_before_filter :verify_authenticity_token,
+                     :if => Proc.new { |c| c.request.format == 'application/json' }
+                       
+  before_filter :authenticate_user!
+  before_filter :validate_user
+  
+  before_action :get_user
+#  before_action :set_task, only: [:show, :edit, :update, :destroy]
+
   before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
 
   # GET /tasklists
   # GET /tasklists.json
   def index
-    @tasklists = Tasklist.all
+#    @tasklists = Tasklist.all
+    @tasklists = @user.tasklists
   end
 
   # GET /tasklists/1
@@ -63,8 +74,16 @@ class TasklistsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def get_user
+      @user = User.find(current_user.id)
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
     def set_tasklist
-      @tasklist = Tasklist.find(params[:id])
+      get_user
+
+#      @tasklist = Tasklist.find(params[:id])
+      @tasklist = @user.tasklists.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

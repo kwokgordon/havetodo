@@ -48,14 +48,14 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
-#    @task = @user.tasks.build(task_params)
+#    @task = Task.new(task_params)
+    @task = @user.tasks.build(task_params)
 
     set_cookies
     
     respond_to do |format|
       if @task.save
-        @user.tasks << @task
+#        @user.tasks << @task
                 
         format.html { 
           flash[:success] = "#{@task.name} was successfully created." 

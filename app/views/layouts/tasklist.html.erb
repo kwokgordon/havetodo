@@ -9,16 +9,17 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  <div class="col-md-3" id="leftCol">
-    <div class="well"> 
-      <ul class="nav nav-stacked" id="sidebar">
-        <li><a href="#sec1">Section 1</a></li>
-        <li><a href="#sec2">Section 2</a></li>
-        <li><a href="#sec3">Section 3</a></li>
-        <li><a href="#sec4">Section 4</a></li>
+  <div class="well" id="sidebar"> 
+    <ul class="nav nav-stacked" id="sidebar">
+      <li><%= link_to 'All Tasks', tasks_path %></li>
+      <ul>
+      	<% @tasklists.each do |tl| %>
+      	  <li><link_to tl.name, tl></li>
+      	<% end %>
       </ul>
-    </div>
-  </div>  
+
+    </ul>
+  </div>
 
   <div class="container">
 	<div class="row">

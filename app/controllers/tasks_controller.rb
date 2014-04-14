@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   
-  layout 'tasklist'
+  layout 'tasklist', only: [:index]
 
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
@@ -18,6 +18,8 @@ class TasksController < ApplicationController
     @new_task = Task.new
 #    @tasks = Task.all
     @tasks = @user.tasks
+    
+    @tasklists = @user.tasklists
     
     @overdue_tasks = @user.tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)
     @today_tasks = @user.tasks.today_tasks.order(:due_date).order(:due_time).order(:name)

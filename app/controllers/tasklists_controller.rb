@@ -23,6 +23,8 @@ class TasklistsController < ApplicationController
   # GET /tasklists/1
   # GET /tasklists/1.json
   def show
+    @new_task = Task.new
+
     @tasklists = @user.tasklists
 
     @tasks = @tasklist.tasks

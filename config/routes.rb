@@ -1,6 +1,4 @@
 HaveTodo::Application.routes.draw do
-  resources :tasklists
-
   root "welcome#index"
   
   get "blank" => "welcome#blank"

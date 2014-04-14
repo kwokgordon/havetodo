@@ -39,6 +39,14 @@ HaveTodo::Application.routes.draw do
     post '/removeFriend/:user_id' => 'tasks#removeFriend', as: 'removeFriend'
   end
   
+  resources :tasklists, path: '/users/tasklists' do
+    resources :tasks do
+      post '/toggleComplete' => 'tasks#toggleComplete'
+      post '/addFriend/:user_id' => 'tasks#addFriend', as: 'addFriend'
+      post '/removeFriend/:user_id' => 'tasks#removeFriend', as: 'removeFriend'
+    end
+  end
+  
   resources :friendships, path: '/users/friendships' do
     post '/acceptFriend' => 'friendships#acceptFriend'
     post '/rejectFriend' => 'friendships#rejectFriend'

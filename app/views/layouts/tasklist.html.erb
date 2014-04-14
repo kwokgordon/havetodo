@@ -9,29 +9,25 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
+  <div class="col-md-3" id="leftCol">
+    <div class="well"> 
+      <ul class="nav nav-stacked" id="sidebar">
+        <li><a href="#sec1">Section 1</a></li>
+        <li><a href="#sec2">Section 2</a></li>
+        <li><a href="#sec3">Section 3</a></li>
+        <li><a href="#sec4">Section 4</a></li>
+      </ul>
+    </div>
+  </div>  
+
   <div class="container">
 	<div class="row">
-      <div class="col-md-3" id="leftCol">
-              	
-        <div class="well"> 
-          <ul class="nav nav-stacked" id="sidebar">
-            <li><a href="#sec1">Section 1</a></li>
-            <li><a href="#sec2">Section 2</a></li>
-            <li><a href="#sec3">Section 3</a></li>
-            <li><a href="#sec4">Section 4</a></li>
-          </ul>
-        </div>
-
-      </div>  
-      <div class="col-md-9">
-
-        <% flash.each do |key, value| %>
-          <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-        <% end %>
-        <%= yield %>
-        <%= render 'layouts/footer' %>
-        <%= debug(params) if Rails.env.development? %>
-      </div>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
 </body>

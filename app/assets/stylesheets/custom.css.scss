@@ -127,12 +127,13 @@ footer {
 
 #sidebar {
   float: left;
-  width: 25%;
+  width: 20%;
   word-wrap:break-word;
 }
 
 #taskarea {
-  padding: 2%;
+  float: right;
+  padding: 5%;
   width: 70%;
 }
 

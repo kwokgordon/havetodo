@@ -10,14 +10,14 @@
 <body>
   <%= render 'layouts/header' %>
   <div class="well col-md-3" id="sidebar"> 
-    <ul class="nav nav-stacked" id="sidebar">
+    <ul>
       <li><%= link_to 'All Tasks', tasks_path %></li>
     </ul>
     
     <hr>
 
 	<% if !@tasklists.empty? %>
-    <ul class="nav nav-stacked" id="sidebar">
+    <ul>
       <li>Task Lists</li>
       <ul>
       	<% @tasklists.each do |tl| %>

@@ -1,6 +1,6 @@
 class TasklistsController < ApplicationController
 
-  layout 'tasklist', only: [:index]
+  layout 'tasklist', only: [:index, :show]
 
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
@@ -23,6 +23,19 @@ class TasklistsController < ApplicationController
   # GET /tasklists/1
   # GET /tasklists/1.json
   def show
+    @tasklists = @user.tasklists
+
+    @tasks = @tasklist.tasks
+    
+    @overdue_tasks = @tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)
+    @today_tasks = @tasks.today_tasks.order(:due_date).order(:due_time).order(:name)
+    @tomorrow_tasks = @tasks.tomorrow_tasks.order(:due_date).order(:due_time).order(:name)
+    @this_week_tasks = @tasks.this_week_tasks.order(:due_date).order(:due_time).order(:name)
+    @future_tasks = @tasks.future_tasks.order(:due_date).order(:due_time).order(:name)
+    
+    @no_duedate_tasks = @tasks.no_duedate_tasks.order(:name)
+    @completed_tasks = @tasks.completed_tasks.order(:completed_date).reverse_order
+    
   end
 
   # GET /tasklists/new

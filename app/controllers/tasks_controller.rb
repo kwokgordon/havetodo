@@ -17,18 +17,19 @@ class TasksController < ApplicationController
   def index
     @new_task = Task.new
 #    @tasks = Task.all
-    @tasks = @user.tasks
     
     @tasklists = @user.tasklists
+
+    @tasks = @user.tasks
     
-    @overdue_tasks = @user.tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)
-    @today_tasks = @user.tasks.today_tasks.order(:due_date).order(:due_time).order(:name)
-    @tomorrow_tasks = @user.tasks.tomorrow_tasks.order(:due_date).order(:due_time).order(:name)
-    @this_week_tasks = @user.tasks.this_week_tasks.order(:due_date).order(:due_time).order(:name)
-    @future_tasks = @user.tasks.future_tasks.order(:due_date).order(:due_time).order(:name)
+    @overdue_tasks = @tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)
+    @today_tasks = @tasks.today_tasks.order(:due_date).order(:due_time).order(:name)
+    @tomorrow_tasks = @tasks.tomorrow_tasks.order(:due_date).order(:due_time).order(:name)
+    @this_week_tasks = @tasks.this_week_tasks.order(:due_date).order(:due_time).order(:name)
+    @future_tasks = @tasks.future_tasks.order(:due_date).order(:due_time).order(:name)
     
-    @no_duedate_tasks = @user.tasks.no_duedate_tasks.order(:name)
-    @completed_tasks = @user.tasks.completed_tasks.order(:completed_date).reverse_order
+    @no_duedate_tasks = @tasks.no_duedate_tasks.order(:name)
+    @completed_tasks = @tasks.completed_tasks.order(:completed_date).reverse_order
 
   end
 

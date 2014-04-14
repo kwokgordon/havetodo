@@ -14,7 +14,7 @@
       <li><%= link_to 'All Tasks', tasks_path %></li>
       <ul>
       	<% @tasklists.each do |tl| %>
-      	  <li><link_to tl.name, tl></li>
+      	  <li><link_to tl.name, tasks_path></li>
       	<% end %>
       </ul>
 

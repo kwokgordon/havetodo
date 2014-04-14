@@ -1,4 +1,4 @@
-class CreateTasklistsUsers < ActiveRecord::Migration
+class CreateUsersTasklists < ActiveRecord::Migration
   def change
     create_table :tasklists_users, :id => false do |t|
       t.integer :user_id, :null => false

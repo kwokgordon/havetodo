@@ -56,7 +56,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 #    @task = @user.tasks.build(task_params)
 
-    @tasklist = @user.tasklists.find(params[:tasklist_id])
+    if !:tasklist_id.nil?
+      @tasklist = @user.tasklists.find(params[:tasklist_id])
+    end
 
     set_cookies
     
@@ -64,7 +66,9 @@ class TasksController < ApplicationController
       if @task.save
         @user.tasks << @task
         
-        @tasklist.tasks << @task
+        if !@tasklist.nil?
+          @tasklist.tasks << @task
+        end
                 
         format.html { 
           flash[:success] = "#{@task.name} was successfully created." 

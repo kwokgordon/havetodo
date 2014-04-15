@@ -47,6 +47,12 @@
   </div>
 </div>
 
+<script>
+$('#EditTasklistModal').on('shown.bs.modal', function () {
+    $(this).find("[autofocus]:first").focus();
+})
+</script>
+
 
 <%= render 'tasks/simple_add', :style => "display:inline" %>
 

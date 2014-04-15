@@ -16,6 +16,8 @@
    	  	  	<% if !task.completed_date.blank? %>
  	  	  	  <%= task.completed_date.localtime.strftime("%a %b %e %I:%M%p") %>
    	  	  	<% end %>
+   	  	  	
+   	  	  	By: <%= User.find(task.completed_user_id).name %>
    	  	  </span>
         </td>
         <td width="5%">

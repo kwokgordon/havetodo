@@ -56,7 +56,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 #    @task = @user.tasks.build(task_params)
 
-    if !:tasklist_id.nil?
+    if params.has_key?(:tasklist_id)
       @tasklist = @user.tasklists.find(params[:tasklist_id])
     end
 
@@ -66,13 +66,13 @@ class TasksController < ApplicationController
       if @task.save
         @user.tasks << @task
         
-        if !@tasklist.nil?
+        if params.has_key?(:tasklist_id)
           @tasklist.tasks << @task
         end
                 
         format.html { 
           flash[:success] = "#{@task.name} was successfully created." 
-          redirect_to @tasklist ? @tasklist : tasks_path
+          redirect_to params.has_key?(:tasklist_id) ? @tasklist : tasks_path
 #          redirect_to :action => :index
         }
         format.json { render action: 'show', status: :created, location: @task }

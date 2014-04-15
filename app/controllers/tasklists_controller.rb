@@ -103,6 +103,10 @@ class TasklistsController < ApplicationController
     @friend = User.find(params[:user_id])
     @tasklist = @user.tasklists.find(params[:tasklist_id])
     @tasklist.users << @friend
+    
+    @tasklist.tasks.each do |t|
+      @user.tasks << t
+    end
 
     respond_to do |format|
       format.html { 
@@ -134,6 +138,10 @@ class TasklistsController < ApplicationController
         format.json 
       else
         @tasklist.users.delete(@friend)
+        
+        @tasklist.tasks do |t|
+          @friend.tasks.delete(t)
+        end
         
         format.html { 
           flash[:success] = "#{@friend.name} successfully removed from task." 

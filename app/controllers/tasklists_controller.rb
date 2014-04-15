@@ -100,11 +100,48 @@ class TasklistsController < ApplicationController
   end
 
   def addFriend
+    @friend = User.find(params[:user_id])
+    @tasklist = @user.tasklists.find(params[:tasklist_id])
+    @tasklist.users << @friend
 
+    respond_to do |format|
+      format.html { 
+        flash[:success] = "Successfully shared tasklist with #{@friend.name}" 
+        redirect_to :back
+      }
+      format.json 
+    end    
   end
 
   def removeFriend
-    
+    @friend = User.find(params[:user_id])
+    @tasklist = @user.tasklists.find(params[:tasklist_id])
+
+    share_tasklist
+
+    respond_to do |format|
+      if @friend == @user
+        format.html { 
+          flash[:danger] = "Cannot remove yourself." 
+          redirect_to :back
+        }
+        format.json 
+      elsif !@friends.include? @friend.id
+        format.html { 
+          flash[:danger] = "#{@friend.name} is not your friend, cannot remove from task." 
+          redirect_to :back
+        }
+        format.json 
+      else
+        @tasklist.users.delete(@friend)
+        
+        format.html { 
+          flash[:success] = "#{@friend.name} successfully removed from task." 
+          redirect_to :back
+        }
+        format.json 
+      end
+    end    
   end
 
   private

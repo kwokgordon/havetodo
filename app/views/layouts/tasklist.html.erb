@@ -11,7 +11,11 @@
   <%= render 'layouts/header' %>
   <div class="well" id="sidebar"> 
     <ul>
-      <li><%= link_to "All Tasks <span class='badge'><%= current_user.tasks.count %></span>", tasks_path %></li>
+      <li>
+      	<%= link_to tasks_path do %>
+      	  All Tasks <span class="badge"><%= current_user.tasks.count %></span>
+      	<% end %>
+      </li>
     </ul>
     
     <hr>

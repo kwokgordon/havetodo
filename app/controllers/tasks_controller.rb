@@ -56,11 +56,19 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 #    @task = @user.tasks.build(task_params)
 
+    if !:tasklist_id.nil?
+      @tasklist = @user.tasklists.find(params[:tasklist_id])
+    end
+
     set_cookies
     
     respond_to do |format|
       if @task.save
         @user.tasks << @task
+        
+        if !@tasklist.nil?
+          @tasklist << @task
+        end
                 
         format.html { 
           flash[:success] = "#{@task.name} was successfully created." 

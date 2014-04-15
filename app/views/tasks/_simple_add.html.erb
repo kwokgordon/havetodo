@@ -1,6 +1,12 @@
 <div class="row">
   <div class="quick_task_container">
-  <%= form_for @new_task do |f| %>
+  <% if @tasklist.nil? %>
+    <%= form_for @new_task do |f| %>
+  <% else %>
+    <%= form_for ([@tasklist, @new_task]) do |f| %>
+  <% end %>
+  
+  	
     <div class="field">
       <%= f.label :name, value: "Task", class: "task" %>
       <%= f.text_field :name, class: "task", :autofocus => true %>

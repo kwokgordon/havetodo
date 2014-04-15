@@ -67,7 +67,7 @@ class TasksController < ApplicationController
         @user.tasks << @task
         
         if !@tasklist.nil?
-          @tasklist << @task
+          @tasklist.tasks << @task
         end
                 
         format.html { 

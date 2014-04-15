@@ -13,7 +13,7 @@
     <ul>
       <li>
       	<%= link_to tasks_path do %>
-      	  All Tasks <span class="badge"><%= current_user.tasks.count %></span>
+      	  All Tasks <span class="badge"><%= current_user.tasks.incomplete_tasks.count %></span>
       	<% end %>
       </li>
     </ul>
@@ -27,7 +27,7 @@
       	<% @tasklists.each do |tl| %>
       	  <li>
       	  	<%= link_to tl do %>  
-        	  <%= tl.name %> <span class="badge"><%= tl.tasks.count %></span> 
+        	  <%= tl.name %> <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span> 
         	  <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <span class="icon-trash"></span>
               <% end %>

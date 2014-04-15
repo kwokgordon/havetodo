@@ -56,9 +56,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 #    @task = @user.tasks.build(task_params)
 
-    if !:tasklist_id.nil?
+#    if !:tasklist_id.nil?
       @tasklist = @user.tasklists.find(params[:tasklist_id])
-    end
+#    end
 
     set_cookies
     

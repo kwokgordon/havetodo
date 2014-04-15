@@ -56,9 +56,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 #    @task = @user.tasks.build(task_params)
 
-#    if !:tasklist_id.nil?
-      @tasklist = @user.tasklists.find(params[:tasklist_id])
-#    end
+    @tasklist = @user.tasklists.find(params[:tasklist_id])
 
     set_cookies
     
@@ -66,13 +64,12 @@ class TasksController < ApplicationController
       if @task.save
         @user.tasks << @task
         
-        if !@tasklist.nil?
-          @tasklist.tasks << @task
-        end
+        @tasklist.tasks << @task
                 
         format.html { 
           flash[:success] = "#{@task.name} was successfully created." 
-          redirect_to :action => :index
+          redirect_to @tasklist ? @tasklist : tasks_path
+#          redirect_to :action => :index
         }
         format.json { render action: 'show', status: :created, location: @task }
       else

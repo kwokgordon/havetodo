@@ -16,17 +16,22 @@
     
     <hr>
 
-	<% if !@tasklists.empty? %>
     <ul>
       <li>Task Lists</li>
+	<% if !@tasklists.empty? %>
       <ul>
       	<% @tasklists.each do |tl| %>
-      	  <li><%= link_to tl.name, tl %></li>
+      	  <li>
+      	  	<%= link_to tl.name, tl %>  
+      	  	<%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="icon-trash"></span>
+            <% end %>
+      	  </li>
       	<% end %>
       </ul>
-    </ul>
     <% end %>
-    
+      <li><a href="#" data-toggle="modal" data-target="#CreateTasklistModal">Create New List</a></li>
+    </ul>
   </div>
 
   <div id="taskarea">
@@ -39,5 +44,25 @@
       <%= debug(params) if Rails.env.development? %>
     </div>
   </div>
+
+<!-- Modal -->
+<div class="modal fade" id="CreateTasklistModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create TaskList</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

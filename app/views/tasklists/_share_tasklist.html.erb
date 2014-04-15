@@ -7,7 +7,7 @@ Task assigned to all your friends
 <% else %>
 <ul>
 	<% for u in (User.order(:name).find(@friends - @tasklist_shared)) %>
-	  <li><%= link_to u.name, '#' %></li>
+	  <li><%= link_to u.name, tasklist_addFriend_path(@tasklist, u), method: :post %></li>
 	<% end %>
 </ul>
 <% end %>
@@ -18,7 +18,7 @@ Task assigned to all your friends
 <ul>
 	<% for u in (User.order(:name).find(@tasklist_shared)) %>
 	  <li>
-	  	<%= link_to u.name, '#' %>
+	  	<%= link_to u.name, tasklist_removeFriend_path(@tasklist, u), method: :post %>
 	  </li>
 	<% end %>
 </ul>

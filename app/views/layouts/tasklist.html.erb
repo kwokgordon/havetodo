@@ -54,11 +54,16 @@
         <h4 class="modal-title" id="myModalLabel">Create TaskList</h4>
       </div>
       <div class="modal-body">
-        ...
+      	<%= form_for (Tasklist.new) do |f| %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, :autofocus => true %>
+      	
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Create</button>
+        <%= f.submit 'Create', class: 'btn btn-default' %>
+        <% end %>
       </div>
     </div>
   </div>

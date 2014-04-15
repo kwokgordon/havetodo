@@ -105,7 +105,7 @@ class TasklistsController < ApplicationController
     @tasklist.users << @friend
     
     @tasklist.tasks.each do |t|
-      @user.tasks << t
+      @friend.tasks << t
     end
 
     respond_to do |format|

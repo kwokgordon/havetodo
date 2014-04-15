@@ -11,7 +11,7 @@
   <%= render 'layouts/header' %>
   <div class="well" id="sidebar"> 
     <ul>
-      <li><%= link_to "All Tasks <span class=\"badge\"><%= current_user.tasks.count %></span>", tasks_path %></li>
+      <li><%= link_to "All Tasks <span class='badge'><%= current_user.tasks.count %></span>", tasks_path %></li>
     </ul>
     
     <hr>
@@ -22,7 +22,7 @@
       <ul>
       	<% @tasklists.each do |tl| %>
       	  <li>
-      	  	<%= link_to "#{tl.name} <span class=\"badge\"><%= tl.tasks.count %></span>", tl %>  
+      	  	<%= link_to tl.name, tl %>  
       	  	<%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
               <span class="icon-trash"></span>
             <% end %>

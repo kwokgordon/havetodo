@@ -29,14 +29,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Create TaskList</h4>
+        <h4 class="modal-title" id="myModalLabel">Edit TaskList</h4>
       </div>
       <div class="modal-body">
       	<%= form_for @tasklist do |f| %>
         <div class="field">
           <%= f.label :name %>
           <%= f.text_field :name, :autofocus => true %>
-      	
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

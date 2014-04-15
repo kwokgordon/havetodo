@@ -13,7 +13,7 @@
         	</button>
 	        <ul class="dropdown-menu" role="menu">
 	        	<% if @tasklist %>
-	     	    	<li><a href="#">Share Tasklist</a></li>
+	     	    	<li><a href="#" data-toggle="modal" data-target="#ShareTasklistModal">Share Tasklist</a></li>
 	        	<% end %>
 <!--    	    	<li><a href="#">Mass Delete</a></li>    -->
        		</ul>
@@ -40,4 +40,22 @@
   </div>
 </div>
 <br />
+
+<!-- Modal -->
+<div class="modal fade" id="ShareTasklistModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Share TaskList</h4>
+      </div>
+      <div class="modal-body">
+      	...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
 

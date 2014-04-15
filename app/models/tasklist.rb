@@ -6,8 +6,10 @@ class Tasklist < ActiveRecord::Base
 
   validates :name, presence: true
 
+=begin
   def to_param
     "#{id}-#{name}"
   end
+=end
 
 end

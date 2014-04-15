@@ -12,6 +12,7 @@ function toggleCheckbox(id) {
 	    var taskDateElement = document.getElementById('item_datetime_'+id);
  	    if(taskElement.getAttribute('class') == "completed") {
     	  taskElement.setAttribute('class', 'incomplete');
+    	  var dd = new Date(response.due_date);
 //	      taskDateElement.innerHTML = response.due_date;
 		  document.getElementById(id).src = "<%= image_path("uncheck.png") %>";
 		  

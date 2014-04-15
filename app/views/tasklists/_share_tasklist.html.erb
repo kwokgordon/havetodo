@@ -1,0 +1,25 @@
+<h2>Share with Friends</h2>
+
+<% if @friends.nil? or @friends.empty? %>
+You have no Friends.  Please add some friends to your <%= link_to "Friend List", friendships_path %>.
+<% elsif (@friends - @tasklist_shared).empty? %>
+Task assigned to all your friends
+<% else %>
+<ul>
+	<% for u in (User.order(:name).find(@friends - @tasklist_shared)) %>
+	  <li><%= link_to u.name, task_addFriend_path(@task, u), method: :post %></li>
+	<% end %>
+</ul>
+<% end %>
+
+
+<h2>Sharing To (click the name to remove)</h2>
+
+<ul>
+	<% for u in (User.order(:name).find(@tasklist_shared)) %>
+	  <li>
+	  	<%= link_to u.name, task_removeFriend_path(@task, u), method: :post %>
+	  </li>
+	<% end %>
+</ul>
+

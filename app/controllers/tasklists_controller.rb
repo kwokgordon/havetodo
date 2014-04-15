@@ -27,6 +27,8 @@ class TasklistsController < ApplicationController
     @new_task = @user.tasks.build
 #    @task = @user.tasks.build(task_params)
 
+    share_task
+
     @tasklists = @user.tasklists
 
     @tasks = @tasklist.tasks
@@ -109,6 +111,13 @@ class TasklistsController < ApplicationController
 
 #      @tasklist = Tasklist.find(params[:id])
       @tasklist = @user.tasklists.find(params[:id])
+    end
+
+    def share_task
+      @friends = @user.friendships.accepted.pluck(:friend_id)
+      @friends = @friends + @user.inverse_friendships.accepted.pluck(:user_id)
+    
+      @tasklist_shared = @tasklist.users.pluck(:id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

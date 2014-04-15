@@ -27,7 +27,7 @@ class TasklistsController < ApplicationController
     @new_task = @user.tasks.build
 #    @task = @user.tasks.build(task_params)
 
-    share_task
+    share_tasklist
 
     @tasklists = @user.tasklists
 
@@ -113,7 +113,7 @@ class TasklistsController < ApplicationController
       @tasklist = @user.tasklists.find(params[:id])
     end
 
-    def share_task
+    def share_tasklist
       @friends = @user.friendships.accepted.pluck(:friend_id)
       @friends = @friends + @user.inverse_friendships.accepted.pluck(:user_id)
     

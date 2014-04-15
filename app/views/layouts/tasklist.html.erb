@@ -26,9 +26,11 @@
       <ul>
       	<% @tasklists.each do |tl| %>
       	  <li>
-      	  	<%= link_to tl.name, tl %>  
-      	  	<%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <span class="icon-trash"></span>
+      	  	<%= link_to tl do %>  
+        	  <%= tl.name %> <span class="badge"><%= tl.tasks.count %></span> 
+        	  <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <span class="icon-trash"></span>
+              <% end %>
             <% end %>
       	  </li>
       	<% end %>

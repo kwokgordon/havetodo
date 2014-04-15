@@ -88,7 +88,7 @@ class TasklistsController < ApplicationController
   def destroy
     @tasklist.destroy
     respond_to do |format|
-      format.html { redirect_to tasklists_url }
+      format.html { redirect_to tasks_path }
       format.json { head :no_content }
     end
   end

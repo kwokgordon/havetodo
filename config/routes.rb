@@ -40,6 +40,10 @@ HaveTodo::Application.routes.draw do
   resources :tasklists, path: '/users/tasklists' do
     resources :tasks do
     end
+
+    post '/addFriend/:user_id' => 'tasklists#addFriend', as: 'addFriend'
+    post '/removeFriend/:user_id' => 'tasklists#removeFriend', as: 'removeFriend'
+
   end
   
   resources :friendships, path: '/users/friendships' do

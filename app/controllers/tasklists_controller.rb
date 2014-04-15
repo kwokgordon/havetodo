@@ -99,6 +99,14 @@ class TasklistsController < ApplicationController
     redirect_to new_user_session_path unless current_user
   end
 
+  def addFriend
+
+  end
+
+  def removeFriend
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def get_user

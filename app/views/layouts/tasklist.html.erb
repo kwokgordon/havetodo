@@ -26,7 +26,7 @@
       	<% @tasklists.each do |tl| %>
       	  <li>
       	  	<%= link_to tl do %>  
-        	  <span id="circle" style="background-color: #ff0000;"></span>
+        	  <span class="circle" style="background-color: #ff0000;"></span>
         	  <%= tl.name %> 
             <% end %>
             <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span>

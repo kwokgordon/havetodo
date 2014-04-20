@@ -26,11 +26,12 @@
       	<% @tasklists.each do |tl| %>
       	  <li>
       	  	<%= link_to tl do %>  
-        	  <span class="icon-trash" style="color: #ff0000;"></span>
-        	  <%= tl.name %> <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span> 
-        	  <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <span class="icon-trash"></span>
-              <% end %>
+        	  <span id="circle" style="background-color: #ff0000;"></span>
+        	  <%= tl.name %> 
+            <% end %>
+            <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span>
+      	    <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="icon-trash"></span>
             <% end %>
       	  </li>
       	<% end %>

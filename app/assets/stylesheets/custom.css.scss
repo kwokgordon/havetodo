@@ -177,6 +177,14 @@ aside {
   vertical-align: middle;
 }
 
+#circle {
+  height:50px;
+  width:50px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+}
+
 /* forms */
 form.new_task {
 

@@ -1,5 +1,7 @@
-<p>Welcome <%= @email %>!</p>
+<p>Hello <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Your friend <%= @user.name %> has invited to you join HaveTodo, so we can share our tasks.</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+<p>Please click on the following link to sign up an account:</p>
+
+<p><%= link_to 'Sign Up', new_user_registration_path %></p>

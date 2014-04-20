@@ -34,7 +34,8 @@ class FriendshipsController < ApplicationController
     if @friend_id.empty?
       respond_to do |format|
         format.html {
-          flash[:danger] = "#{params[:email]} not found" 
+          flash[:danger] = "#{params[:email]} not found, an invite is sent to #{params[:email]}"
+          UserMailer.invite_friend(@user, params[:email]).deliver 
           redirect_to :action => :index
         }
 #        format.json { render json: params[:email], status: :unprocessable_entity }

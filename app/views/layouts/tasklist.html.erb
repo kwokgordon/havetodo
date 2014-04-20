@@ -20,13 +20,13 @@
     
     <hr>
 
-    <ul>
+    <ul style="list-style-type: none;">
       <li>Task Lists</li>
 	<% if !@tasklists.empty? %>
-      <ul>
       	<% @tasklists.each do |tl| %>
       	  <li>
       	  	<%= link_to tl do %>  
+        	  <span class="icon-trash" style="color: #ff0000;"></span>
         	  <%= tl.name %> <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span> 
         	  <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
                 <span class="icon-trash"></span>
@@ -34,7 +34,6 @@
             <% end %>
       	  </li>
       	<% end %>
-      </ul>
     <% end %>
       <li><a href="#" data-toggle="modal" data-target="#CreateTasklistModal">Create Task List</a></li>
     </ul>

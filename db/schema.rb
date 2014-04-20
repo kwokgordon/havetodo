@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403062251) do
+ActiveRecord::Schema.define(version: 20140414194748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,30 @@ ActiveRecord::Schema.define(version: 20140403062251) do
 
   add_index "friendships", ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true, using: :btree
 
+  create_table "tasklists", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasklists_tasks", id: false, force: true do |t|
+    t.integer "task_id",     null: false
+    t.integer "tasklist_id", null: false
+  end
+
+  add_index "tasklists_tasks", ["task_id", "tasklist_id"], name: "index_tasklists_tasks_on_task_id_and_tasklist_id", unique: true, using: :btree
+
+  create_table "tasklists_users", id: false, force: true do |t|
+    t.integer "user_id",     null: false
+    t.integer "tasklist_id", null: false
+  end
+
+  add_index "tasklists_users", ["user_id", "tasklist_id"], name: "index_tasklists_users_on_user_id_and_tasklist_id", unique: true, using: :btree
+
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.text     "note"
+    t.integer  "priority",          default: 0,     null: false
     t.date     "due_date"
     t.time     "due_time"
     t.boolean  "completed",         default: false, null: false

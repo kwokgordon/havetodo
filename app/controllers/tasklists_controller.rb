@@ -9,7 +9,6 @@ class TasklistsController < ApplicationController
   before_filter :validate_user
   
   before_action :get_user
-  before_action :get_tasks
   before_action :get_tasklists
   before_action :share_tasklist
 #  before_action :set_task, only: [:show, :edit, :update, :destroy]
@@ -35,7 +34,7 @@ class TasklistsController < ApplicationController
 
 #    @tasklists = @user.tasklists
 
-#    @tasks = @tasklist.tasks
+    @tasks = @tasklist.tasks
     
     @overdue_tasks = @tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)
     @today_tasks = @tasks.today_tasks.order(:due_date).order(:due_time).order(:name)
@@ -105,7 +104,7 @@ class TasklistsController < ApplicationController
 
   def addFriend
     @friend = User.find(params[:user_id])
-#    @tasklist = @user.tasklists.find(params[:tasklist_id])
+    @tasklist = @user.tasklists.find(params[:tasklist_id])
     @tasklist.users << @friend
     
     @tasklist.tasks.each do |t|
@@ -123,7 +122,7 @@ class TasklistsController < ApplicationController
 
   def removeFriend
     @friend = User.find(params[:user_id])
-#    @tasklist = @user.tasklists.find(params[:tasklist_id])
+    @tasklist = @user.tasklists.find(params[:tasklist_id])
 
 #    share_tasklist
 
@@ -162,11 +161,6 @@ class TasklistsController < ApplicationController
       @user = User.find(current_user.id)
     end
 
-    def get_tasks
-      set_tasklist
-      @tasks = @tasklist.tasks
-    end
-    
     def get_tasklists
       @tasklists = @user.tasklists
     end
@@ -175,13 +169,7 @@ class TasklistsController < ApplicationController
     def set_tasklist
       get_user
 
-#      @tasklist = Tasklist.find(params[:id])
-
-      if params.has_key?(:tasklist_id)
-        @tasklist = @user.tasklists.find(params[:tasklist_id])
-      else
-        @tasklist = @user.tasklists.find(params[:id])
-      end
+      @tasklist = Tasklist.find(params[:id])
     end
 
     def share_tasklist

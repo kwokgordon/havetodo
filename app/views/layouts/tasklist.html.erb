@@ -29,7 +29,7 @@
       	<% @tasklists.each do |tl| %>
       	  <li class="sidebar">
         	<div class="circle" style=<%= "background-color:"+tl.color+";" %>></div>
-      	  	<div class="trim_tasklist_name">
+      	  	<div class="trim_tasklist_name" title=<%= "\""+tl.name+"\"" %>>
       	  	  <%= link_to tl do %>
          	    <%= tl.name %>
               <% end %>

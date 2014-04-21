@@ -9,8 +9,9 @@ class TasksController < ApplicationController
   before_filter :validate_user
   
   before_action :get_user
+  before_action :get_tasks
+  before_action :get_tasklists
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-  
 
   # GET /tasks
   # GET /tasks.json
@@ -18,9 +19,9 @@ class TasksController < ApplicationController
     @new_task = Task.new
 #    @tasks = Task.all
     
-    @tasklists = @user.tasklists
+#    @tasklists = @user.tasklists
     
-    @tasks = @user.tasks
+#    @tasks = @user.tasks
     
     @overdue_tasks = @tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)
     @today_tasks = @tasks.today_tasks.order(:due_date).order(:due_time).order(:name)
@@ -115,7 +116,7 @@ class TasksController < ApplicationController
   end
 
   def toggleComplete
-    get_user
+#    get_user
     @task = @user.tasks.find(params[:task_id])
     
     if !@task.completed
@@ -188,6 +189,14 @@ class TasksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def get_user
       @user = User.find(current_user.id)
+    end
+
+    def get_tasks
+      @tasks = @user.tasks
+    end
+    
+    def get_tasklists
+      @tasklists = @user.tasklists
     end
 
     def set_task

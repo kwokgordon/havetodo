@@ -9,6 +9,8 @@ class TasklistsController < ApplicationController
   before_filter :validate_user
   
   before_action :get_user
+  before_action :get_tasks
+  before_action :get_tasklists
 #  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
@@ -18,7 +20,7 @@ class TasklistsController < ApplicationController
   # GET /tasklists.json
   def index
 #    @tasklists = Tasklist.all
-    @tasklists = @user.tasklists
+#    @tasklists = @user.tasklists
   end
 
   # GET /tasklists/1
@@ -30,9 +32,9 @@ class TasklistsController < ApplicationController
 
     share_tasklist
 
-    @tasklists = @user.tasklists
+#    @tasklists = @user.tasklists
 
-    @tasks = @tasklist.tasks
+#    @tasks = @tasklist.tasks
     
     @overdue_tasks = @tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)
     @today_tasks = @tasks.today_tasks.order(:due_date).order(:due_time).order(:name)
@@ -157,6 +159,15 @@ class TasklistsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def get_user
       @user = User.find(current_user.id)
+    end
+
+    def get_tasks
+      set_tasklist
+      @tasks = @tasklist.tasks
+    end
+    
+    def get_tasklists
+      @tasklists = @user.tasklists
     end
 
     # Use callbacks to share common setup or constraints between actions.

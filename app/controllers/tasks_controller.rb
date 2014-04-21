@@ -20,8 +20,6 @@ class TasksController < ApplicationController
     
     @tasklists = @user.tasklists
     
-    @color = "#123456"
-
     @tasks = @user.tasks
     
     @overdue_tasks = @tasks.overdue_tasks.order(:due_date).order(:due_time).order(:name)

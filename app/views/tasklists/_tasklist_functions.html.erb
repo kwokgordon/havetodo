@@ -3,11 +3,11 @@
 	<span id="tasklist functions" class="icon-pencil dropdown-toggle" data-toggle="dropdown"></span>
     <ul class="dropdown-menu" role="menu">
     <li class="left">
-      <a href="#" data-toggle="modal" onclick="ShareTasklistModel(<%= tasklist.id.to_s %>)">Share</a>
+      <a href="#" data-toggle="modal" onclick="ShareTasklistModal(<%= tasklist.id.to_s %>)">Share</a>
     </li>
     <hr>
     <li class="left">
-      <a href="#" data-toggle="modal" onclick="EditTasklistModel(<%= tasklist.id.to_s %>)">Edit</a> 
+      <a href="#" data-toggle="modal" onclick="EditTasklistModal(<%= tasklist.id.to_s %>)">Edit</a> 
     </li>
     <hr>
     <li class="left">
@@ -63,14 +63,15 @@
 
 
 <script>
-$('#EditTasklistModal_'<%= tasklist.id.to_s %>).on('shown.bs.modal', function () {
+$(<%= "#EditTasklistModal_"+tasklist.id.to_s %>).on('shown.bs.modal', function () {
     $(this).find("[autofocus]:first").focus();
 })
 
 
-function EditTasklistModel(id) {
+function EditTasklistModal(id) {
 	$("#EditTasklistModal_"+id).modal('show');
 }
+
 
 function ShareTasklistModal(id) {
 	$("#ShareTasklistModal_"+id).modal('show');

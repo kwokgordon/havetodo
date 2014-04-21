@@ -27,8 +27,7 @@
       <li>Task Lists</li>
 	<% if !@tasklists.empty? %>
       	<% @tasklists.each do |tl| %>
-      	  <li>
-      	  	<div class="tasklist">
+      	  <li class="sidebar">
         	<div class="circle" style=<%= "background-color:"+tl.color+";" %>></div>
       	  	<%= link_to tl do %>
       	  	  <div class="trim_tasklist_name">
@@ -36,10 +35,7 @@
       	  	  </div>
             <% end %>
             <span class="badge right"><%= tl.tasks.incomplete_tasks.count %></span>
-            </div>
-
             <%= render 'tasklists/tasklist_functions', :tasklist => tl %>
-
       	  </li>
       	<% end %>
     <% end %>

@@ -222,6 +222,10 @@ ul.sidebar {
   margin: 0 0 10px 0;
 }
 
+li.sidebar {
+  width: 100%;
+  display: inline;
+}
 
 /* forms */
 form.new_task {

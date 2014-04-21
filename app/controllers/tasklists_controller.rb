@@ -11,6 +11,7 @@ class TasklistsController < ApplicationController
   before_action :get_user
   before_action :get_tasks
   before_action :get_tasklists
+  before_action :share_tasklist
 #  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
@@ -182,7 +183,7 @@ class TasklistsController < ApplicationController
       @friends = @user.friendships.accepted.pluck(:friend_id)
       @friends = @friends + @user.inverse_friendships.accepted.pluck(:user_id)
     
-      @tasklist_shared = @tasklist.users.pluck(:id)
+#      @tasklist_shared = @tasklist.users.pluck(:id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

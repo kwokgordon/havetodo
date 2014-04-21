@@ -13,7 +13,7 @@
 
   <%= render 'layouts/header' %>
   <div class="well" id="sidebar"> 
-    <ul style="list-style-type: none;">
+    <ul class="sidebar" style="list-style-type: none;">
       <li>
       	<%= link_to tasks_path do %>
       	  All Tasks <span class="badge"><%= current_user.tasks.incomplete_tasks.count %></span>
@@ -23,7 +23,7 @@
     
     <hr>
 
-    <ul style="list-style-type: none;">
+    <ul class="sidebar" style="list-style-type: none;">
       <li>Task Lists</li>
 	<% if !@tasklists.empty? %>
       	<% @tasklists.each do |tl| %>

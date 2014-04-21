@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     
     @tasklists = @user.tasklists
     
-    @color = "123456"
+    @color = "#123456"
 
     @tasks = @user.tasks
     

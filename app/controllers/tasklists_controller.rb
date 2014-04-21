@@ -105,7 +105,7 @@ class TasklistsController < ApplicationController
 
   def addFriend
     @friend = User.find(params[:user_id])
-    @tasklist = @user.tasklists.find(params[:tasklist_id])
+#    @tasklist = @user.tasklists.find(params[:tasklist_id])
     @tasklist.users << @friend
     
     @tasklist.tasks.each do |t|
@@ -123,9 +123,9 @@ class TasklistsController < ApplicationController
 
   def removeFriend
     @friend = User.find(params[:user_id])
-    @tasklist = @user.tasklists.find(params[:tasklist_id])
+#    @tasklist = @user.tasklists.find(params[:tasklist_id])
 
-    share_tasklist
+#    share_tasklist
 
     respond_to do |format|
       if @friend == @user
@@ -176,7 +176,12 @@ class TasklistsController < ApplicationController
       get_user
 
 #      @tasklist = Tasklist.find(params[:id])
-      @tasklist = @user.tasklists.find(params[:id])
+
+      if params.has_key?(:tasklist_id)
+        @tasklist = @user.tasklists.find(params[:tasklist_id])
+      else
+        @tasklist = @user.tasklists.find(params[:id])
+      end
     end
 
     def share_tasklist

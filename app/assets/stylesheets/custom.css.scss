@@ -183,13 +183,6 @@ aside {
   vertical-align: middle;
 }
 
-.tasklist {
-  width:100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .circle {
   display:inline-block;
   height:10px;
@@ -225,6 +218,9 @@ ul.sidebar {
 li.sidebar {
   width: 100%;
   display: inline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* forms */

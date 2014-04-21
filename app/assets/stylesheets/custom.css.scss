@@ -35,6 +35,12 @@ textarea {
   }
 }
 
+.hr {
+  width:100%
+  margin:0;
+  border-top:1px solid #cccccc;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -203,6 +209,8 @@ div.dropdown-functions {
 .left {
   float:left;
 }
+
+
 
 /* forms */
 form.new_task {

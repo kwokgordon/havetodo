@@ -12,7 +12,7 @@ class TasklistsController < ApplicationController
 #  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
-  before_action :share_task
+  before_action :share_tasklist
   
 
   # GET /tasklists

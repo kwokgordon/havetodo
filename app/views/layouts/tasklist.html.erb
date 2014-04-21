@@ -31,7 +31,7 @@
         	  <%= tl.name %> 
             <% end %>
             <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span>
-			<%= render 'tasklists/tasklist_functions', locals: { tasklist: tl } %>
+			<%= render 'tasklists/tasklist_functions', locals: { :tasklist => tl } %>
 
 <!--
       	    <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>

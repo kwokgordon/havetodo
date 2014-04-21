@@ -185,6 +185,9 @@ aside {
 
 .tasklist {
   width:100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .circle {
@@ -199,9 +202,6 @@ aside {
 
 .trim_tasklist_name {
   width: 60%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 div.dropdown-functions {

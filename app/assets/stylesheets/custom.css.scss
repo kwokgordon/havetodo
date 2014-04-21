@@ -197,8 +197,12 @@ span.badge {
 
 div.dropdown-functions {
   display:inline;
+  position:absolute;
 }
 
+.left {
+  float:left;
+}
 
 /* forms */
 form.new_task {

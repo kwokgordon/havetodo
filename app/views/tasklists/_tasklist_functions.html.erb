@@ -2,9 +2,47 @@
 	<span id="tasklist functions" class="icon-pencil dropdown-toggle" data-toggle="dropdown"></span>
     <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="#" data-toggle="modal" data-target="#EditTasklistModal">
+      	<span class="left">Edit</span>
+	  </a> 
+    </li>
+    <hr>
+    <li>
       <%= link_to tasklist, method: :delete, data: { confirm: 'Are you sure?' } do %>
         <span class="left">Delete</span>
       <% end %>
     </li>
 	</ul>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="EditTasklistModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Edit TaskList</h4>
+      </div>
+      <div class="modal-body">
+      	<%= form_for @tasklist do |f| %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, :autofocus => true %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit 'Update', class: 'btn btn-default' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$('#EditTasklistModal').on('shown.bs.modal', function () {
+    $(this).find("[autofocus]:first").focus();
+})
+</script>
+

@@ -195,7 +195,10 @@ aside {
 
 .trim_tasklist_name {
   width: 60%;
-  display: inline;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 div.dropdown-functions {
@@ -217,7 +220,7 @@ ul.sidebar {
 
 li.sidebar {
   width: 100%;
-  display: inline;
+  display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

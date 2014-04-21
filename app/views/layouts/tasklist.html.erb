@@ -30,8 +30,10 @@
       	  <li>
       	  	<div class="tasklist">
         	<div class="circle" style=<%= "background-color:"+tl.color+";" %>></div>
-      	  	<%= link_to tl do %>  
-        	  <span class="trim_tasklist_name"><%= tl.name %></span>
+      	  	<%= link_to tl do %>
+      	  	  <div class="trim_tasklist_name">
+         	    <%= tl.name %>
+      	  	  </div>
             <% end %>
             <span class="badge right"><%= tl.tasks.incomplete_tasks.count %></span>
             

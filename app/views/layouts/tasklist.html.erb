@@ -10,7 +10,7 @@
 <body>
   <%= render 'layouts/header' %>
   <div class="well" id="sidebar"> 
-    <ul>
+    <ul style="list-style-type: none;">
       <li>
       	<%= link_to tasks_path do %>
       	  All Tasks <span class="badge"><%= current_user.tasks.incomplete_tasks.count %></span>

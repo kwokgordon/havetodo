@@ -183,10 +183,6 @@ aside {
   vertical-align: middle;
 }
 
-span.badge {
-  float:right;
-}
-
 .tasklist {
   width:100%;
 }
@@ -201,6 +197,13 @@ span.badge {
   background-color: #000000;
 }
 
+.trim_tasklist_name {
+  width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 div.dropdown-functions {
   display:inline;
   position:absolute;
@@ -210,6 +213,9 @@ div.dropdown-functions {
   float:left;
 }
 
+.right {
+  float:right;
+}
 
 
 /* forms */

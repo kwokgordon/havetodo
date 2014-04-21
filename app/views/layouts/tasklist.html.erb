@@ -31,9 +31,9 @@
       	  	<div class="tasklist">
         	<div class="circle" style=<%= "background-color:"+tl.color+";" %>></div>
       	  	<%= link_to tl do %>  
-        	  <%= tl.name %> 
+        	  <span class="trim_tasklist_name"><%= tl.name %></span>
             <% end %>
-            <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span>
+            <span class="badge right"><%= tl.tasks.incomplete_tasks.count %></span>
             
             <%= render 'tasklists/tasklist_functions', :tasklist => tl %>
 

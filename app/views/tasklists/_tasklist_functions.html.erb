@@ -63,7 +63,7 @@
 
 
 <script>
-$(<%= '"'+"#EditTasklistModal_"+tasklist.id.to_s+'"' %>).on('shown.bs.modal', function () {
+$(<%= "\"#EditTasklistModal_"+tasklist.id.to_s+"\"" %>).on('shown.bs.modal', function () {
     $(this).find("[autofocus]:first").focus();
 })
 

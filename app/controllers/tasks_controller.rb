@@ -19,6 +19,8 @@ class TasksController < ApplicationController
 #    @tasks = Task.all
     
     @tasklists = @user.tasklists
+    
+    @color = "123456"
 
     @tasks = @user.tasks
     

@@ -25,14 +25,15 @@
 	<% if !@tasklists.empty? %>
       	<% @tasklists.each do |tl| %>
       	  <li>
+        	<div class="circle" style=<%= "\"background-color: ##{@color};\"" %>>
       	  	<%= link_to tl do %>  
-        	  <span class="circle" style="background-color: #ff0000;"></span>
         	  <%= tl.name %> 
             <% end %>
             <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span>
       	    <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
               <span class="icon-trash"></span>
             <% end %>
+            </div>
       	  </li>
       	<% end %>
     <% end %>

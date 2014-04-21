@@ -11,7 +11,14 @@
       	  <img src="<%= image_path("uncheck.png") %>" height="50px" width="50px" name="task" id="<%= task.id %>" onclick="toggleCheckbox(<%= task.id %>)">
       	</td>
         <td width="90%">
+  	  	<div class="tasklist">
+  	  	  <% task.tasklists.each do |tl| %>
+            <div class="circle" style=<%= "background-color:"+tl.color+";" %>></div>
+          <% end %>
+
 		  <span class="item_task_name"><%= link_to task.name, task %></span><br />
+   	  	</div>
+
    	  	  <span id="item_datetime_<%= task.id %>" class="item_datetime">
    	  	  	<% if !task.due_date.blank? %>
    	  	  	  <% if !task.due_time.blank? %>

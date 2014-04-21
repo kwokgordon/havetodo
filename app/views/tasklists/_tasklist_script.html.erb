@@ -2,12 +2,6 @@
 
 /////////////////////////////////////////////////////////////////////////
 
-$('#CreateTasklistModal').on('shown.bs.modal', function () {
-    $(this).find("[autofocus]:first").focus();
-})
-
-/////////////////////////////////////////////////////////////////////////
-
 function EditTasklistModal(id) {
 	var temp = '#EditTasklistModal_'+id;
 	$(temp).modal('show');

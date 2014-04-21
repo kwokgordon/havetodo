@@ -1,15 +1,17 @@
 <div class="dropdown-functions">
 	<span id="tasklist functions" class="icon-pencil dropdown-toggle" data-toggle="dropdown"></span>
     <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="#" data-toggle="modal" data-target="#EditTasklistModal">
-      	<span class="left">Edit</span>
-	  </a> 
+    <li class="left">
+      <a href="#" data-toggle="modal" data-target="#ShareTasklistModal">Share</a>
     </li>
     <hr>
-    <li>
+    <li class="left">
+      <a href="#" data-toggle="modal" data-target="#EditTasklistModal">Edit</a> 
+    </li>
+    <hr>
+    <li class="left">
       <%= link_to tasklist, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <span class="left">Delete</span>
+        Delete
       <% end %>
     </li>
 	</ul>
@@ -39,6 +41,25 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="ShareTasklistModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Share TaskList</h4>
+      </div>
+      <div class="modal-body">
+      	<%= render 'tasklists/share_tasklist' %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script>
 $('#EditTasklistModal').on('shown.bs.modal', function () {

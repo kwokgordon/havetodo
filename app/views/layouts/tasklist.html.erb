@@ -25,8 +25,8 @@
 	<% if !@tasklists.empty? %>
       	<% @tasklists.each do |tl| %>
       	  <li>
-      	  	<div>
-        	<div class="circle" style=<%= "background-color:"+@color+";" %>></div>
+      	  	<div class="tasklist">
+        	<div class="circle" style=<%= "background-color:"+tl.color+";" %>></div>
       	  	<%= link_to tl do %>  
         	  <%= tl.name %> 
             <% end %>

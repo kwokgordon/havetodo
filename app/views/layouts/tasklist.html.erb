@@ -37,11 +37,6 @@
             
             <%= render 'tasklists/tasklist_functions', :tasklist => tl %>
 
-<!--
-      	    <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <span class="icon-trash"></span>
-            <% end %>
---> 
             </div>
       	  </li>
       	<% end %>
@@ -84,12 +79,6 @@
     </div>
   </div>
 </div>
-
-<script>
-$('#CreateTasklistModal').on('shown.bs.modal', function () {
-    $(this).find("[autofocus]:first").focus();
-})
-</script>
 
 </body>
 </html>

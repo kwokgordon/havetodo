@@ -69,12 +69,14 @@ $(<%= "#EditTasklistModal_"+tasklist.id.to_s %>).on('shown.bs.modal', function (
 
 
 function EditTasklistModal(id) {
-	$("#EditTasklistModal_"+id).modal('show');
+	var temp = "#EditTasklistModal_"+id;
+	$(temp).modal('show');
 }
 
 
 function ShareTasklistModal(id) {
-	$("#ShareTasklistModal_"+id).modal('show');
+	var temp = "#ShareTasklistModal_"+id;
+	$(temp).modal('show');
 }
 </script>
 

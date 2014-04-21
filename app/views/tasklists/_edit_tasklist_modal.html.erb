@@ -9,7 +9,7 @@
         <h4 class="modal-title" id="myModalLabel">Edit TaskList</h4>
       </div>
       <div class="modal-body">
-      	<%= form_for tasklist do |f| %>
+      	<%= form_for @tasklist do |f| %>
         <div class="field">
           <%= f.label :name %>
           <%= f.text_field :name, :autofocus => true %>

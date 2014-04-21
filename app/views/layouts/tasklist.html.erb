@@ -32,7 +32,7 @@
             <% end %>
             <span class="badge"><%= tl.tasks.incomplete_tasks.count %></span>
             
-            <%= render 'tasklist/tasklist_functions', :tasklist => tl %>
+            <%= render 'tasklists/tasklist_functions', :tasklist => tl %>
 
 <!--
       	    <%= link_to tl, method: :delete, data: { confirm: 'Are you sure?' } do %>

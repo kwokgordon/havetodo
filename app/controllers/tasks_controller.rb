@@ -106,9 +106,13 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    task_name = @task.name
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { 
+        flash[:success] = "#{task_name} was successfully deleted." 
+        redirect_to params.has_key?(:tasklist_id) ? @tasklist : tasks_url
+      }
       format.json { head :no_content }
     end
   end

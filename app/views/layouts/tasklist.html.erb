@@ -89,7 +89,7 @@ $('#CreateTasklistModal').on('shown.bs.modal', function () {
 
 $(document).ready(function() {
   $("#CreateTasklist").click(function() {
-	$("#tasklist_color").val(<%= "#%06x" % (rand * 0xffffff) %>)
+	$("#tasklist_color").val(getRandomColor());
   });
 });
 

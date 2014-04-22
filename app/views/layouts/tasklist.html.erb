@@ -85,11 +85,12 @@
 <script>
 $('#CreateTasklistModal').on('shown.bs.modal', function () {
     $(this).find("[autofocus]:first").focus();
+    $("#tasklist_color").val("#123456");
 })
 
-$(document).ready(function() {
-  $("#CreateTasklist").click(function() {
-	$("#tasklist_color").val("#123456");
+$(document).ready(function(){
+  $("#CreateTasklist").click(function(){
+    $("#tasklist_color").val("#123456");
   });
 });
 

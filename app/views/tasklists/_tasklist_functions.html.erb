@@ -35,7 +35,7 @@
         </div>
         <div class="field">
           <%= f.label :color %>
-          <%= f.text_field :color %>
+          <%= f.input :color, collection: MY_COLORS, selected: my_default_color %>
         </div>
       </div>
       <div class="modal-footer">

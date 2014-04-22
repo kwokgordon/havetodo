@@ -197,7 +197,7 @@ class TasksController < ApplicationController
     end
     
     def get_tasklists
-      @tasklists = @user.tasklists
+      @tasklists = @user.tasklists.order(:name)
     end
 
     def set_task

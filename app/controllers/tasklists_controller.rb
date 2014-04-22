@@ -162,7 +162,7 @@ class TasklistsController < ApplicationController
     end
 
     def get_tasklists
-      @tasklists = @user.tasklists
+      @tasklists = @user.tasklists.order(:name)
     end
 
     # Use callbacks to share common setup or constraints between actions.

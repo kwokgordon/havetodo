@@ -241,6 +241,10 @@ input[type="color"] {
   border: 2px inset;
 }
 
+input {
+  height: auto;
+}
+
 form.new_task {
 
   .form_button {
@@ -321,12 +325,6 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   @include box_sizing;
 }
-
-/*
-input {
-  height: auto !important;
-}
-*/
 
 #error_explanation {
   color: #f00;

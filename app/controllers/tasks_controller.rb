@@ -60,9 +60,10 @@ class TasksController < ApplicationController
 
     if params.has_key?(:tasklist_id)
       @tasklist = @user.tasklists.find(params[:tasklist_id])
+      set_cookies_tasklist
+    else
+      set_cookies
     end
-
-    set_cookies
     
     respond_to do |format|
       if @task.save
@@ -218,6 +219,19 @@ class TasksController < ApplicationController
         if !@task.due_time.blank?
           cookies[:due_time] = { value: @task.due_time.strftime("%H:%M:%S.%L"), path: '/users' }
 #          cookies[:due_time] = { value: @task.due_time.strftime("%H:%M:%S.%L") }
+        end
+      end
+    end
+
+    def set_cookies_tasklist
+      if cookies[:show_details] == "true"
+        cookies[:note] = { value: @task.note, path: '/users/tasklists' }
+        if !@task.due_date.blank?
+          cookies[:due_date] = { value: @task.due_date.strftime("%Y-%m-%d"), path: '/users/tasklists' }
+        end
+
+        if !@task.due_time.blank?
+          cookies[:due_time] = { value: @task.due_time.strftime("%H:%M:%S.%L"), path: '/users/tasklists' }
         end
       end
     end

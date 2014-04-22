@@ -33,6 +33,10 @@
           <%= f.label :name %>
           <%= f.text_field :name, :autofocus => true %>
         </div>
+        <div class="field">
+          <%= f.label :color %>
+          <%= f.text_field :color %>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -61,11 +65,4 @@
   </div>
 </div>
 
-
-<script>
-$("#modal").on('shown.bs.modal', function () {
-    $(this).find("[autofocus]:first").focus();
-})
-
-</script>
 

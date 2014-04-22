@@ -6893,6 +6893,16 @@ textarea {
 }
 
 /* line 38, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+.left {
+  float: left;
+}
+
+/* line 42, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+.right {
+  float: right;
+}
+
+/* line 46, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 hr {
   width: 100%;
   margin: 0;
@@ -6900,12 +6910,12 @@ hr {
 }
 
 /* typography */
-/* line 46, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 54, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
-/* line 50, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 58, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
@@ -6913,7 +6923,7 @@ h1 {
   text-align: center;
 }
 
-/* line 57, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 65, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -6923,19 +6933,19 @@ h2 {
   color: #999999;
 }
 
-/* line 66, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 74, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
 
 /* header */
-/* line 75, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 83, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 header ul {
   font-size: 13px;
 }
 
-/* line 80, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 88, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 #logo {
   float: left;
   margin-right: 10px;
@@ -6947,58 +6957,58 @@ header ul {
   font-weight: bold;
   line-height: 1;
 }
-/* line 90, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 98, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 #logo:hover {
   color: white;
   text-decoration: none;
 }
 
-/* line 96, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 104, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 .navbar-inner {
   background-color: #0FAABB;
 }
 
 /* footer */
-/* line 103, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 111, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999999;
 }
-/* line 109, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 117, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 footer a {
   color: #555555;
 }
-/* line 111, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 119, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 footer a:hover {
   color: #222222;
 }
-/* line 116, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 124, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 footer small {
   float: left;
 }
-/* line 120, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 128, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 footer ul {
   float: right;
   list-style: none;
   font-size: 13px;
 }
-/* line 124, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 132, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 footer ul li {
   float: left;
   margin-left: 10px;
 }
 
 /* sidebar */
-/* line 134, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 142, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 #sidebar {
   float: left;
   width: 15%;
   word-wrap: break-word;
 }
 
-/* line 140, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 148, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 #taskarea {
   float: left;
   padding-left: 5%;
@@ -7006,23 +7016,23 @@ footer ul li {
   width: 65%;
 }
 
-/* line 148, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 156, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 aside section {
   padding: 10px 0;
   border-top: 1px solid #eeeeee;
 }
-/* line 151, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 159, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 aside section:first-child {
   border: 0;
   padding-top: 0;
 }
-/* line 155, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 163, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 aside section span {
   display: block;
   margin-bottom: 3px;
   line-height: 1;
 }
-/* line 160, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 168, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 aside section h1 {
   font-size: 1.4em;
   text-align: left;
@@ -7031,25 +7041,53 @@ aside section h1 {
   margin-top: 0px;
 }
 
-/* line 170, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 178, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 .gravatar {
   float: left;
   margin-right: 10px;
 }
 
+/* line 183, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+.super {
+  vertical-align: super;
+}
+
+/* line 187, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+.trim_tasklist_name {
+  width: 60%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* line 195, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+ul.sidebar {
+  margin: 0 0 10px 0;
+}
+
+/* line 199, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+li.sidebar {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* body */
-/* line 177, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 209, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 .table {
   margin-bottom: 0px;
 }
 
-/* line 181, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 213, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 .table th, .table td {
   padding: 0px;
   vertical-align: middle;
 }
 
-/* line 186, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 218, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 .circle {
   display: inline-block;
   height: 10px;
@@ -7060,122 +7098,97 @@ aside section h1 {
   background-color: #000000;
 }
 
-/* line 196, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
-.super {
-  vertical-align: super;
-}
-
-/* line 200, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
-.trim_tasklist_name {
-  width: 60%;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* line 208, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 228, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 div.dropdown-functions {
   display: inline;
   position: absolute;
 }
 
-/* line 213, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
-.left {
-  float: left;
-}
-
-/* line 217, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
-.right {
-  float: right;
-}
-
-/* line 221, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
-ul.sidebar {
-  margin: 0 0 10px 0;
-}
-
-/* line 225, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
-li.sidebar {
-  width: 100%;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 /* forms */
 /* line 236, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+input[type="color"] {
+  -webkit-appearance: square-button;
+  width: 40px;
+  height: 30px !important;
+  padding: 1px 0px;
+  border: 2px inset;
+}
+
+/* line 244, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+form.new_task {
+  /*  
+    input {
+      height: auto !important;
+    }
+  */
+}
+/* line 246, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task .form_button {
   display: inline;
 }
-/* line 240, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 250, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task input[type=submit] {
   width: 40%;
 }
-/* line 244, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 254, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task button {
   margin: 0 0 0 0;
 }
-/* line 248, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 258, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task label, form.new_task input, form.new_task textarea {
   display: inline-block;
 }
-/* line 252, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 262, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task label {
   width: 10%;
   text-align: right;
 }
-/* line 257, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 267, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task label + input {
   width: 55%;
   margin: 0 0 0 0;
 }
-/* line 262, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 272, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task label + textarea {
   width: 55%;
   margin: 0 0 0 0;
 }
-/* line 267, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 277, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task input + input {
   float: right;
 }
-/* line 271, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 281, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task input + div {
   width: 30%;
   float: right;
 }
-/* line 276, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 286, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_task input, form.new_task textarea, form.new_task select, form.new_task .uneditable-input {
   border: 1px solid #bbb;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 281, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
-form.new_task input {
-  height: auto !important;
-}
 
-/* line 288, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 300, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_friend label {
   text-align: right;
 }
-/* line 292, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 304, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_friend .form_button {
   display: inline;
 }
-/* line 296, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 308, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_friend label, form.new_friend input {
   display: inline;
 }
-/* line 300, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 312, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 form.new_friend label + input {
   width: 60%;
   margin: 0 0 0 0;
 }
 
-/* line 307, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 319, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -7184,23 +7197,23 @@ input, textarea, select, .uneditable-input {
   box-sizing: border-box;
 }
 
-/* line 313, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 325, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 input {
   height: auto !important;
 }
 
-/* line 318, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 329, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 #error_explanation {
   color: #f00;
 }
-/* line 320, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 331, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 #error_explanation ul {
   list-style: none;
   margin: 0 0 18px 0;
 }
 
 /* miscellaneous */
-/* line 333, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
+/* line 344, /home/kwokgordon/rails/HaveTodo/app/assets/stylesheets/custom.css.scss */
 .debug_dump {
   clear: both;
   float: left;

@@ -68,6 +68,10 @@
           <%= f.label :name %>
           <%= f.text_field :name, :autofocus => true %>
         </div>
+        <div class="field">
+          <%= f.label :color %>
+          <%= color_field(:tasklist, :color) %>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

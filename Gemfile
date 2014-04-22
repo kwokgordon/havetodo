@@ -5,9 +5,9 @@ gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'pg', '0.15.1'
 gem 'validates_existence', '0.9.2'
-gem 'protected_attributes'
-gem 'jquery-cookie-rails'
-gem 'jquery-simplecolorpicker-rails'
+gem 'protected_attributes', '1.0.7'
+gem 'jquery-cookie-rails', '1.3.1.1'
+gem 'jquery-simplecolorpicker-rails', '0.5.0'
 
 
 # Auth

@@ -10,7 +10,9 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   
-  config.time_zone = "Mountain Time (US & Canada)"
+  def random_color_generator
+    "#%06x" % (rand * 0xffffff)
+  end
 
 =begin
   def handle_unverified_request

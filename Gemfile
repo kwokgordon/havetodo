@@ -7,6 +7,7 @@ gem 'pg', '0.15.1'
 gem 'validates_existence', '0.9.2'
 gem 'protected_attributes'
 gem 'jquery-cookie-rails'
+gem 'jquery-simplecolorpicker-rails'
 
 
 # Auth

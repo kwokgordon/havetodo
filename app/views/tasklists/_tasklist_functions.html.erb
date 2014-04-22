@@ -35,7 +35,7 @@
         </div>
         <div class="field">
           <%= f.label :color %>
-          <%= color_field(:tasklist, :color, {value: tasklist.color}) %>
+          <%= color_field(:tasklist, :color, {value: "#%06x" % (rand * 0xffffff)}) %>
         </div>
       </div>
       <div class="modal-footer">

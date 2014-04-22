@@ -236,7 +236,7 @@ div.dropdown-functions {
 input[type="color"] {
   -webkit-appearance: square-button;
   width: 40px;
-  height: 20px;
+  height: 30px;
   padding: 1px 0px;
   border: 2px inset;
 }
@@ -287,10 +287,12 @@ form.new_task {
     border: 1px solid #bbb;
     @include box_sizing;
   }
-  
+
+/*  
   input {
     height: auto !important;
   }
+*/
 
 }
 
@@ -320,10 +322,11 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;
 }
 
+/*
 input {
   height: auto !important;
 }
-
+*/
 
 #error_explanation {
   color: #f00;

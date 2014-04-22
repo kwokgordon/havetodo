@@ -1,0 +1,9 @@
+<%= form_for tasklist do |f| %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name, :autofocus => true %>
+</div>
+<div class="field">
+  <%= f.label :color %>
+  <%= color_field(:tasklist, :color, {value: tasklist.color}) %>
+</div>

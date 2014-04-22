@@ -39,8 +39,7 @@
       	  </li>
       	<% end %>
     <% end %>
-      <li><a href="#" data-toggle="modal" data-target="#CreateTasklistModal">Create Task List</a></li>
-      <li><a href="javascript:$('#CreateTasklistModal .modal-body').load('#', function(e) {$('#CreateTasklistModal').modal('show');});">Create Task List</a></li>
+      <li><a id="CreateTasklist" href="#" data-toggle="modal" data-target="#CreateTasklistModal">Create Task List</a></li>
     </ul>
   </div>
 
@@ -87,6 +86,13 @@
 $('#CreateTasklistModal').on('shown.bs.modal', function () {
     $(this).find("[autofocus]:first").focus();
 })
+
+$(document).ready(function() {
+  $("#CreateTasklist").click(function() {
+	$("#tasklist_color").val(<%= "#%06x" % (rand * 0xffffff) %>)
+  });
+});
+
 </script>
 
 </body>

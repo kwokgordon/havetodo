@@ -34,7 +34,8 @@ function toggleCheckbox(id) {
 
 $(document).ready(function(){
 
-  if($.cookie('show_details', {path: '/users'}) == "true") {
+//  if($.cookie('show_details', {path: '/users'}) == "true") {
+  if($.cookie('show_details') == "true") {
     show_details();
   } else {
     hide_details();
@@ -55,7 +56,8 @@ function show_details() {
   $("#add_details_block").show();
   $("#add_details_button").text("Hide Details");
 
-  $.cookie('show_details', "true", {path: '/users'});
+//  $.cookie('show_details', "true", {path: '/users'});
+  $.cookie('show_details', "true");
   grab_cookies_details();
 }
 
@@ -63,7 +65,8 @@ function hide_details() {
   $("#add_details_block").hide();
   $("#add_details_button").text("Show Details");
   
-  $.cookie('show_details', "false", {path: '/users'});
+//  $.cookie('show_details', "false", {path: '/users'});
+  $.cookie('show_details', "false");
   set_default_details();
   grab_cookies_details();
 }
@@ -76,15 +79,23 @@ function set_default_details() {
   var yyyy = today.getFullYear();
   if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = yyyy+'-'+mm+'-'+dd;
 
-  $.cookie('note', "", {path: '/users'});
-  $.cookie('due_date', today, {path: '/users'});
-  $.cookie('due_time', "", {path: '/users'});
+//  $.cookie('note', "", {path: '/users'});
+//  $.cookie('due_date', today, {path: '/users'});
+//  $.cookie('due_time', "", {path: '/users'});
+
+  $.cookie('note', "");
+  $.cookie('due_date', today);
+  $.cookie('due_time', "");
 }
 
 function grab_cookies_details() {
-  $("#task_note").val($.cookie("note", {path: '/users'}));
-  $("#task_due_date").val($.cookie("due_date", {path: '/users'}));
-  $("#task_due_time").val($.cookie("due_time", {path: '/users'}));
+//  $("#task_note").val($.cookie("note", {path: '/users'}));
+//  $("#task_due_date").val($.cookie("due_date", {path: '/users'}));
+//  $("#task_due_time").val($.cookie("due_time", {path: '/users'}));
+
+  $("#task_note").val($.cookie("note"));
+  $("#task_due_date").val($.cookie("due_date"));
+  $("#task_due_time").val($.cookie("due_time"));
 }
 
 /////////////////////////////////////////////////////////////////////////

@@ -35,6 +35,14 @@ textarea {
   }
 }
 
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}
+
 hr {
   width:100%;
   margin:0;
@@ -172,6 +180,30 @@ aside {
   margin-right: 10px;
 }
 
+.super {
+  vertical-align: super;
+}
+
+.trim_tasklist_name {
+  width: 60%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ul.sidebar {
+  margin: 0 0 10px 0;
+}
+
+li.sidebar {
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 /* body */
 .table {
@@ -193,44 +225,22 @@ aside {
   background-color: #000000;
 }
 
-.super {
-  vertical-align: super;
-}
-
-.trim_tasklist_name {
-  width: 60%;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 div.dropdown-functions {
   display:inline;
   position:absolute;
 }
 
-.left {
-  float:left;
-}
-
-.right {
-  float:right;
-}
-
-ul.sidebar {
-  margin: 0 0 10px 0;
-}
-
-li.sidebar {
-  width: 100%;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
 /* forms */
+
+input[type="color"] {
+  -webkit-appearance: square-button;
+  width: 40px;
+  height: 20px;
+  padding: 1px 0px;
+  border: 2px inset;
+}
+
 form.new_task {
 
   .form_button {

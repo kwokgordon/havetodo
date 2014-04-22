@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery.cookie
 //= require jquery_ujs
-//= require jquery.simplecolorpicker
+//= require jquery.simplecolorpicker.js
 //= require bootstrap
 //= require turbolinks
 //= require_tree .

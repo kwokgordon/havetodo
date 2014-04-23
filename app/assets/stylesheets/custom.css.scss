@@ -204,6 +204,11 @@ li.sidebar {
   text-overflow: ellipsis;
 }
 
+div.dropdown-sidebar-functions {
+  display:inline;
+  position:absolute;
+}
+
 
 /* body */
 .table {
@@ -227,8 +232,6 @@ li.sidebar {
 }
 
 div.dropdown-functions {
-  display:inline;
-  position:absolute;
 }
 
 

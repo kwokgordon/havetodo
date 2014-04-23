@@ -2,11 +2,11 @@
 	<span id="task functions" class="icon-pencil dropdown-toggle" data-toggle="dropdown"></span>
     <ul class="dropdown-menu" role="menu">
     <li class="left">
-      <%= link_to "Edit", this_task %>
+      <%= link_to "Edit", task %>
     </li>
     <hr>
     <li class="left">
-      <%= link_to this_task, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %>
         Delete
       <% end %>
     </li>

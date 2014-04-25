@@ -129,10 +129,12 @@ class TasksController < ApplicationController
       @task.completed = true
       @task.completed_date = Time.now
       @task.completed_user_id = @user.id
+      @task.completed_user_name = @user.name
     else
       @task.completed = false
       @task.completed_date = nil
       @task.completed_user_id = nil
+      @task.completed_user_name = nil
     end
     
     respond_to do |format|

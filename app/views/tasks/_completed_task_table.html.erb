@@ -24,7 +24,7 @@
  	  	  	  <%= task.completed_date.localtime.strftime("%a %b %e %I:%M%p") %>
    	  	  	<% end %>
    	  	  	
-   	  	  	By: <%= User.find(task.completed_user_id).name %>
+   	  	  	By: <%= task.completed_user_name %>
    	  	  </span>
         </td>
         <td width="5%">

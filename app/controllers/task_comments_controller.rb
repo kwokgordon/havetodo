@@ -7,13 +7,16 @@ class TaskCommentsController < ApplicationController
   before_filter :validate_user
 
   before_action :get_user
+  before_action :get_task
+  before_action :get_task_comments
+  
 
   before_action :set_task_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /task_comments
   # GET /task_comments.json
   def index
-    @task_comments = TaskComment.all
+#    @task_comments = TaskComment.all
   end
 
   # GET /task_comments/1
@@ -37,7 +40,10 @@ class TaskCommentsController < ApplicationController
 
     respond_to do |format|
       if @task_comment.save
-        format.html { redirect_to @task_comment, notice: 'Task comment was successfully created.' }
+        format.html { 
+          flash[:success] = "Task Comment was successfully added." 
+          redirect_to @task
+        }
         format.json { render action: 'show', status: :created, location: @task_comment }
       else
         format.html { render action: 'new' }
@@ -51,7 +57,10 @@ class TaskCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @task_comment.update(task_comment_params)
-        format.html { redirect_to @task_comment, notice: 'Task comment was successfully updated.' }
+        format.html { 
+          flash[:success] = "Task comment was successfully updated." 
+          redirect_to @task
+        }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -65,7 +74,10 @@ class TaskCommentsController < ApplicationController
   def destroy
     @task_comment.destroy
     respond_to do |format|
-      format.html { redirect_to task_comments_url }
+      format.html { 
+          flash[:success] = "Task comment was successfully deleted." 
+          redirect_to @task
+      }
       format.json { head :no_content }
     end
   end
@@ -79,10 +91,18 @@ class TaskCommentsController < ApplicationController
     def get_user
       @user = User.find(current_user.id)
     end
+    
+    def get_task
+      @task = @user.tasks.find(params[:task_id])
+    end
+    
+    def get_task_comments
+      @task_comments = @task.task_comments
+    end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_task_comment
-      @task_comment = TaskComment.find(params[:id])
+      @task_comment = @task.task_comments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

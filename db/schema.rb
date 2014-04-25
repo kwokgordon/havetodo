@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414194748) do
+ActiveRecord::Schema.define(version: 20140425211458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20140414194748) do
   end
 
   add_index "friendships", ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true, using: :btree
+
+  create_table "task_comments", force: true do |t|
+    t.integer  "task_id",    null: false
+    t.integer  "user_id",    null: false
+    t.string   "user_name",  null: false
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasklists", force: true do |t|
     t.string   "name"
@@ -48,12 +57,13 @@ ActiveRecord::Schema.define(version: 20140414194748) do
   create_table "tasks", force: true do |t|
     t.string   "name"
     t.text     "note"
-    t.integer  "priority",          default: 0,     null: false
+    t.integer  "priority",            default: 0,     null: false
     t.date     "due_date"
     t.time     "due_time"
-    t.boolean  "completed",         default: false, null: false
+    t.boolean  "completed",           default: false, null: false
     t.datetime "completed_date"
     t.integer  "completed_user_id"
+    t.string   "completed_user_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

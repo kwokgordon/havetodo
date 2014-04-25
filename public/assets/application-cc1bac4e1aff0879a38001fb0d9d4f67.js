@@ -12997,6 +12997,9 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 ;
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+;
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
 
 function highlightTask(x) {
 	x.style.background = '#C0C0C0';

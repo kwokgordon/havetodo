@@ -1,6 +1,4 @@
 HaveTodo::Application.routes.draw do
-  resources :task_comments
-
   root "welcome#index"
   
   get "blank" => "welcome#blank"
@@ -34,6 +32,8 @@ HaveTodo::Application.routes.draw do
 #  end
 
   resources :tasks, path: '/users/tasks' do
+    resources :task_comments
+    
     post '/toggleComplete' => 'tasks#toggleComplete'
     post '/addFriend/:user_id' => 'tasks#addFriend', as: 'addFriend'
     post '/removeFriend/:user_id' => 'tasks#removeFriend', as: 'removeFriend'

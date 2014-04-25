@@ -1,4 +1,13 @@
 class TaskCommentsController < ApplicationController
+
+  skip_before_filter :verify_authenticity_token,
+                     :if => Proc.new { |c| c.request.format == 'application/json' }
+                       
+  before_filter :authenticate_user!
+  before_filter :validate_user
+
+  before_action :get_user
+
   before_action :set_task_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /task_comments
@@ -61,7 +70,16 @@ class TaskCommentsController < ApplicationController
     end
   end
 
+  def validate_user
+    redirect_to new_user_session_path unless current_user
+  end
+
+
   private
+    def get_user
+      @user = User.find(current_user.id)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_task_comment
       @task_comment = TaskComment.find(params[:id])

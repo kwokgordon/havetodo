@@ -9,6 +9,7 @@ class CreateTasks < ActiveRecord::Migration
       t.boolean :completed, :null => false, :default => false
       t.datetime :completed_date
       t.integer :completed_user_id
+      t.string :completed_user_name
 
       t.timestamps
     end
